@@ -1,0 +1,48 @@
+
+
+.indexImage {
+
+	border: 7px solid brown;
+	height: 225px;
+	width: 345px
+	
+}
+
+.indexIcon {
+
+	width: 35px;
+	
+}
+
+.indexLink {
+	
+	
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: underline;
+	color: black;
+}
+
+.indexParentDiv {
+
+}
+
+
+@media only screen and (min-device-width: 1000px) and (max-device-width: 3840px){
+
+.indexImage {
+	/*border: 7px solid brown;
+	height: 525px; 
+	width: 845px;
+	}
+	 */
+}
+
+.indexParentDiv {
+	 display: grid;
+	 grid-template-columns: repeat(auto-fill, minmax(345px, 1fr));
+	 width: 50%;
+
+}
+
+}

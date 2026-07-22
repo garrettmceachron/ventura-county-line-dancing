@@ -1,0 +1,937 @@
+
+
+@font-face {
+    font-family: 'BespokeSlabItalic';
+    src: url('../fonts/ItalicBespokeSlabBold.woff2') format('woff2');
+}
+
+.pageTitle {
+	font-family: 'BespokeSlabItalic';
+	font-size: 29px;
+	text-decoration: underline;
+	font-weight: 900;
+	font-style: italic;
+}
+
+.LineDancingMap {
+	position: relative;
+	width: 90%; 
+	height: 600px;
+	border: solid #803711 5px;
+}
+
+.calendarBorder {
+	
+	
+	
+}
+
+.card-title {
+	 padding-left: 1em;
+}
+
+.card-text {
+	font-size: 17px;
+	
+	
+}
+
+.embedSearchDiv
+{	
+	color: #171717;
+	border: black outset 2px;
+	background-color: white;
+	width: 195px;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.embedSearchingTable{
+	
+	}
+	
+.quickFadeInEmbed
+{
+	animation: fadeInEmbed 0.4s;
+	
+}
+
+@keyframes fadeInEmbed
+{
+	0% {margin-top:10px; }
+	100% {margin-top:0px; }
+	
+	
+}
+	
+.deleteButton {
+	background-color: white;
+	width: 55px;
+	position: relative;
+	left: 23px;
+	border: outset black 3px;
+	
+	
+}
+
+.embedTable {
+	border: inset 2px black;
+	height: 230px;
+	width: 95%;
+	overflow-y:auto;
+	display:block;
+	
+}
+
+.embedTitleDiv {
+	
+	background-color: orange;
+	text-decoration: underline;
+	border: 2px solid black;
+	border-radius: 1rem;
+	
+}
+
+.previousNextMonth {
+	font-size: 19px;
+}
+
+.dropdown-toggle {
+	background-color: #ffffff;
+	border: outset black 2px;
+	
+}
+
+.selectVideoLessons {
+	
+	font-size: 26px;
+	
+	
+}
+
+.selectVideoLessonsRadioButton {
+	
+	width: 15px;
+	height: 15px;
+	
+	
+}
+
+.fadeClass {
+	
+	animation: fadeAnimation 0.5s;
+}
+
+@keyframes fadeAnimation {
+	0% {opacity: 0;}
+	100% {opacity: 0.6;}
+}
+
+@keyframes fullFade {
+	0% {opacity: 0;}
+	100% {opacity: 1.0;}
+}
+
+@keyframes scrollUpAnimation
+{
+	0% {position: relative; top: 4px;}
+	100% {position: relative; top: 0px;}
+}
+
+.locationsImageBackground {
+	background-color: black;
+	
+}
+
+.imgCreditText {
+	color: white; 
+	opacity: 80%;
+	height: 5px;
+	padding-left: 0;
+	
+}
+
+.locationsImgArrowsDiv {
+	background-color: black;
+	opacity: 0.9;
+
+}
+
+.imgRightArrow {
+	font-size: 45px; 
+	color: white;
+	opacity: 0.6;
+	width: 50%;
+
+	
+}
+
+.imgLeftArrow {
+	font-size: 45px; 
+	color: white;
+	opacity: 0.6;
+	width: 50%;
+	
+}
+
+.imageSelecor {
+	width: 150px;
+	height: 40px;
+	z-index: 1000;
+	background-color: black;
+	opacity: 0.7;
+	
+}
+
+.goToTopIcon {
+	position:fixed; 
+	text-align: center; 
+	border-radius: 30%;
+	width: 50px; 
+	height: 50px;
+	border: solid black 3px; 
+	float: right;
+	right: 20px; 
+	top: 95px;
+	background-color: white; 
+	opacity: 0.625;
+}
+
+.songLink {
+	
+	
+}
+
+.stepsheetInsideBorder {
+	
+	border: solid 2px black;
+	padding: 5px;
+	font-size: 15px;
+	background-color: #f2ac57;
+
+	
+}
+
+.youtubeIconSize {
+	width: 20px;
+	text-decoration: none;
+}
+
+
+
+.homeIcon {
+	
+	width: 25px;
+	height: 25px;
+	position: fixed;
+	left: 5px;
+	
+}
+
+.stepsheetLineDanceName {
+		font-size: 15px;
+		font-weight: bold;
+	
+}
+
+.card {
+	width: 350px;
+	border-radius: 8px; 
+}
+
+.card-title {
+	color: #1c1c1b;
+	text-decoration: underline;
+}
+
+.card-body {
+	border: 4px solid black; 
+	border-radius: 8px; 
+	background-color: #f0ad48;
+
+	
+}
+
+.locationsinfoImage
+{
+	width: 100%; 
+	height: 100%;
+	border: 4px outset brown;
+}
+
+.articleParagraph
+{
+	font-size: 17px;
+	text-align: left;
+	
+}
+
+.articleDiv
+{
+	position: relative; border: solid 4px black;
+	border-radius: 1rem;
+	
+}
+
+.newYoutubeEmbedded
+{
+	height: 325px;
+	width: 95%;
+}
+
+.eventsCalendar {
+	
+border:solid 1px #777; 
+width: 90%; 
+height: 600px;	
+	
+}
+
+
+@media only screen and (min-device-height: 1081px) and (max-device-height: 2160px) {
+	.LineDancingMap {
+	position: relative;
+	height: 1000px;
+	border: solid #803711 10px;
+}
+
+.newYoutubeEmbedded
+{
+	height: 550px;
+	width: 55%;
+}
+
+
+	
+}
+
+@media only screen and (min-device-width: 600px) and (max-device-width: 999px) {
+	
+	.embedTable {
+	border: inset 2px black;
+	height: 200px;
+	width: 80%;
+	overflow-y:auto;
+	display:block;
+	
+}
+	
+}
+
+
+@media only screen and (min-device-width: 1000px) and (max-device-width: 3840px) and (max-device-height: 1080px) {
+	
+	.LineDancingMap {
+	position: relative;
+	height: 600px;
+	border: solid #803711 5px;
+}
+
+.embedTitleDiv {
+	
+	
+	text-decoration: underline;
+	border: 2px solid black;
+	width: 60%;
+	
+}
+
+.embedTable {
+	border: inset 2px black;
+	height: 200px;
+	width: 50%;
+	overflow-y:auto;
+	display:block;
+	
+}
+
+.aboutParagraph {
+	
+	width: 55%;
+}
+
+.articleDiv
+{
+	width: 30%; height: 100%;
+}
+
+.locationsinfoImage
+{
+	width: 100%; 
+	height: 500px;
+}
+
+.dropdown-item {
+z-index:1;
+animation: dropdownAnimation 0.4s;
+}
+
+.eventsCalendar {
+	
+	border:solid 1px #777;
+	width: 60%; 
+	height: 600px; 
+	
+}
+
+.homeIcon {
+	width: 28px;
+	height: 28px;
+	position: fixed;
+	left: 5px;
+	
+}
+
+.newYoutubeEmbedded
+{
+	height: 475px;
+	width: 55%;
+}
+
+.stepsheetInsideBorder {
+	
+	border: inset 2px black;
+	padding: 5px;
+	font-size: 17px;
+	background-color: #f2ac57;
+
+	
+}
+
+.stepsheetLineDanceName {
+		font-size: 17px;
+		font-weight: bold;
+	
+}
+
+
+
+	.largeScreenContentDiv
+	{
+		width: 40%;
+	}
+}
+
+.largeScreenContentDiv
+	{
+		width: 40%;
+	}
+
+
+@counter-style star-Emoticon {
+	system: cyclic;
+	symbols: "\2605";
+	suffix: " ";
+	
+}
+
+.articleWidth
+{
+	width: 50%;
+	
+}
+
+
+
+.newSong
+{
+	
+	color: rgb(255, 55, 15);
+}
+
+.starList {
+	list-style-type: star-Emoticon;
+	font-size: 21px;
+	color: black;
+    list-style-position: inside;
+}
+
+.nonStarList {
+	font-size: 21px;
+	color: black;
+    list-style-position: inside;
+}
+
+.h1 {
+	font-weight: bold;
+	text-decoration: underline;
+	font-family: "Courier New", monospace;
+}
+
+.h2 {
+	font-weight: bold;
+	text-decoration: underline;
+	font-size:25px;
+}
+
+.h3 {
+	font-weight: bold;
+	text-decoration: underline;
+	font-size:31px;
+
+}
+
+.showHideLineDances {
+	
+}
+
+.includeAllLineDances {
+	
+	
+	
+}
+
+.homeParagraph
+{
+	font-size: 18px;
+}
+
+.copyLinkButton
+{
+	
+}
+
+.linkCopiedAnimate
+{
+	animation: linkCopiedAnimation 3s;
+}
+
+@keyframes linkCopiedAnimation
+{
+	0% {opacity: 0%; display: none;}
+	25% {opacity: 100%;}
+	75% {opacity: 100%;}
+	100% {opacity: 0%; display: block;}
+}
+
+.locationInfoH1
+{
+	font-weight: bold;
+	color: black;
+	font-size: 33px;
+	font-family: Tahoma, sans-serif;
+	padding-left: 20px;
+	
+	
+}
+
+.locationInfoUL
+{
+	color: black;
+	font-size: 22px;
+	padding-left: 0;
+	
+}
+
+.locationInfoULB
+{
+	color: black;
+	font-weight: bold;
+	font-size: 23px;
+	padding-left: 0;
+	
+	
+}
+
+.backToArticles
+{
+	color: black;
+	text-decoration: underline;
+	font-size: 28px;
+	
+	
+}
+
+
+.locationInfoULDetail
+{
+	color: black;
+	font-size: 20px;
+	padding-left: 0;
+	padding: 5px;
+	
+}
+
+.bootSize
+{
+	height: 225px; 
+	width: 255px;
+}
+
+.youtubeEmbed
+{
+	width: 800px; height: 450px;
+	
+}
+
+.dropdownAnimate
+{
+	animation: dropdownAnimation 0.3s;
+}
+
+@keyframes dropdownAnimation
+{
+	0% {position: relative; top: 3px;}
+	100% {position: relative; top: 0px;}
+}
+
+.quickFadeIn
+{
+	animation: fadeIn 1s;
+	
+}
+
+.slowFadeIn
+{
+	animation: fadeIn 1.5s;
+	
+}
+
+.bootKick
+{
+	animation: linearKick 1s;
+}
+
+
+@keyframes linearKick
+{
+	0% {rotate: 60deg; }
+	100% {margin-top:0px; }
+	
+	
+}
+
+@keyframes fadeIn
+{
+	0% {margin-top:20px; }
+	100% {margin-top:0px; }
+	
+	
+}
+
+
+.slowFadeIn
+{
+	animation: fadeIn 2s;
+}
+
+@keyframes fadeIn
+{
+	0% {margin-top:20px; }
+	100% {margin-top:0px; }
+	
+	
+}
+
+.locationInfoDiv
+{
+	background-color: #f2ac57;
+	width: fit-content;
+	border: outset #de5d07 8px;
+	
+		
+}
+
+.canyonBR
+{
+	display: block;
+}
+
+.noneCanyonBR
+{
+	display: none;
+}
+
+.articleBodyText
+{
+	
+	font-size: 18px;
+	
+}
+
+.checkbox
+{
+	width:  15px;
+    height: 15px;
+	
+	
+}
+
+.slider
+{
+	font-size: 18px;
+	
+}
+
+.checkboxText
+{
+	font-size: 18px;
+	
+	
+}
+
+.blank {
+	color:black;
+
+}
+
+.NearMeButton {
+	background-color:#3e89cf;
+	color:white;
+	font-size: 20px;
+	border-radius: 6px;
+	
+}
+
+.showAllButton {
+	background-color:lightgray;
+	color:black;
+	font-size: 20px;
+	border: 3px solid black;
+	border-radius: 6px;
+
+}
+
+.showMonthlyButton {
+	background-color:#ed9a67;
+	color:black;
+	font-size: 20px;
+	border: 3px solid black;
+	border-radius: 6px;
+
+
+}
+
+.showWeeklyButton {
+	background-color:orange;
+	color:black;
+	font-size: 20px;
+	border: 3px solid black;
+	border-radius: 6px;
+
+
+}
+
+.showRandomButton {
+	background-color:lightbrown;
+	color:black;
+	font-size: 20px;
+	border: 3px solid black;
+	border-radius: 6px;
+
+
+}
+
+
+.leaflet-popup-content {
+	width:200px;
+	padding-center:20px;
+
+}
+
+.showingAll {
+color:green;
+font-size: 20px;
+
+}
+
+.showingWeekly {
+color:orange;
+font-size: 20px;
+
+}
+
+.ShowNames {
+	background-color:green;
+	color:white;
+	font-size: 20px;
+	border-radius: 6px;
+
+}
+
+.pageBackground {
+	background-color: #ffc375;
+	
+	}
+	
+.containerfluid {
+width: 30%;
+  float: right;
+}
+
+.filtersAnimation {
+	
+	animation: filtersKeyframes 1s;
+}
+
+.dropdown-item {
+z-index:1;
+animation: dropdownAnimation 0.4s;
+}
+
+@keyframes filtersKeyframes
+{
+	0% {margin-top:11px; }
+	100% {margin-top:0px; }
+	
+	
+}
+
+.All
+{
+	font-size: 18px;
+}
+
+.Week
+{
+	font-size: 18px;
+}
+
+.Month
+{
+	font-size: 18px;
+}
+
+.Random
+{
+	font-size: 18px;
+}
+
+.mobileB
+	{
+		display: none;
+	}
+	
+
+.articleDivTitle
+{
+	padding: 1px;
+	font-size: 25px;
+	
+}
+
+.articleDiv
+{
+	padding: 3px;
+	background-color: #fab546;
+}
+	
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 500px) {
+	
+	.LineDancingMap {
+		position: responsive;
+		width: 95%; 
+		height: 415px;
+		z-index: 0;
+}
+
+.articleDiv 
+{
+	 width: 90%; height: 100%;
+	
+}
+
+.articleWidth
+{
+	width: 90%;
+	
+}
+
+.articleNewsDate {
+	font-size: 16px;
+	
+}
+
+.articleDivTitle {
+	font-size: 20px;
+	
+}
+
+.eventsCalendar {
+	
+	border:solid 1px #777;
+	width: 90%; 
+	height: 600px; 
+	
+}
+
+
+.largeScreenContentDiv
+	{
+		width: 100%;
+	}
+
+	.center {
+	
+	}
+	
+	.mobileB
+	{
+		display: block;
+	}
+	
+	.h1 {
+	font-size: 25px;
+	}
+
+.youtubeEmbed
+{
+	width: 400px; height: 280px;
+	
+}
+
+.newYoutubeEmbedded
+{
+	height: 315px;
+	width: 95%;
+}
+
+.bootSize
+{
+	height: 110px; 
+	width: 250px;
+}
+
+.checkbox
+{
+	width:  15px;
+    height: 15px;
+	padding: 0px;
+}
+
+.NearMeButton {
+
+	font-size: 19px;
+}
+
+.showAllButton {
+font-size: 19px;
+}
+
+.showWeeklyButton {
+font-size: 19px;
+}
+
+.showMonthlyButton {
+font-size: 19px;
+}
+
+.showRandomButton {
+font-size: 19px;
+}
+
+.leaflet-popup-content {
+	
+	font-size:14px;
+}
+
+.containerfluid {
+ float: right;
+ background:transparent;
+ z-index:1;
+ width: 20%;
+
+}

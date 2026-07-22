@@ -1,0 +1,469 @@
+
+
+.calendarHeader {
+	
+		border: inset 4px black;
+	padding: 5px;
+	font-size: 20px;
+	background-color: #f2ac57;
+	position: sticky;
+		top: 0;
+}
+
+.underlineHeader {
+		
+		position: sticky; 
+		top: 0px;
+	border-bottom: solid black 2px;
+		
+		
+}
+
+.stickyTitle {
+		
+		position: sticky;
+		left: -5px;
+		
+		
+}
+
+.venuePopup {
+		
+
+		display: inline-block;
+text-align: left;
+		font-size: 16px;
+		z-index: 999;
+	margin: 0;
+		line-height: 1.6;
+		font-size: 16px;
+		
+}
+
+.venuePopupDiv {
+				background-color: white;
+		border: inset white 5px;
+		display: inline-block;
+text-align: left;
+		padding: 10px;
+		width: 335px;
+		z-index: 999;
+	position: relative;
+left: 15px;
+		bottom: 445px;
+		margin: 0;
+	border-radius: 10px;
+	
+	
+	/*
+					background-color: white;
+		border: inset white 5px;
+		display: inline-block;
+text-align: left;
+		padding: 10px;
+		width: 325px;
+		z-index: 999;
+	position: relative;
+left: 15px;
+		bottom: 385px;
+		margin: 0;
+	border-radius: 10px;
+	*/
+		
+		
+		
+		
+}
+
+.addToCalendarDropdown {
+	position: absolute;
+	height: 60px;
+	width: 160px;
+	background-color: white;
+	left: 160px;
+	bottom: -50px;
+	border: ridge white 2px;
+	border-top: none;
+text-align: left;
+		display: inline-block;
+		line-height: 1.8;
+animation: 0.15s linear addCalendarAnim;
+		animation-fill-mode:forwards;
+		z-index: 50;
+}
+
+
+@keyframes addCalendarAnim {
+	0% {bottom: -45px;}
+	100% {bottom: -50px;}
+	
+}
+
+.starClass {
+	
+font-size: 16px; 
+line-height: 1.2;	
+	
+}
+
+
+.venuePopupTitle {
+	font-size: 16px;
+	text-decoration: underline;
+}
+
+.exitVenuePopup {
+		
+		display: inline-block;
+		width: 55px;
+		height: -15px;
+		z-index: 9999999999;
+		/*Stack Overflow*/		
+	position: absolute;
+left: 295px;
+		top: -5px;
+		margin: 0;
+		font-size: 20px;
+		font-stretch: expanded;
+	/*	border-radius: 5%; */
+		
+		
+}
+
+.officialScheduleImg {
+	
+width: 21px;	
+}
+
+
+.blackFocusFade {
+		
+		background-color: black;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		top: 0;
+		opacity: 0;
+		z-index: 999;
+		
+}
+
+.blackFocusFadeIn {
+		
+		animation: 0.2s linear blackFocusFadeInAnim;
+		animation-fill-mode:forwards;
+}
+
+.venueFocusFadeIn {
+		
+		animation: 0.2s linear venueFocusFadeInAnim;
+		animation-fill-mode:forwards;
+}
+
+.disableScroll {
+		
+		height: 100%;
+		overflow: hidden;
+		
+}
+
+@keyframes blackFocusFadeInAnim {
+	0% {opacity: 0;}
+	100% {opacity: 0.5;}
+}
+
+@keyframes venueFocusFadeInAnim {
+	0% {transform: translateY(2px);}
+	100% {transform: translateY(0px);}
+}
+
+.todayDayView {
+		font-size: 20px;
+		
+		
+}
+
+.dayViewPopup {
+		
+	animation: dayViewPopupAnimation 0.3s;
+	
+	
+}
+
+.dayViewDesc {
+	
+	font-size: 18px;
+	color: #292929;
+	
+}
+
+@keyframes dayViewPopupAnimation {
+	0% {transform: scale(0.9);}
+	100% {transform: scale(1);}
+}
+
+
+.compactMobile {
+	
+
+
+	vertical-align: top;
+	text-align: left;
+	background-color: #f2ac57;	
+	font-weight: bold;
+	border: 2px solid black;
+	
+	padding: 0px;
+	max-width: 14vw;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 13px;
+	text-decoration: bolder;
+		
+		
+}
+
+.rightSweep {
+	
+	animation: rightSweepAnimation 0.5s;
+}
+
+@keyframes rightSweepAnimation {
+	0% {right: 20;}
+	100% {right: 0;}
+}
+
+.compactButton {
+	
+	background-color: white;
+	font-size: 17px;border: 1px solid black;
+}
+
+.disableOnClick {
+	pointer-events: none;
+	
+}
+
+.calendarDays {
+	padding: 5px;
+	font-size: 15px;
+	vertical-align: top;
+	text-align: left;
+	background-color: #f2ac57;	
+	font-weight: bold;
+	border: 2px solid black;
+	scroll-margin-top: 100px;
+	
+	
+	max-width: 30wh;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 15px;
+	*/
+	
+}
+
+.currentDay {
+	font-size: 18px;
+	font-weight: 750;
+	border: 5px solid black;	
+	
+}
+
+.currentDayCompact {
+	font-size: 15px;
+	font-weight: 750;
+	border: 5px solid black;	
+	
+}
+
+.dayFontSize {
+		
+		
+}
+
+.unselectableText {
+
+        user-select: none;
+        
+        -webkit-user-select: none; 
+        -moz-user-select: none;    
+        -ms-user-select: none;   
+    }
+	
+}
+
+.yellowLi {
+	
+	color: #fcf047; 
+	font-size: 22px;
+	
+}
+
+
+.yellowUnderline {
+	
+	border-bottom: 3px solid #fcf047;
+	
+}
+
+.lightredUnderline {
+  border-bottom: 3px solid #e65e3c;
+}
+
+.lightredLi {
+  color: #e65e3c;
+  font-size: 22px;
+}
+
+/* Style for Cowboy Palace Saloon */
+.lightblueUnderline {
+  border-bottom: 3px solid #49a5fc;
+}
+
+.lightblueLi {
+  color: #49a5fc;
+  font-size: 22px;
+}
+
+.greenUnderline {
+	border-bottom: 3px solid #24a616;
+	
+}
+
+
+.greenLi {
+	color: #24a616; 
+	font-size: 22px;
+	
+	
+}
+
+.lightlightblueUnderline {
+	border-bottom: 3px solid #c2e4ff;
+	
+	
+}
+
+.lightlightblueLi {
+	color: #c2e4ff;
+	font-size: 22px;
+	
+	
+}
+
+.blueUnderline {
+	border-bottom: 3px solid #2676ff;
+	
+}
+
+
+.blueLi {
+	color: #2676ff;
+	font-size: 22px;
+	
+}
+
+.whiteUnderline {
+	border-bottom: 3px solid #ffffff;
+	
+}
+
+
+.whiteLi {
+	color: #ffffff;
+	font-size: 22px;
+	
+}
+
+.orangeUnderline {
+	border-bottom: 3px solid #eb7d28;
+
+}
+
+
+.orangeLi {
+	color: #eb7d28;
+	font-size: 22px;
+
+	
+}
+.halloweenImg {
+width: 40px; 
+position: relative; 
+
+left: 5px; 
+height: 40px;	
+object-fit: cover;
+}
+
+.thanksgivingImg {
+	
+width: 35px; 
+position: relative; 
+bottom: 20px; 
+left: 20px; 
+height: 45px;	
+}
+	
+
+.calendarTable th {
+	
+	
+}
+
+
+
+.calendarTable td {
+	
+}
+
+
+
+.redUnderline {
+	border-bottom: 3px solid #ff2e1f;
+
+}
+
+
+.redLi {
+	color: #ff2e1f;
+	font-size: 22px;
+}
+
+.purpleUnderline {
+	border-bottom: 3px solid #7e5eff;
+
+}
+
+
+.purpleLi {
+	color: #7e5eff;
+	font-size: 22px;
+}
+
+.lightredUnderline {
+	border-bottom: 3px solid #ff4d52;
+	
+}
+
+.lightredLi {
+	color: #ff4d52;
+	font-size: 22px;
+	
+}
+
+.orangeGradientLi {
+	background-image: linear-gradient(to right, #fa5316, #de4710);
+    color: transparent;
+    background-clip: text;
+	
+}
+
+.orangeGradientUnderline {
+	border-image: linear-gradient(to right, #fa5316, #de4710);
+	border-bottom: 3px solid transparent;
+	border-image-slice: 1;
+}

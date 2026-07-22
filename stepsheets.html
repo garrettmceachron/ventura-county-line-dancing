@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="images/BootIconContrast.png">
+<title>Ventura County Line Dancing Stepsheets</title>
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.3, user-scalable=yes" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+
+<meta charset="utf-8">
+
+</head>
+<script>
+//W3
+var totalShown;
+
+$(document).ready(function(){
+  $("#searchInput").on("keyup", function() {
+	totalShown = 0;
+    var value = $(this).val().toLowerCase();
+    $("#search tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	  totalShown++;
+    });
+  });
+});
+
+function rodeoTag() {
+alert("Jump Forward, Jump Back, Jump Right, Jump Left, Stomp Right, Stomp Left (when you hear 'Up and Down, Side To Side, Round and Round' about halfway through song)")
+
+}
+
+
+</script>
+<link rel="stylesheet" href="css/style.css">
+</style>
+<body class = "pageBackground" id="localBackground">
+ <center>
+ <h1 class="pageTitle">Popular Stepsheets to Ventura County</h1>
+ <!--<h3 class="h3">Line Dancing Tips</h3>--!>
+ </center>
+<div class="containerfluid">
+ <div class="navbar-expand-lg navbar-light dropdown-menu-left" class="containerfluid">
+ <div class="btn-group">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+		<li id="homeText"><a class="dropdown-item" href="index"><img src="images/BootIcon.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Home</a></li>
+		<li id="locationsMapText"><a class="dropdown-item" href="linedancelocations"><img src="images/SaloonDoor.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Map</a></img></li>
+		<li id="locationsInfoText"><a class="dropdown-item" href="linedancelocationsinfo"><img src="images/WantedPosterLargerWanted.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Info</a></li>
+			<!--<li><a class="dropdown-item" href="linedancetips">Line Dancing Tips</a></li>--!>
+			<!--<li><a class="dropdown-item" href="popularlinedances">Popular Line Dances</a></li>--!>
+			<li id="guidesText"><a class="dropdown-item" href="guides"><img src="images/WesternStar.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Guides</a></li>
+			<li id="articlesText"><a class="dropdown-item" href="articles"><img src="images/HorseshoeMerged.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Articles</a></li>
+			<li id="aboutText"><a class="dropdown-item" href="about"><img src="images/CowboyHat.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp About</a></li>
+ </ul>
+	</div>
+	</div>
+</div> 
+
+<script type="text/javascript" src="navigation.js"></script>
+<br><br>
+<center>
+<div class="homeParagraph container">
+<h2 class="h2">Stepsheets to local line dances</h2>
+
+<!--a style="font-size: 19px;" target="_blank" href="https://docs.google.com/spreadsheets/d/1kkWuFgsrswTb-jdfnwT-9elhKV5RCtlVOmdDwE3tE2U/copy"><img src="images/google-sheets.webp" style="width: 32px; height: 32px;"></img>Create Chechmarked Copy with Google Sheets</a!-->
+
+<br>
+<input type="text" id="searchInput" placeholder="Search any category">
+<br><br>
+<script>
+
+const inputToHide = document.getElementById("searchInput");
+
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 13) {
+        inputToHide.blur();
+    }
+});
+</script>
+<table style="border: solid 2px black;" id="songTable">
+ <thead>
+ <tr class="stepsheetInsideBorder">
+  <th class="stepsheetInsideBorder">Line Dance</th>
+  <th class="stepsheetInsideBorder">Dance<br> Level</th>
+  <th class="stepsheetInsideBorder">Info</th>
+    <th class="stepsheetInsideBorder">Tags/<br>Restarts</th>
+   <th class="stepsheetInsideBorder">Song(s)</th>
+  <th class="stepsheetInsideBorder">Stepsheet</th>
+ </tr>
+ </thead>
+ <tbody id="search">
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"1, 2, 3"<b> - Kaylee Dzikowski & Natalie Foret</b></td>
+  <th class="stepsheetInsideBorder">High Beginner</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+   <th class="stepsheetInsideBorder">1 Tag</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/gNq66goYa8A?si=zhlw1SMyXREOweTD" target="_blank">"3"</a> - Britney Spears</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/189752/1-2-3" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"3 Tequila Floor" <b> - Maddison Glover & Jo Thompson Szymanski</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+   <th class="stepsheetInsideBorder">3 Restarts</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a href="https://youtu.be/YpnIW2XKtt4?si=GU_4cryarJnFbP4k" target="_blank">"3 Tequila Floor"</a> - Josiah Siska, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/DYxrVBu2_gc?si=7TxacFjw1YGHYt9P" target="_blank">"Friend Like Me"</a> - Will Smith</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/169311/3-tequila-floor" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"3 to Tango" <b> - Raymond Sarlemijn, Roy Verdonk & José Miguel Belloque Vane</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+   <th class="stepsheetInsideBorder">1 Tag <br>(Done 3 Times)</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Z3kd-idelpQ?si=9M4uBGgLKIeJPgib" target="_blank">"3 to Tango"</a> - Pitbull</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/135946/3-to-tango" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"6's to 9's" <b> - Scott Blevins & Jo Thompson Szymanski</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+   <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/qUzWOuXUpyk?si=Oy7JR6t6aRSSDyme" target="_blank">"6's to 9's"</a> - Big Wild, Rationale</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/165184/6s-to-9s" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"A Bar Song" <b>- Ben Murphy</b></td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag</th>
+   <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/t7bQwwqW-Hc?si=JdbaskDpgNdoLUV0" target="_blank">"A Bar Song (Tipsy)"</a> - Shaboozey</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/181815/a-bar-song" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Aces and Eights" <b> - Pat Esper</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/NWcrJc2-xOU?si=3NcKqkRN5ZuImZWr" target="_blank">"Whip It!"</a> - LunchMoney Lewis, Chloe Angelides, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/VG3JsmOmDqw?si=X63AtjZbw2T0jdj0" target="_blank">"Can't Hold Us"</a> - Macklemore & Ryan Lewis feat Ray Dalton</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/109262/aces-and-eights" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Add A Little Flavor" <b> - Mike Kruger</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/agGqXR7cTk8?si=VMZejf_CQ6xXm6GM" target="_blank">"Flavor"</a> - Jimmie Allen, Pitbull, teamwork.</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/156806/add-a-little-flavor" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Ain't Too Cool" <b> - Trever Thornton, Brandon Roman & Branden Swift</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/OEJqGehNgJg?si=U4W6Jf4uQuQsDT6Q" target="_blank">"Ain't Too Cool"</a> - LunchMoney Lewis, Chloe Angelides</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/108592/aint-too-cool" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"American Kids" <b> - Randy Pelletier</b></td>
+  <th class="stepsheetInsideBorder">High Beginner</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+   <th class="stepsheetInsideBorder">1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/de1aPKXBdAE?si=xSavI3lsQYYWDAmq" target="_blank">"American Kids"</a> - Kenney Chensey, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/rkYlZnIbe2E?si=_Aant0ng-1eH3rXs" target="_blank">"STAY"</a> - The Kid LAROI, Justin Bieber</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/98907/american-kids" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Around the Fire" <b> - Kate Sala, Chrystel DURAND, Darren Bailey &<br> Guillaume Richard</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">48 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">4 Restarts</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/s74m5xUEjp8?si=HZHw8pyZm6pFxfYs" target="_blank">"OLD COUNTRY BARN"</a> - James Johnston</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/176253/around-the-fire" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Askin' Questions (Asking Questions)" <b> - Larry Bass</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/NisBJNuAUTc?si=AUraqYUfUhnRRAXN" target="_blank"><a class="songLink" href="https://youtu.be/0ZgjmE6xdaw?si=BJgh3KMdic56kIf9" target="_blank">"A Little Party Never Killed Nobody"</a> - Fergie, Q-Tip, GoonRock, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Y2V6yjjPbX0?si=lLdv75RbJLUhYlsG" target="_blank">"HandClap"</a> - Fitz and the Tantrums, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/ekr2nIex040?si=04tFgMxmwfanxNtK" target="_blank">"APT."</a> - ROSÉ, Bruno Mars, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/OeaUG189ojU?si=wtqiFLOGNNRo0cpv" target="_blank">"C’est La Vie"</a> - Yung Gravy, bbno$, Rich Brian, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/xaPNR-_Cfn0?si=FSia8j1gOuK0HJhg" target="_blank">"HOT TO GO!"</a> - Chappell Roan, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/nB5H9UP5fnw?si=7OSZo1baYUeD-EgH" target="_blank">"Shawty Got Moves"</a> - GET COOL, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/RUKqwwyAiEU?si=6RUMB7vUQgUv0jYP" target="_blank">"JUMP"</a> - BLACKPINK</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/78741/askin-questions" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Austin" <b> - Dasha</b></td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+  <th class="stepsheetInsideBorder">32 Count, 1 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/eK8D1Ww_Vnk?si=XvHECWfiiFfdyf1f" target="_blank">"Austin" </a> - Dasha</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/179724/austin" target="_blank">Link</a></th>
+ </tr>
+     <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Baby Slow Down" <b> - Mark Paulino & Dylan DeClue</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">46 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/K2T7YOFotCE?si=txwJYmwjufa6NZBj" target="_blank">"Slow Low"</a> - Jason Derulo</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/196027/baby-slow-down" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Bambalam" <b> - Rick Dominguez & Jonno Liberman</b></td>
+  <th class="stepsheetInsideBorder">Easy Intermediate<br>Contra<br>(2 person)</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/oKTN7pv5SWs?si=_sOgP3t_-0VeNsUo" target="_blank">"Get Ready"</a> - Pitbull, Blake Shelton</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/139567/bambalam" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Banana Boat" <b> - Paige Glickman & Kiley Faulkner</b></td>
+  <th class="stepsheetInsideBorder">Advanced Phrased</th>
+  <th class="stepsheetInsideBorder">72 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/2CGF_Z3yZAo?si=x87ImUO-C9zpXF2n&t=36" target="_blank">"Don't Wanna Go Home"</a> - Jason Derulo</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/S89NJBN/banana-boat" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Been Like This" <b> - Hayley Wheatley</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/_L0QyGE4nJM" target="_blank">"Been Like This"</a> - Meghan Trainor, T-Pain</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/181694/been-like-this" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Big Energy" <b> - Scott Blevins & Tim Johnson</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/idSJRWzCAN0?si=5SMjU98dnDf1mK0p" target="_blank">"Big Energy (Remix)"</a> - Latto, Mariah Carey, DJ Khaled</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/165102/big-energy" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Boys" <b> - Scott Blevins & Joey Warren</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/XplzAs0El2Y?si=_qpTPd85H-cWUGhn" target="_blank">"Boys"</a> - Lizzo</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/134055/boys" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Booty Down Low" <b> - Mark Paulino, Rick Dominguez & Meghan Belmares</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">52 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/DF2Fo6nbSoY?si=INLfsW4kevkzPEUm" target="_blank">"Drop That Booty Down Low"</a> - Brandon Beal</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/196026/booty-down-low" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Bringin' the Wow" <b> - Scott Blevins & Jo Thompson Szymanski</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/kjcteZuh94E?si=G7hHGj6Crun8h1Kl" target="_blank">"Bring the Wow"</a> - Kali, Nathan Daniel Fields</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/188753/bringin-the-wow" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Bring Out The Fire" <b> - Joseph Crowell</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Z8cvEgo8WDI?si=-JlJn4HsI0jErGv7" target="_blank">"More (Redone Jimmy Joker Remix)"</a> - Usher</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/MT4K7DX/bring-out-the-fire" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Bulletproof" <b> - The Silver Bullets</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">177 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/aaCT8a2xf-M?si=0FAMeRPRICI0oR_x" target="_blank">"Gone Gone Gone"</a> - Casey Barnes</th>
+  <th class="stepsheetInsideBorder">N/A<br><a href="https://youtu.be/jED7sPH6ghA?si=sUlFMdKEQhK1yqHO" target="_blank">Video</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Bumper To Bumper" <b> - Jevan Canada</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/nmjsGN1QxJ4?si=le6mzYHZTdbxt_ZH" target="_blank">"Tráfico"</a> - Casely</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/198583/bumper-to-bumper" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Burn It To The Ground" <b> - Unknown</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/KyiCF87Lofc?si=4iOdjenIYT2UV2LO" target="_blank">"Burn It to the Ground"</a> - Nickelback</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/168773/burn-it-to-the-ground" target="_blank">Link</a></th>
+ </tr>
+     <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Call Me Senorita" <b> - Rick Dominguez</b></td>
+  <th class="stepsheetInsideBorder">Easy Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/xq866Q7GUlc?si=xBVRlj2gqVcxPzhj" target="_blank">"Señorita"</a> - Shawn Mendes, Camila Cabello, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/EJIwNQb6tWA?si=stwAUJo_ADlEmguL" target="_blank">"Love Somebody"</a> - Morgan Wallen</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/134466/call-me-senorita" target="_blank">Link</a></th>
+ </tr>
+    <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cha Cha Caliente" <b> - Unknown</b></td>
+  <th class="stepsheetInsideBorder">High Improver</th>
+  <th class="stepsheetInsideBorder">48 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/9lybsz-7TFM?si=8vefyWx34pzAlhgo" target="_blank">"On The Floor"</a> - Jennifer Lopez, Pitbull, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/PnyelXDBBnQ?si=qnSbKn3a2AOLLlC5" target="_blank">"La Mordidita"</a> - Ricky Martin, Yotuel</th>
+  <th class="stepsheetInsideBorder">N/A<br><a href="https://youtu.be/S8oubklWOWM?si=o17drZGQ_fi_dSmt" target="_blank">Video</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cherry Bottom Boom" <b> - Rick Dominguez, Jonno Liberman & Adia Nuno</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">40 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Pl-4AmEMwz8?si=Qug1ugY_eQWWF_nz" target="_blank">"U Girl"</a> - Walker Hayes</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/156814/cherry-bottom-boom-aka-u-gurl" target="_blank">Link</a></th>
+ </tr>
+    <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cherry On Top" <b> - Debbie Rushton, Guillaume Richard & Darren Bailey</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">80 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/jNDY_BxpdYo?si=G4LT9zyW1NcIthQ2" target="_blank">"Gimme Gimme"</a> - Johnny Stimson</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/137006/cherry-on-top" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Church Clap" <b> - Unknown</b></td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/mzGElpTUcWs?si=ceH3o2bw2Oredp2g" target="_blank">"Church Clap"</a> - KB, Lecrae</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/159888/church-clap" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Come on and Jump" <b> - Mark Paulino</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/tZJdZmS1E2s" target="_blank">"Jump"</a> - Flo Rida, Nelly Furtado</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/160699/come-on-and-jump" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cool Whip" <b> - Judy McDonald</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/TDMfH1rx7rk?si=JmGQuYbjJy-ISIXn" target="_blank">"Let It Whip"</a> - Dazz Band</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/59939/cool-whip" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cooler Than Me" <b> - River Sadlon, Jevan Canada & StampedeRose</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">2 Tags</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/jJTJDrmiarY?si=xfQsiS8jR_0prkOf" target="_blank">"Cooler Than Me (Single Mix)"</a> - Mike Posner</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/173921/cooler-than-me" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Countdown" <b> - Abby Cahill</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Q0nD2wTrvKg?si=s902uQoyr2tVtWIO" target="_blank">"Turn Around (5, 4, 3, 2, 1)"</a> - Flo Rida</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/167265/countdown" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Country Girl Shake" <b> - Michele Adlam & Maria Hennings Hunt</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/CdE9mnIuO2k?si=euFmobx1wfuZmbsS" target="_blank">"Country Girl (Shake It For Me)"</a> - Luke Bryan, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/JNY-5l5LTTc?si=pInaevVwOKOM7KUm" target="_blank">"Shake That"</a> - Eminem, Nate Dogg</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/82657/country-girl-shake" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Country Girl Stomp" <b> - Rob Holley & Eric Mosley</b></td>
+  <th class="stepsheetInsideBorder">High Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+   <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/0DJBNVY1hEI?si=vSlhxC3hPgq1UX95" target="_blank">"Country Girl Twerk"</a> - Cypress Spring, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/eNII9PDlFJ0?si=iBg7LWpVEaLrtuCX" target="_blank">"Kiss Kiss"</a> - Chris Brown, T-Pain</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/117714/country-girl-stomp" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cowboy Hip Hop" <b> - Richard Tymko</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">96 Count, 4 Wall</th>
+   <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/pyb13N80DZQ?si=JZwcmIsPuNWBEhwD" target="_blank">"Without Me"</a> - Eminem</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/51707/hip-hop" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cyber Drop" <b> - Fred Whitehouse & Shane McKeever</b></td>
+  <th class="stepsheetInsideBorder">High Intermediate</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+   <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/d1bAJVTDzrQ?si=z3qyVs_ACvkcNWR5" target="_blank">"Drop It to the Floor"</a> - Fletcher Kirkman, Nuz Ngatai</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/152918/cyber-drop-wdm-21" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cyber Remix" <b> - Fred Whitehouse & Shane McKeever</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+   <th class="stepsheetInsideBorder">2 Tags</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Mvxg0c-kjQE?si=jiBOADtzGfFWBryb" target="_blank">"Take You Dancing (R3HAB Remix)"</a> - Jason Derulo</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/146163/cyber-remix" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Dancing While Intoxicated" (DWI) <b> - Donna Manning</b></td>
+  <th class="stepsheetInsideBorder">Improver/<br>Low Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/FgaibUN2KTA?si=HrUhG4zcqr9LSkMR" target="_blank">"Dancin' While Intoxicated"</a> - Colt Ford, LoCash Cowboys & Redneck Social Club</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/89534/dancing-while-intoxicated" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Delulu" <b> - Jordy</b></td>
+  <th class="stepsheetInsideBorder">Low Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Z6z9A9nyDpg?si=GgWh93V1E8EA_Jpy" target="_blank">"Delirious (Boneless)"</a> - Steve Aoki, Chris Lake, Tujamo</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/187716/delulu" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Descarada" <b> - Joey Warren</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag<br> (Done 3 Times)</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/urlTGF5fWOU?si=RF7erpOKYtU23Z8p" target="_blank">"Descarada (Dance)"</a> - Pitbull</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/83281/descarada" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Do-Si-Do" <b> - Rick Dominguez</b></td>
+  <th class="stepsheetInsideBorder">High Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/FoFhPUGnqdA?si=YSQmDYynxgRke4C2" target="_blank">"Do Si Do"</a> - Diplo, Blanco Brown, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Shej5kD2KiI?si=pkGSO2i8dcKpkQFZ" target="_blank">"Do Si Do"</a> - Flo Rida</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/142160/do-si-do" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Double D" <b> - Trevor Thornton</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/L7Rq3FbhZOw?si=xCzkIusKh3syg2iP" target="_blank">"Cut 'Em All"</a> - Colt Ford, Willie Robertson</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/104501/double-d-duck-dynasty" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Down" <b> - Kaylee Dzikowski</b></td>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/oUbpGmR1-QM?si=DeHEXLoRU5DZzS0S" target="_blank">"Down"</a> - Jay Sean, Lil Wayne</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/4CCW7XQ/down" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Drop it Down" <b> - Shane McKeever</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">2 Tags, 1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/5WbrUnnBGf4?si=d9ZHTr4ZJHtxec5Y" target="_blank">"Down"</a> - Jason Derulo, David Guetta</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/180045/drop-it-down" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Esther" <b> - Chris Jacques</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">4 Tags, 1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/bVXKExUIJOI?si=dg8rN5KE1qu55JDM" target="_blank">"Esther"</a> - BAYNK, Tinashe</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/5D3HS34/esther" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Fake ID" <b> - Jamal Sims & Dondraico Johnson</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">48 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag <br>(Done 3 times), <br>2 Restarts</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/H8ASwXcHaNo?si=Y8A-51nKm7WQ49o6" target="_blank">"Fake ID"</a> - Big & Rich, Gretchen Wilson</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/86422/fake-id-2011-footloose-movie" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Fire" <b> - Chase Moosky</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">96 Count, 1 Wall</th>
+  <th class="stepsheetInsideBorder">N/A (unknown)</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/PTxxUairHew?si=AmsbsXsE0dm01oGN" target="_blank">"Fire (Camp Rock 2)"</a> - Matthew Mdot Finley</th>
+  <th class="stepsheetInsideBorder">N/A <br><a href="https://www.tiktok.com/@nando_valdiv/video/7545149622524661023" target="_blank">Video</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Fire Burning" <b> - Nicolas Lachance</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/fam4ulIAI0g?si=YozKVC2qzL4_ZWQv" target="_blank">"Fire Burning"</a> - Sean Kingston</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/172260/fire-burning" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Flex" <b> - Cupid</b></td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/2h_xPuJ5dkI?si=V7kLnVgl2GLUsRez" target="_blank">"Flex"</a> - Cupid</th>
+  <th class="stepsheetInsideBorder">N/A<br><a href="https://youtu.be/l-6lxOZBowo?si=FaswMzNWq1OQxNfl" target="_blank">Video</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Four On The Floor" <b> - Eric Deneen & Kim Rock</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">48 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/CCkAw2mUyTg?si=4DKAlpcohEBG4Yoa" target="_blank">"Four On The Floor"</a> - Lee Brice</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/84183/four-on-the-floor" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Freaky Skillz" <b> - Shaz Walton</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">2 Restarts</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/VMZNLbT2UFw?si=MqOyBdu4Ra3zRZy1" target="_blank">"Get Freaky"</a> - Play-N-Skillz, Pitbull, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/j5uAR9w7LBg?si=LtZEJphfRCL897rj" target="_blank">"Super Freaky Girl"</a> - Nicki Minaj</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/73796/freaky-skillz" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Fuego" <b> - Mama Kelly</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">48 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/LP8yUOECfH4?si=9nqkgIlBH-pjEWdP" target="_blank">"Fuego"</a> - Pitbull, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://www.youtube.com/watch?v=sh7BZf7D5Bw" target="_blank">"The Devil Went Down to Georgia"</a> - Charlie Daniels</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/178608/fuego" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Ganja" <b> - Adam Åstmar</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">84 Count, 1 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/5yB0Q62BCpE?si=iWNPb1uMUXW5AxTc" target="_blank">"GANJA GUN"</a> - HEDEGAARD, Captain MacKay, Tm bax</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/191337/ganja" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Georgia Ways" <b> - Rick Dominguez</b></td>
+  <th class="stepsheetInsideBorder">High Beginner</th>
+  <th class="stepsheetInsideBorder">16 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/o7XZ1COVYGE?si=VmSBvjJ5kjIF85BU" target="_blank">"Georgia Ways"</a> - Quavo, Teddy Swims, Luke Bryan</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/190300/georgia-ways" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Get It Baby" <b> - Kenneth Gibson</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">128 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/zhaxvSs_n7w?si=HhcVYtW4-JIO1bMk" target="_blank">"Get It Baby"</a> - Tito Jackson, Big Daddy Kane</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/112262/get-it-baby" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Gives Me Shivers" <b> - Brandon Zahorsky</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/z2_Lrg6rRks?si=PGKl3vgMqmmjRzkE" target="_blank">"Shivers"</a> - Ed Sheeran, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/KjWpIGRoxq8?si=PdnpHTnwWCzjNSgc" target="_blank">"Shivers (DJ T Marq Remix)"</a> - DJ T Marq, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/ekr2nIex040?si=7QSkD9Y9V9qYYXxL" target="_blank">"APT."</a> - ROSÉ, Bruno Mars</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/154517/gives-me-shivers" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Get Dirty" <b> - Mark Paulino</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/q1qZAxOzFAU?si=eipsD9LTsTKS11ms" target="_blank">"Dirty Girl"</a> - Lenny Cooper</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/163085/get-dirty" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Get Ugly" <b> - Jonno Liberman</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">1 Tag, 2 Restarts</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/cY8-OkWKke4?si=2Y5IEAJnMHR9iIQS" target="_blank">"Get Ugly"</a> - Jason Derulo</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/108054/get-ugly" target="_blank">Link</a></th>
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Goin' Hamm" <b> - Trevor Thornton</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/2N319dgV7mY?si=qIKs8EMlgFW5UDjz" target="_blank">"Crank It Up"</a> - Colt Ford</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/160714/goin-hamm" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Half Past Tipsy" <b> - Maddison Glover & Rachael McEnaney</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">48 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/4yUHXs3b9J8?si=kuLGOvFhZ-cYAZL3" target="_blank">"1, 2 Many"</a> - Luke Combs, Brooks & Dunn</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/137347/half-past-tipsy" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Headphones" <b> - Tim Johnson & Rebecca Lee</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">84 Count, 1 Wall</th>
+  <th class="stepsheetInsideBorder">1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/PdhXxcPTNMA" target="_blank">"Headphones"</a> - Banx & Ranx, Rêve</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/161569/headphones" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Head Spin" <b> - Kiley Faulkner & Nick Mata</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/CcCw1ggftuQ?si=xRO1GnyReQh1eLHs" target="_blank">"Right Round"</a> - Flo Rida, Ke$ha</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/192050/head-spin" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"HeartBreaker" <b> - Lilly Shankman & Marleigh Stockfish</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">48 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">2 Tags, 1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/yPTlyOBvUEo?si=xZOKlVXt0mRcrjSc" target="_blank">"Honky Tonk Heartbreak"</a> - Tanner Adell, </th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/175691/heartbreaker" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Heart Got Teeth" <b> - Danica DeVoe</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/6C33PKdV710?si=C531V3k9hvEuqShB" target="_blank">"Teeth"</a> - 5 Seconds of Summer</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/183306/heart-got-teeth" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Help (I Had Some)" <b> - Rick Dominguez</b></td>
+  <th class="stepsheetInsideBorder">High Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/11T6kF66dKY?si=TOZGlTgaNLBEa9gm" target="_blank">"I Had Some Help"</a> - Post Malone, Morgan Wallen</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/183036/help-i-had-some" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"High Class (We High Class!)" <b> - Garth Bock</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/FHN23_1pmjc?si=T8zXCzS_w6XDDoLx" target="_blank">"High Class"</a> - Eric Palsay</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/107991/high-class-we-high-class" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"High Horse" <b> - Silvia Schill</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/_fjfo256p6s?si=aj6Ok6xclBqdA224" target="_blank">"High Horse"</a> - Kacey Musgraves</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/129614/high-horse" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Honky Tonk Way" <b> - Landon James Purvis & Mark Paulino</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/c6Ol1CrD8Rs?si=3zWK0pZZ4m6spvoz" target="_blank">"I See Country"</a> - Ian Munsick, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/P0TWjD0Xv8Y?si=wsBiH1Y6UNesN9CL" target="_blank">"You'll Always Find Your Way Back Home"</a> - Hannah Montana (Miley Cyrus)</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/155792/honky-tonk-way" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"I Got 21 Reasons" <b> - Cameron Stuart</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/TfbK_sCRapM?si=vn70B9CB7AdLo3uM" target="_blank">"21 Reasons"</a> - Nathan Dawe, Ella Henderson</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/175862/i-got-21-reasons" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"I'm Fabulous!" <b> - Rebecca Lee, Debbie Rushton, Jean-Pierre Madge & Niels Poulsen</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/leXlqBQhFUw?si=t47l42GTnNOy6RVs" target="_blank">"Fabulous"</a> - C.U.T.</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/164725/im-fabulous" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Infectious" <b> - Satu Ketellapper & EWS Winson</b></td>
+  <th class="stepsheetInsideBorder">High Intermediate</th>
+  <th class="stepsheetInsideBorder">48 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/sIB6c0uxYC0?si=ifEAjmRGHOkVPfqP" target="_blank">"Infectious"</a> - Charlie Wilson, Snoop Dogg</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/150148/infectious" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"In The Six" <b> - Shane McKeever & Joey Warren</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/V9sBIVSrHqA?si=8WFIHFl2IrVds4E4" target="_blank">"Body"</a> - Loud Luxury, Brado</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/132028/in-the-six" target="_blank">Link</a></th>
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Jumanji" <b> - José Miguel Belloque Vane & Guillaume Richard</b></td>
+  <th class="stepsheetInsideBorder">High Intermediate</th>
+  <th class="stepsheetInsideBorder">64 Count, 1 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/A7ttyqwm9EU?si=oeX9Pgvh6SkyIBYl" target="_blank">"Jumanji"</a> - Hedegaard, CANCUN?</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/165082/jumanji" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Dance By The Moonlight (Lady)" <b> - Dylan DeClue & Mark Paulino</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Dk5JTLfeqP8?si=51E5-DYAHD1F_Kj3" target="_blank">"Lady"</a> - Austin Mahone, Pitbull</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/188011/lemon-squeezy-de" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Lemon Squeezy" <b> - Catalan Mess</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag, 2 Restarts</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/daR1e9gjJ1g?si=FWM8BnM7QKGL2Yd4" target="_blank">"Good to Go"</a> - LÒNIS, Daphne Willis</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/188011/lemon-squeezy-de" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Lightning Polka" <b> - Peter Metelnick</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/qner24-rQZQ?si=nqUbq1FyH0DnLpsY" target="_blank">"Sin Wagon"</a> - The Chicks</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/28044/lightning-polka" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Lil Bit" <b> - Kelly Cavallaro</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/glJu5P3mR5Y" target="_blank">"Lil Bit"</a> - Nelly, Florida Georgia Line</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/146330/lil-bit" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Liquor Talking" <b> - Maddison Glover</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">48 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/fbf36sld5R0?si=M7WI-MSziO9GPNVr&t=13" target="_blank">"Liquor Talkin'"</a> - Don Louis</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/184590/liquor-talking" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Lonely Drum" <b> - Darren Mitchell</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/VFL762qpB_w?si=1AA7Z4P6IrU8Gvgu" target="_blank">"Lonely Drum"</a> - Aaron Goodvin</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/119005/lonely-drum" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Make It Go Krazy" <b> - Faith Sirois</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/WX3K3JkoYeI?si=N5_6P2B9kFND9zaI" target="_blank">"Krazy"</a> - Pitbull, Lil Jon</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/182657/make-it-go-krazy" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Make It Shake" <b> - Fred Whitehouse & Darren Bailey </b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">64 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/mqUkx7sn3ZY?si=3arHOzGGI1XrEqSG" target="_blank">"Make It Shake"</a> - Wonda Music, Machel Montano, Busta Rhymes, Olivia & Fatman Scoop</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/100761/make-it-shake" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Makin' It Hot" <b> - Paige Glickman & Kiley Faulkner</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">1 Tag <br>(Done 3 times)</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/B5PLNv4Nc4o?si=QSxx4MqaOMFdhffy" target="_blank">"Hot"</a> - Daddy Yankee, Pitbull</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/191922/makin-it-hot" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"M.I.B." (MIB)<b> - James O. Kellerman</b></td>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/9WtPQmZZyOY" target="_blank">"Men In Black"</a> - Will Smith</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/30601/mib" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Miles On It" <b> - Andrew Hayes</b></td>
+  <th class="stepsheetInsideBorder">Absolute<br>Beginner</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">2 Restarts</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/xhkqAsByZjs?si=FO4crhvdL-mFLQoZ" target="_blank">"Miles On It"</a> - Marshmello, Kane Brown</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/182749/miles-on-it" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Mr Put It Down" <b> - Rachael McEnaney & Trevor Thornton</b></td>
+  <th class="stepsheetInsideBorder">High<br>Intermediate</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/xZpHE5DSgzk?si=ugpBuzDyIsv9FAZH" target="_blank">"Mr. Put It Down"</a> - Ricky Martin, Pitbull</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/2XJQWBH/mr-put-it-down" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Nothing But You" <b> - Darren Bailey</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/1tdAbDNteJU?si=Dp2xwq50WKBhSJKX" target="_blank">"Nothing But You"</a> - Leaving Austin</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/131385/nothing-but-you" target="_blank">Link</a></th>
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Off The Chain" <b> - Fred Whitehouse</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/7IPUShvY1Nc?si=RhzOUGXe68W4tAHi" target="_blank">"Can't Believe It"</a> - Flo Rida, Pitbull</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/98749/off-the-chain" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Ooh Baby Baby" <b> - Mark Paulino</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">2 Tags, 1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/KpsUsP2lIzU?si=nvyBbHLnr_3MFxcg" target="_blank">"Scream"</a> - Usher</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/166697/ooh-baby-baby" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Our Own Party" <b> - Roy Hadisubroto, Shane McKeever & Jo Thompson Szymanski</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag, 3 Restarts</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/PsrX0Tm5omM?si=XYhhlXz6F7eGRNav" target="_blank">"Dance (Our Own Party)"</a> - The Busker</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/175718/our-own-party" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Outlaw" <b> - Suzanne Wilson</b></td>
+  <th class="stepsheetInsideBorder">Beginner/<br>Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/8mXqtmuJJaU?si=iCC7dxG7HQrC35Xk" target="_blank">"Whisky Drinkin' S.O.B."</a> - Mikel Knight</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/82368/the-outlaw" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Out Out" <b> - Shane McKeever, Guillaume Richard & Niels Poulsen</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Restart</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/zqyEwjFid0c?si=9Fuw9u8JRZVzs5pf" target="_blank">"OUT OUT"</a> - Joel Corry, Jax Jones, Charli XCX, Saweetie</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/155501/out-out" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Party In The Hills" <b> - Fred Whitehouse, Shane McKeever & Joey Warren</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/vDoF6k6JIms" target="_blank">"Come To Brazil"</a> - Why Don't We</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/136989/party-in-the-hills" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Phat" <b> - Lainey & Lindsey</b></td>
+  <th class="stepsheetInsideBorder">Low Intermediate</th>
+  <th class="stepsheetInsideBorder">48 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/31EnK68Oq1c?si=nHRaCubC8CBlB-pR" target="_blank">"Phat"</a> - DaBaby</th>
+  <th class="stepsheetInsideBorder">N/A<br><a href="https://www.tiktok.com/@lindseynlainey/video/7522536449627950349" target="_blank">Video</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Pieces To The Puzzle" <b> - Isacc Nelson</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/6GYU2YG8cVs?si=TLw8Sr_OgQ1U3FB_" target="_blank">"Damn I Love Miami"</a> - Pitbull, Lil Jon</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/181791/pieces-to-the-puzzle" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Play That Sax" <b> - Michael Metzger</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/3JZ4pnNtyxQ?si=zHG-efrjkGlU4uoR" target="_blank">"Sax"</a> - Fleur East</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/121390/play-that-sax" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"PYT" <b> - River Saldon & Jevan Canada</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">60 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">2 Tags, 1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/1ZZQuj6htF4?si=nfiX9tTGdPMrKbFQ" target="_blank">"P.Y.T (Pretty Young Thing)"</a> - Michael Jackson</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/182116/pyt" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Raised Like That" <b> - Darren Bailey</b></td>
+  <th class="stepsheetInsideBorder">Improver/<br>Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/6r23VxUUI_E?si=4IaxQ4ig2cz1A2F5" target="_blank">"Raised Like That"</a> - James Johnston, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/9gXP8wcICqQ?si=Cdw5YO9Lnt0oZU7V" target="_blank">"The Other Side"</a> - Jason Derulo</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/154113/raised-like-that" target="_blank">Link</a></th>
+ </tr>
+  </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Rampampam" <b> - Mark Furnell &<br> Chris Godden</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/XqgYj8atJqo" target="_blank">"Rampampam"</a> - Minelli</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/150459/rampampam" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Redneck Angel" <b> - Cheri Litzenburg & Renae Filiou</b></td>
+  <th class="stepsheetInsideBorder">High Beginner</th>
+  <th class="stepsheetInsideBorder">16 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/2HkbIy77nYw?si=tPQUNt31MgVxWHOH" target="_blank">"Merry Go Round"</a> - the JaneDear girls, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/eVli-tstM5E?si=Dn1BObEHr67kRIrI" target="_blank">"Espresso"</a> - Sabrina Carpenter, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/xTZA6JJ_Z8s?si=iZtxBpL_foFutkr9" target="_blank">"I'm The Problem (Sonic Boom Remix)"</a> - Sonic Boom Mashup of Eminem and Morgan Wallen, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/7wDUrQAaYsM?si=I0l27WmgjBiab1X0" target="_blank">"MOVE TO MIAMI"</a> - Enrique Iglesias, Pitbull</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/83248/redneck-angel" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Ring On Your Wranglers" <b> - Aleigha Elston & The Dancing Queen B</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">2 Tags</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/unmK2rxL9PM?si=GyS0JalOZHe_-o4I" target="_blank">"Do Si Don'tcha"</a> - Tanner Adell</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/164236/ring-on-your-wranglers" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Rodeo" <b> - Alexis Chavez & Sabrina Schneider</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">Opt. Tag <a onclick="rodeoTag();" style="font-size: 25px; color: #007bff;">🗈</a></th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/g1SsRxPEVE4?si=VKkbl_6h30STE_I2" target="_blank">"Rodeo"</a> - Lenny Cooper</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/155234/rodeo" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Rude Dude" <b> - Mark Paulino</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/iFpsAfNvUkw?si=firhlV03FCSJdvBx" target="_blank">"Church"</a> - T-Pain, Teddy Verseti</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/145588/rude-dude" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Sexy Mona Lisa" <b> - Darren Bailey, Fred Whitehouse & Amy Glass</b></td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/dx3wZfHF4c4?si=myVtgCKvR-CJ_5Fb&t=20s" target="_blank">"Acapulco"</a> - Jason Derulo</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/170447/sexy-mona-lisa" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Shady" <b> - Darren Bailey, Fred Whitehouse & Amy Glass</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">2 Tags, 1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/vBKKLjSslIs?si=OLwrrXQP1mnRXFMC" target="_blank">"Shady"</a> - Adam Lambert, Nile Rodgers, Sam Sparro</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/115261/shady" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Shake Senora (B.O.B)" (Shake BOB) <b> - Paige Glickman, Kiley Faulkner</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">2 Tags</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/AmuKdoe8MvI?si=rFAYTXwJ2d-E7oqX" target="_blank">"Shake Senora"</a> - Pitbull, T-Pain, Sean Paul</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/196276/shake-senora-bob" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"She's a Natural (Country Girl)" <b> - Jonno Liberman</b></td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag <br>(Done 3 Times)</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/_MSA5Hc-vl8?si=O9Sp3p7RrmO_shK0" target="_blank">"Natural"</a> - Breland</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/161630/shes-a-natural-country-girl" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Slappin' Leather" <b> - Gayle Brandon</b></td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+  <th class="stepsheetInsideBorder">40 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/ltrMfT4Qz5Y?si=IPOPNhwF1x7Pn9WU" target="_blank">"Footloose"</a> - Kenny Loggins, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/xGTncigvhTs?si=iOV79Et4Ly4CkvYu" target="_blank">"Footloose"</a> - Blake Shelton</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/38828/slapping-leather" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Showstopper" <b> - Scott Blevins & Jo Thompson Szymanski</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/0r-_nSo_ppk?si=C6v_Zz6WDtXo8T3U" target="_blank">"Showstopper"</a> - Brandon & Leah</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/94001/showstopper" target="_blank">Link</a></th>
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Spicy Margarita (Shot for Shot)" <b> - Miranda Mitchell</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/bWxdwXIPiiM?si=eDet8PgUAlIKU76W" target="_blank">"Spicy Margarita"</a> - Jason Derulo, Michael Bublé, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/rqa1jXnSXmE?si=0FxCpmuofbigL2Pj" target="_blank">"Hot Wings (I Wanna Party)"</a> - will.i.am</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/180013/spicy-margarita-shot-for-shot" target="_blank">Link</a></th>
+</tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Stetson" <b> - Emma Stenner & Brendan Simoens</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">1 Opt.<br> Tag</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/UIuKB8Iuu-w?si=xkoFnMkMfCIbFDgr" target="_blank">"Stetson"</a> - Walker Hayes</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/173885/stetson" target="_blank">Link</a></th>
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Sugar Honey I.T." <b> - Johanna Barnes</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">2 Restarts</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/KfBC6AWcmU4?si=K56HSwIcq86aaU1G" target="_blank">"Sugar.Honey.Ice.Tea"</a> - Charlie Wilson, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/U2waT9TxPU0?si=Tip234Oi09wJw3Fx" target="_blank">"Low"</a> - Flo Rida, T-Pain </th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/106685/sugar-honey-it" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Supa Sexxy" <b> - Tyler Fryson</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/SVnXLgYb7D4?si=WYKXStuZqpB26r8z" target="_blank">"Supa Sexxy"</a> - Charlie Wilson, T-Pain, Jamie Foxx</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/196695/supa-sexxy" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Swamp Thang" <b> - Max Perry</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">40 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+  <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/sakAQNMFS3g" target="_blank">"Swamp Thang"</a> - The Grid (Tempo changes are common)</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/41440/swamp-thang" target="_blank">Link</a><br>Note: Often done with<br> inner and outer<br>circle</th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Take It Off" <b> - Olivia D.</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">2 Restarts</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/edP0L6LQzZE?si=7eWv0Xf3BLA-25dM" target="_blank">"Take It Off"</a> - Ke$ha</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/172895/take-it-off" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Take Me To The Beach" <b> - Debbie Rushton, Gregory Danvoie, Mike Liadouze & Guillaume Richard</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">2 Restarts, 1 Tag</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/7HLrviPwEaU?si=RHqAPwbDbBAx3rBo" target="_blank">"Take Me To The Beach"</a> - Imagine Dragons</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/188882/take-me-to-the-beach" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"TatLO" <b> - Mark Paulino & Dylan DeClue</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/iil7NdI2Q9c" target="_blank">"Turn All The Lights On"</a> - T-Pain</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/177826/tatlo" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"T.G.I.F" (TGIF) <b> - Fred Whitehouse</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/hkoOzYI0ur4?si=KLAzheLzfWydTsNS" target="_blank">"Just Got Paid"</a> - *NSYNC (Rarely played if it has been), <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/lEssh-ifWmo?si=WtPrDznL7fs8FqRy" target="_blank">"Greenlight"</a> - Pitbull, Flo Rida, LunchMoney Lewis, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/gfWQ1r6IQrY?si=oRx17wlJ4X2EPzNo" target="_blank">"SexyBack"</a> - Justin Timberlake, Timbaland, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Mzybwwf2HoQ?si=zPI-9C6SWcERT96l" target="_blank">"I'm A Slave 4 U"</a> - Britney Spears, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/U5rLz5AZBIA?si=ICLj0_tIPRe_KeSa" target="_blank">"The Way I Are"</a> - Timbaland, Keri Hilson, D.O.E, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Cc8SAa-5XCE?si=Ly9W3XF50GSKntuL" target="_blank">"You Came To Party"</a> - Too $hort, Meter Mobb</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/42573/tgif" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"The Door (Show Me)" <b> - Rick Dominguez</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/VSXT4a2kRHA?si=5Hg9TDiPZfC4l8zf" target="_blank">"The Door"</a> - Teddy Swims</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/181914/the-door-show-me" target="_blank">Link</a></th>
+ </tr>
+     <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"The Sphinx" <b> - Simon Ward, Roy Hadisubroto, Fiona Murray & Rebecca Lee</b></td>
+  <th class="stepsheetInsideBorder">Advanced Phrased</th>
+  <th class="stepsheetInsideBorder">128 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/QeYwfu61Oak?si=MZLzsTsPdvOZcy5D" target="_blank">"Medellín (Offer Nissim Madame X In The Sphinx Mix)"</a> - Madonna, Maluma</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/7NZGYZ5/the-sphinx" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"The Fighter" <b> - Rob Holley</b></td>
+  <th class="stepsheetInsideBorder">Low Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+    <th class="stepsheetInsideBorder">2 Restarts</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/GzT4p-OaJ5c?si=oN4Z3yKyhsr0ekqU" target="_blank">"The Fighter"</a> - Keith Urban, Carrie Underwood</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/115280/the-fighter" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"The Vibe" <b> - Tim Johnson</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+    <th class="stepsheetInsideBorder">1 Tag, 3 Restarts <br>(All done<br> together)</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/4aA2u7WdERg?si=CrmZOoPe-GBmrs2c" target="_blank">"The Vibe"</a> - Mullally, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/eVli-tstM5E?si=Dn1BObEHr67kRIrI" target="_blank">"Espresso"</a> - Sabrina Carpenter</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/142214/the-vibe" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"The Wolf" <b> - Jonno Liberman</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/MmvfmQUrwtY?si=EvCJCHnP-0VtwMTg" target="_blank">"The Wolf"</a> - The Spencer Lee Band, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/qPWfTQlaAk0?si=SuKs_P44fVAUSobm" target="_blank">"G.U.Y. 4 U"</a> - Adamusic mashup of Britney Spears and Lady Gaga</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/123669/the-wolf" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Tip Toe" <b> - Fred Whitehouse</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+  <th class="stepsheetInsideBorder">1 Tag<br>(1 Unoff.),<br> 2 Restarts</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Ud0cGhBjjXo?si=Z2655djFpV4fC49y" target="_blank">"Tip Toe"</a> - Jason Derulo, French Montana</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/123754/tiptoe" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Toxic" <b> - Brianna Faith</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">2 Restarts</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/gAAcLMKDzko?si=0c1ZCcx3lJ77sJEg" target="_blank">"Project"</a> - Chase McDaniel</th>
+  <th class="stepsheetInsideBorder"><a href="https://linedancin.net/stepsheets/toxic.pdf" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Turn It Up" <b> - Paige Glickman</b></td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/eQWG8BVeryU?si=bHPaaLIuzF4AJmMf" target="_blank">"Turn Up The Music"</a> - Chris Brown</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/186386/turn-it-up" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Vibe Check" <b> - Debbie Rushton</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/MWFtFDqCEhU?si=8QMQaNlTcB2BXWmJ" target="_blank">"Vibe Check"</a> - LÒNIS, Little League</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/183629/vibe-check" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Walk The Line" <b> - Sandi Larkins</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">26 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/ivpfMF1v8H4?si=ub2AflHayEyKbV0Z" target="_blank">"Freight Train"</a> - Aaron Watson, <img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/qner24-rQZQ?si=nqUbq1FyH0DnLpsY" target="_blank">"Sin Wagon"</a> - The Chicks</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/45138/walk-the-line" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Watch The Tempo" <b> -  Guillaume Richard, Fred Whitehouse,<br> Shane McKeever & Gemma Ridyard</b></td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder">64 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">2 Restarts</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/mlf4bidp2yc?si=glDKXwJFD6nJfHgf" target="_blank">"Mad Love"</a> - Sean Paul, David Guetta, Becky G</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/124008/watch-the-tempo" target="_blank">Link</a></th>
+ </tr>
+    <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"We Are Tonight" <b> - Dan Albro</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">1 Tag, 1 Restart</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/Xbqs2R-ZC44" target="_blank">"We Are Tonight"</a> - Billy Currington</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/95128/we-are-tonight" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"West Coast Passion" <b> - Dan Moon</b></td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder">32 Count, 4 Wall</th>
+      <th class="stepsheetInsideBorder">N/A</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/VO7CuUcdS2w?si=GpZ38vo7DKDi0u54" target="_blank">"California"</a> - JRAFFE</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/136521/west-coast-passion" target="_blank">Link<br><br><br></a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Zjozzys Funk" <b> - Petra Van de Velde</b></td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder">32 Count, 2 Wall</th>
+      <th class="stepsheetInsideBorder">1 Tag (Possibly not with September)</th>
+ <th class="stepsheetInsideBorder"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img><a class="songLink" href="https://youtu.be/AWXub7E5moM?si=aZ_JXX3ItMyEaEA2" target="_blank">"September"</a> - Earth, Wind & Fire</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/47818/zjozzys-funk" target="_blank">Link<br><br><br></a></th>
+ </tr>
+ <tr><th><a href="#">Click To Go To Top</a></th><th></th></tr>
+ <tr><th style="opacity:0.0;">Bottom Of Page</th><th></th></tr>
+
+ </tbody>
+</table>
+</body>
+</html>

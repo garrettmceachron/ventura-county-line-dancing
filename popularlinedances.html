@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="images/BootIconContrast.png">
+
+
+
+<title>Ventura County Popular Line Dance Video Lessons</title>
+
+
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+	 
+	  <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</head>
+
+<link rel="stylesheet" href="css/style.css">
+
+</style>
+
+<body class = "pageBackground">
+	<center>
+	<h1 class="h1" style="font-family: 'Bespoke Slab', sans-serif; font-size: 29px;">Popular Line Dance Video Lessons<br> Useful for Ventura County</h1>
+	
+	<!--<h3 class="h3">Popular Line Dances</h3>--!>
+	</center>
+<div class="containerfluid">
+	<div class="navbar-expand-lg navbar-light dropdown-menu-left" class="containerfluid">
+	<div class="btn-group">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+	
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+		<li id="homeText"><a class="dropdown-item" href="index"><img src="images/BootIcon.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Home</a></li>
+		<li id="locationsMapText"><a class="dropdown-item" href="linedancelocations"><img src="images/SaloonDoor.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Map</a></img></li>
+		<li id="locationsInfoText"><a class="dropdown-item" href="linedancelocationsinfo"><img src="images/WantedPosterLargerWanted.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Info</a></li>
+			<!--<li><a class="dropdown-item" href="linedancetips">Line Dancing Tips</a></li>--!>
+			<!--<li><a class="dropdown-item" href="popularlinedances">Popular Line Dances</a></li>--!>
+			<li id="guidesText"><a class="dropdown-item" href="guides"><img src="images/WesternStar.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Guides</a></li>
+			<li id="articlesText"><a class="dropdown-item" href="articles"><img src="images/HorseshoeMerged.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Articles</a></li>
+			<li id="aboutText"><a class="dropdown-item" href="about"><img src="images/CowboyHat.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp About Us</a></li>
+ </ul>
+	</div>
+	</div>
+</div>
+<br><br>
+
+<script type="text/javascript" src="navigation.js"></script>
+
+
+<center>
+<p class="homeParagraph">As always, this can change. Those marked with a star have been popular for some time and may continue to be.</p>
+<li class="homeParagraph starList">Many more line dances (including popular song swaps) can be found on the playlist below. I hope you find this helpful!</li>
+<br>
+<a class="h3" target='_blank' style="font-size: 25px;" href="https://youtube.com/playlist?list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&si=gMFM0JhXk3bkB2Rr"><img src="images/youtube-icon.webp" style="width: 28px; height: 28px;"></img> Link to Popular Line Dances YouTube Playlist (Recommended to start from the top)</a>
+
+<!--<div class="youtubeEmbed">
+<br>
+<iframe class="youtubeEmbed" width="460" height="315" src="https://www.youtube.com/embed/videoseries?si=blQD_ZjrwbHL8jak&amp;list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>--!>
+
+<br><br>
+
+<br> <a href=""> </a>
+<details open>
+<summary><h3 class="h3">Beginner/Improver</h3></summary>
+<li class="starList quickFadeIn" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=l-6lxOZBowo&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5">Flex </a></li>
+<li class="starList"  style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=Pl4SLzkX810&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=3">The Wolf </a></li>
+<li class="starList"  style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=E5piMAtYD8g&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=4">Rodeo </a> </li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=qeQsdKwdI1M&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=9">Pieces To The Puzzle (Damn I Love Miami) </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=j_GT8i9F1tM&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=18">Gives Me Shivers </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=M98RbYOnBP4&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=40">American Kids </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=KGziXRBYYig&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=30">Country Girl Shake </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=-t8rClEqXTw&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=43">Goin' Hamm (Crank It Up) </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=SHCWgwzJ9iI&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=20">Take It Off </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=S8oubklWOWM&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=74">Cha Cha Caliente </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=Flbw5tMUcT4&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=28">Do Si Do </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=TJMM5NUczIo&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=21">Lonely Drum </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=yIy4Jza69vw&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=47">Sugar Honey I T </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=6z2GydiaOuo&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=37">Redneck Angel </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=txSo_m7SKHA&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=25">Fuego </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=1NYBSXSLFdg&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=39">Spicy Margarita (Shot for Shot)</a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=iZnU4HJjMLU&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=50">Add a Little Flavor </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=ft1M5TO666Y&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=44">Country Girl Stomp </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=uhBke1nJ-WU&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=92">She's a Natural </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=OngDKYFLZVI&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=83">Toxic (Project)</a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=oeS1usUnkxk&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=105">The Wobble </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=VD-yYNNrYiI&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=82">Ain't Too Cool </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=dDWDr0iGZ8A&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=85">Dancing While Intoxicated (DWI) </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=3JPGB3BDWm4&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=110">A Bar Song </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=aKjLW5ZIOes&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=90">The Door </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=TriEjQPm9-U&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=68">Countdown </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=TzLa0IuV4kM&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=193">Church Clap </a></li>
+<li class="starList"><a target="_blank" href="https://www.youtube.com/watch?v=2zQdweffALI&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=112">Walk The Line </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=TS69MUlUJ1o&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=51">Double D </a></li>
+<li class="nonStarList"><a target="_blank" href="https://www.youtube.com/watch?v=5zQp4FkzKT4&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=67">Outlaw </a></li>
+
+
+
+</details>
+<br>
+
+<details open>
+<summary><h3 class="h3">Intermediate/Advanced</h3></summary>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=NYEm7JHmiuc&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=11">T.G.I.F </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=09KKiA-zNkM&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=7">Off The Chain </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=zNWPxRV6MUY&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=6">3 Tequila Floor </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=KMItGKCWkH4&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=23">Honky Tonk Way </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=jvdH43NuSko&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=16">Make It Go Krazy </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=kH8CbDkP7AY&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=42">Raised Like That </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=YOp0znRCSN8&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=65">Get Dirty </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=CN4eAnXCfhM&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=71">Get Ugly </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=CRLTeNU6yk4&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=46">Jumanji </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=Rq2hqibkWKI&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=62">Aces and Eights (Whip It) </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=7211I7b22HQ&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=64">The Vibe </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=IcnW90im_UI&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=26">I Got 21 Reasons </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=phitncPjbcE&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=72">Stetson </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=kYTDnFanGlM&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=70">Askin' Questions </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=9RiYdQXQApU&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=22">Call Me Senorita </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=EDbC8liAq0E&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=74">High Class </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=9r4N2v5P2FM&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=53">Shady </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=YSDhqQNwd5Y&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=43">Cherry Bottom Boom (U Gurl)</a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=MAabpg9335E&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=55">PYT </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=7suZWVpFBVU&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=34">Tip Toe </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=eDJcNaOU-sg&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=59">Infectious </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=PKrwzdhnKyA&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=51">Rude Dude </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=1Ei73EJX4kU&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=80">Four on the Floor </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=io_vCLdGwH0&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=81">Nothing But You </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=m7TKwCDGl0M&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=116">Freaky Skillz </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=zwQIZa2PixI&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=98">Cyber Remix </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=IVs-4no9tr0&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=132">Cowboy Hip Hop </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=Ou-nLL1s2Fg&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=94">Fake ID </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=t8fHZW--Fqc&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=50">Makin' It Hot </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=qTCvrsgV3GE&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=76">Delulu </a></li>
+<li class="starList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=5H8liSg3wvk&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=89">1, 2, 3 </a></li>
+<li class="nonStarList" style="text-align: center;"><b class="newSong" id="shakeBOB">NEW </b><a target="_blank" href="https://www.youtube.com/watch?v=5TSzAkqb1zE&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=97">Shake Senora (B.O.B.) </a></li>
+<li class="nonStarList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=5k0CEhW-HpY&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=36">Descarada </a></li>
+<li class="nonStarList" style="text-align: center;"><a  target="_blank"href="https://www.youtube.com/watch?v=N1KgsCrTv2o&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=105">3 to Tango </a></li>
+<li class="nonStarList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=DsQ_A504xAg&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=111">Out Out </a></li>
+<li class="nonStarList" style="text-align: center;"><a target="_blank" href="https://www.youtube.com/watch?v=BlICMtAazvk&list=PLoQ6Fc_JS4jxsZXNr-GQfV1PRGx48Y7n5&index=87">Heart Got Teeth </a></li>
+
+
+
+
+
+<br>
+
+
+
+</details>
+
+
+
+
+
+
+
+<script>
+
+var d = new Date();
+let year = d.getFullYear();
+let month = d.getMonth() + 1;
+let day = d.getDate();
+
+
+
+function checkNew() 
+{
+
+if (year == 2025 && month < 9)
+document.getElementById("shakeBOB").style.display = '';
+else
+document.getElementById("shakeBOB").style.display = 'none';
+
+
+
+}
+
+checkNew();
+
+
+function checkIfClicked()
+{
+if (document.getElementById("includeAllLineDances").checked)
+	document.getElementById('showHideLineDances').style.display = 'block';
+else
+	document.getElementById('showHideLineDances').style.display = 'none';
+
+}
+
+checkIfClicked();
+
+
+</script>
+
+</center>
+
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+<link rel="icon" type="image/png" href="images/BootIconContrast.png">
+
+<title>Ventura County Line Dancing Venues Info</title>
+
+
+
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+	 
+	  <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</head>
+
+<link rel="stylesheet" href="css/style.css">
+
+</style>
+
+<body class = "pageBackground">
+
+
+	<center>
+	<h1 class="pageTitle">Ventura County Line Dancing Venues Info</h1>
+	</center>
+	
+	
+	
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+<a href="#" style="color:black;" id="goToTopID"><div class="fadeClass goToTopIcon">
+<b><i class="bi bi-arrow-bar-up" style="font-size: 1.9rem;"></i></b>
+</div></a>
+
+
+<script>
+document.getElementById("goToTopID").style.display = "none";
+
+const repeat = setInterval(function() {
+   if (window.scrollY > 1000) {
+   document.getElementById("goToTopID").style.display = "block";
+}
+else
+{
+document.getElementById("goToTopID").style.display = "none";
+
+}
+ }, 250);
+
+</script>
+
+
+
+<div class="containerfluid containerMobileInfo">
+	<div class="navbar-expand-lg navbar-light dropdown-menu-left" class="containerfluid">
+	<div class="btn-group">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+	
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+		<li id="homeText"><a class="dropdown-item" href="index"><img src="images/BootIcon.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Home</a></li>
+		<li id="locationsMapText"><a class="dropdown-item" href="linedancelocations"><img src="images/SaloonDoor.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Map</a></img></li>
+		<li id="locationsInfoText"><a class="dropdown-item" href="linedancelocationsinfo"><img src="images/WantedPosterLargerWanted.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Info</a></li>
+			<!--<li><a class="dropdown-item" href="linedancetips">Line Dancing Tips</a></li>--!>
+			<!--<li><a class="dropdown-item" href="popularlinedances">Popular Line Dances</a></li>--!>
+			<li id="guidesText"><a class="dropdown-item" href="guides"><img src="images/WesternStar.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Guides</a></li>
+			<li id="articlesText"><a class="dropdown-item" href="articles"><img src="images/HorseshoeMerged.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Articles</a></li>
+			<li id="aboutText"><a class="dropdown-item" href="about"><img src="images/CowboyHat.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp About Us</a></li>
+ </ul>
+	</div>
+	</div>
+</div>
+
+<center>
+
+
+
+
+<center>
+
+<script>
+
+var locationLinkNum;
+
+function copyLocationLink(locationLinkNum)
+{ 
+document.getElementById("linkCopied").style.visibility= "visible";
+document.getElementById("linkCopied").style.display = "flex";
+document.getElementById("linkCopied").style.animation="none";
+document.getElementById("linkCopied").offsetHeight;
+
+document.getElementById("linkCopied").style.animation=0;
+var link = "https://venturacountylinedancing.neocities.org/linedancelocationsinfo#";
+
+navigator.clipboard.writeText("https://venturacountylinedancing.neocities.org/linedancelocationsinfo#" + locationLinkNum);
+
+document.getElementById("linkCopied").style.animation="linkCopiedAnimation 3s linear forwards";
+}
+
+</script>
+
+<br>
+
+
+
+
+
+<div id="linkCopied" style="display: flex; visibility: hidden; border-radius: 1rem; background-color: black; width: 60%; position: fixed; height: 50px; bottom: 100px; transform: translateX(30%); z-index:99999999;">
+<p id="linkCopiedText" style="color: white; font-size: 18px; margin: 0 auto; text-align: center;"> Link Copied</p>
+</div>
+
+
+
+
+<br><br>
+<h4 class="showingNum" id="showingNumber">Showing </h4><br>
+<div class="allLocations"><span id="thecanyon"></span>
+<div class="locationInfoDiv" id="Canyon" style="position:relative;">
+	
+	<ul class="locationInfoH1"><u>The Canyon</u>&nbsp<img onclick="copyLocationLink('thecanyon');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></img></ul>
+		<center>
+		<div class="locationsImageBackground">
+		<img class="locationsinfoImage" id="canyonImg" src="images/Canyon1.jpg" alt="Showcase of The Canyon Line Dancing">
+		</div>
+		<div class="locationsImgArrowsDiv">
+		<!--ul class="imgCreditText">Image Credit: Garrett M.</ul--!>
+		<i class="bi bi-arrow-left-short imgLeftArrow" onclick="changeCanyonImg(1, 0);"></i>
+		<i class="bi bi-arrow-right-short imgRightArrow" onclick="changeCanyonImg(0, 1);"></i>
+		</div>
+		<br>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> College Night Line Dancing with Country Swing and Two Step, 18+
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 28912 Roadside Dr, Agoura Hills, CA 91301</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Every Wednesday</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 7:00pm - 12:30/1:00am</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Lessons at 9:00pm and 10:00pm</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://wheremusicmeetsthesoul.com/canyon-agoura-hills/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://goo.gl/maps/WdHuusJ1DmEngWGT9'>Google Maps</a></ul>
+</div>
+
+<script>
+
+var canyonImgArrayCount = '0';
+
+function changeCanyonImg(left, right) {
+
+  var canyonImagePath = document.getElementById('canyonImg');
+  const canyonImgArray = ['images/Canyon1.jpg', 'images/CanyonFront.jpg']; 
+  
+	document.getElementById('canyonImg').style.animation="none";
+	canyonImagePath.offsetHeight;
+	
+if (left == 1) {
+	if (canyonImgArrayCount > 0)
+		canyonImgArrayCount += -1;
+	else
+		canyonImgArrayCount = canyonImgArray.length - 1;
+}
+
+if (right == 1) {
+	if (canyonImgArrayCount < canyonImgArray.length - 1)
+		canyonImgArrayCount++;
+	else
+		canyonImgArrayCount = 0;
+}
+
+document.getElementById('canyonImg').style.animation="fullFade 0.285s linear";
+canyonImagePath.src = canyonImgArray[canyonImgArrayCount];
+
+
+}
+
+</script>
+
+<br><span id="tarantulahill"></span><br>
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Tarantula Hill Brewing Co.</u>&nbsp<img onclick="copyLocationLink('tarantulahill');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></img></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Local Beer and Outdoor Line Dancing with Country Swing and Two Step, 18+
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 244 Thousand Oaks Blvd, Thousand Oaks, CA 91360</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> First Saturday of Every Month</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 6:00pm - 12:00/1:00am</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Usually 6:30pm, 7:30pm</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://tarantulahillbrewingco.com'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/VGGXjGWEyXYoVnfK8'>Google Maps</a></ul>
+</div>
+
+<br><span id="santaclaritasportscenter"></span><br>
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Santa Clarita Sports Center</u>&nbsp<img onclick="copyLocationLink('santaclaritasportscenter');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Sports Center Line Dancing with Country Swing and Two Step, 18+
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 25385 Rye Canyon Rd, Santa Clarita, CA 91355</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Every Thursday</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 7:45pm - 12:00am</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Two lessons throughout the night</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://santaclaritasportscenter.com/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/jwesuo4UskHThQhU8'>Google Maps</a></ul>
+</div>
+
+<br><span id="daveandbusters"></span><br>
+
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Dave & Busters</u>&nbsp<img onclick="copyLocationLink('daveandbusters');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Line Dancing, all ages and free
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 145 W Hillcrest Dr, Thousand Oaks, CA 91360</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Every Thursday</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 7:00pm - 10:00pm</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Lesson at 8pm</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://www.daveandbusters.com/us/en/about/locations/thousand-oaks'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/8qLk5uB6QE6cYajB7'>Google Maps</a></ul>
+</div>
+
+
+<br><span id="eanddhatco"></span><br>
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>E & D Hat Co</u>&nbsp<img onclick="copyLocationLink('eanddhatco');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Line Dancing, Country Swing and Two Step, all ages until 10:00pm then 18+
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 820 E Main St, Santa Paula, CA 93060</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Saturdays About Once Every Few Months</ul>
+		<a target='_blank' href='https://ventuckystompers.com/linedancing/'>Click for Schedule</a>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 6:00pm - 12:00ish am</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Two lessons throughout the night</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://eanddhatco.com/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/Y7SN91pEDeLacaEYA'>Google Maps</a></ul>
+
+</div>
+
+<br><span id="cowboypalacesaloon"></span><br>
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Cowboy Palace Saloon</u>&nbsp<img onclick="copyLocationLink('cowboypalacesaloon');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Line Dancing and Two Step, 21+
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 21635 Devonshire St, Chatsworth, CA 91311</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Every Wednesday-Sunday</ul>
+		<a target='_blank' href='https://thecowboypalacesaloon.com/'>Click for Schedule</a>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 4:30pm - 9:00pm (Varies on day, usually 2 hours)</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Varied, usually one to two lessons: Beginner and Improver</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://thecowboypalacesaloon.com/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/VMojvZzvD9MYNu2FA'>Google Maps</a></ul>
+
+</div>
+
+<br><span id="rocknrollpizza"></span><br>
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Rock & Roll Pizza @ Harley's Valley Bowl</u>&nbsp<img onclick="copyLocationLink('rocknrollpizza');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Line Dancing, all ages
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 5255 Cochran St Simi Valley, CA 93063</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Select Dates (TBA), </ul>
+		<a target='_blank' href='https://www.instagram.com/rocknrollpizzabar/'>Click for Schedule</a>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> TBA</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> TBA</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://www.harleysbowl.com/valleybowl'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/Mi2q1xkVixypZLQC9'>Google Maps</a></ul>
+
+</div>
+
+<br><span id="redenginebrewingco"></span><br>
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Red Engine Brewing Company</u>&nbsp<img onclick="copyLocationLink('redenginebrewingco');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Line Dancing, Country Swing and Two Step, all ages
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 803 Ventura St, Fillmore, CA 93015</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Every Friday</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 7:00pm - 11:00pm</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Unknown</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://redenginebrewing.com/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/AN2vhqrLvwtxhX468'>Google Maps</a></ul>
+
+</div>
+
+<script>
+
+	const redEngineBrewingCo = {
+			   location: Red Engine Brewing Company
+			   description: 
+	}
+
+</script>
+
+<br><span id="thepaddock"></span><br>
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>The Paddock</u>&nbsp<img onclick="copyLocationLink('thepaddock');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Line Dancing, all ages and free
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 1345 Thousand Oaks Blvd, Thousand Oaks, CA 91362</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Every Other Friday (Unless postponed),<br><a href='https://www.instagram.com/thepaddock805/' target='_blank'>Click for Schedule</a></ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 6:00pm - Closing</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Two lesssons per night</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://www.paddocksportsbar.com/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/BayixHoDga9Q81Cb7'>Google Maps</a></ul>
+
+</div>
+
+<br><span id="venturamusichall"></span><br>
+
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Ventura Music Hall</u>&nbsp<img onclick="copyLocationLink('venturamusichall');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+	<div class="locationsImageBackground">
+		<img class="locationsinfoImage" id="venturaMusicHallImg" src="images/venturaMusicHall1.jpg" alt="Showcase of Ventura Music Hall's Neon Moon Country Party Line Dancing">
+		</div>
+		<div class="locationsImgArrowsDiv">
+		<!-- ul class="imgCreditText">Image Credit: Garrett M.</ul --!>
+		<i class="bi bi-arrow-left-short imgLeftArrow" onclick="changeventuraMusicHallImg(1, 0);"></i>
+		<i class="bi bi-arrow-right-short imgRightArrow" onclick="changeventuraMusicHallImg(0, 1);"></i>
+		</div>
+		<br>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail" style="padding: 6px;"> Special event line dancing in Ventura's Music Hall with Neon Moon Country Party, 18+
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 1888 E Thompson Blvd, Ventura, CA 93001</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Fridays or Saturdays About Once Every One to Two Months</ul>
+		<a target='_blank' href='https://www.venturamusichall.com/events'>Click for Schedule</a>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 8:00pm - 12:00am</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Usually 8:00pm</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://www.venturamusichall.com/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/h1bH99FBTady7HUf8'>Google Maps</a></ul>
+
+</div>
+
+<script>
+
+var venturaMusicHallImgArrayCount = '0';
+
+function changeventuraMusicHallImg(left, right) {
+
+  var venturaMusicHallImagePath = document.getElementById('venturaMusicHallImg');
+  const venturaMusicHallImgArray = ['images/venturaMusicHall1.jpg', 'images/venturaMusicHall2.jpg']; 
+  
+	document.getElementById('venturaMusicHallImg').style.animation="none";
+	venturaMusicHallImagePath.offsetHeight;
+	
+if (left == 1) {
+	if (venturaMusicHallImgArrayCount > 0)
+		venturaMusicHallImgArrayCount += -1;
+	else
+		venturaMusicHallImgArrayCount = venturaMusicHallImgArray.length - 1;
+}
+
+if (right == 1) {
+	if (venturaMusicHallImgArrayCount < venturaMusicHallImgArray.length - 1)
+		venturaMusicHallImgArrayCount++;
+	else
+		venturaMusicHallImgArrayCount = 0;
+}
+
+document.getElementById('venturaMusicHallImg').style.animation="fullFade 0.285s linear";
+venturaMusicHallImagePath.src = venturaMusicHallImgArray[venturaMusicHallImgArrayCount];
+
+
+}
+
+</script>
+
+<br><span id="conejovalleylodge"></span><br>
+
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Conejo Valley Lodge #807</u>&nbsp<img onclick="copyLocationLink('conejovalleylodge');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Line Dancing and Two Step, all ages
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 2786 Crescent Way, Thousand Oaks, CA 91362</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail" id="ConejoMasonicDays">Every Thursday</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 6:00pm - 9:30pm</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Two Lessons</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://conejomasons.org/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/jfDkhAceYknuC4ca9'>Google Maps</a></ul>
+
+</div>
+
+<br><span id="magnavinocellars"></span><br>
+
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Magnavino Cellars</u>&nbsp<img onclick="copyLocationLink('magnavinocellars');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Live Older Country Style Line Dancing and Two Step, 18+
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 961 Rice Ave, Oxnard, CA 93030</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail" id="ConejoMasonicDays">Last Friday of Every Month</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 7:00pm - 10:00pm</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Lessons throughout the night</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://magnavinocellars.com/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/519NmCHVL3qZkRnz6'>Google Maps</a></ul>
+
+</div>
+
+<br><span id="streycellars"></span><br>
+
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Strey Cellars</u>&nbsp<img onclick="copyLocationLink('streycellars');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Live Older Country Style Line Dancing and Two Step
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 951 Rice Ave, Oxnard, CA 93030</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Usually Once a Month on Sundays,<br><a target='_blank' href='https://www.streycellars.com/event-type-2/barfly/'>Click for Schedule</a></ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 2:00pm - 5:00pm</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Usually One Lesson Early at 1:00pm - 2:00pm</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://www.streycellars.com/'>Website</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/zRYyGL3n6R3SGfhT7'>Google Maps</a></ul>
+
+</div>
+
+<br><span id="dancecreations"></span><br>
+
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Dance Creations</u>&nbsp<img onclick="copyLocationLink('dancecreations');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Intermediate Advanced Line Dancing Socials
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 888 E Easy St, Simi Valley, CA 93065</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Every 3rd Sunday</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 6:00pm - 9:00pm</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> N/A (Lessons by Roanna done at other locations)</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://www.instagram.com/roannabattocchio/'>Website (Check Instagram)</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/TZpGK4E2YDkLi5kR7'>Google Maps</a></ul>
+</div>
+
+<br><span id="corkAndBatterRoadhouse"></span><br>
+
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>Cork & Batter Roadhouse</u>&nbsp<img onclick="copyLocationLink('corkAndBatterRoadhouse');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Beginner and Intermediate Line Dancing
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 1747 Simi Town Center Way, Simi Valley, CA 93065</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Every Friday</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 8:00pm - 11:00pm</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Lessons led by Chloe Kleiman</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://www.instagram.com/corkandbatter.roadhouse/'>Website (Check Instagram)</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/oAHeJ4qyaxNPTtrj8'>Google Maps</a></ul>
+</div>
+
+<br><span id="pcsBarGrill"></span><br>
+
+<div class="locationInfoDiv">
+	<ul class="locationInfoH1"><u>PCs Bar & Grill</u>&nbsp<img onclick="copyLocationLink('pcsBarAndGrill');" src='images/content_copy_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg' class="copyLinkButton"></ul>
+		<ul class="locationInfoULB">Description:</ul><ul class="locationInfoULDetail"> Hot Country Tuesdays
+		<ul class="locationInfoULB">Location:</ul><ul class="locationInfoULDetail"> 4250 E Los Angeles Ave, Simi Valley, CA 93063</ul>
+		<ul class="locationInfoULB">Days:</ul><ul class="locationInfoULDetail"> Every Tuesday</ul>
+		<ul class="locationInfoULB">Time:</ul><ul class="locationInfoULDetail"> 6:00pm</ul>
+		<ul class="locationInfoULB">Lessons:</ul><ul class="locationInfoULDetail"> Lessons led by DI Dev</ul>
+		<ul class="locationInfoULB">Links</ul><ul class="locationInfoULDetail"><a target='_blank' href='https://www.instagram.com/dancingwithdev5678/'>Website (Check Instagram)</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://maps.app.goo.gl/GX8KVcGNqUvqWYC76'>Google Maps</a></ul>
+</div>
+
+<br><span id="theHive"></span><br>
+
+
+
+<br><br>
+
+	
+
+</center>
+
+
+<script>
+ 
+var venueCount = document.querySelectorAll(".locationInfoH1");
+document.getElementById("showingNumber").innerHTML = "Showing " + venueCount.length + " of " + venueCount.length;
+
+</script>
+
+<script type="text/javascript" src="navigation.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="images/BootIconContrast.png">
+
+<title>Ventura County Line Dancing Locations Map</title>
+
+
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+	 
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<!--Leaflet Fullscreen CDN!-->
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+    <script src="https://unpkg.com/esri-leaflet@3.0.19/dist/esri-leaflet.js"></script>
+
+    <script src="https://unpkg.com/esri-leaflet-vector@4.3.2/dist/esri-leaflet-vector.js"></script>
+
+</head>
+
+<link rel="stylesheet" href="css/style.css">
+
+</style>
+
+<body class = "pageBackground">
+	<center>
+	<h1 class="pageTitle">Ventura County Line Dancing Map</h1>
+	</center>
+	
+	
+<div class="containerfluid">
+	<div class="navbar-expand-lg navbar-light dropdown-menu-left navbar-higherRes" style="border-right: 0; float: left;" class="containerfluid">
+	<div class="btn-group">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+	
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+		<li id="homeText"><a class="dropdown-item" href="indexhtml"><img src="images/BootIcon.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Home</a></li>
+		<li id="locationsMapText"><a class="dropdown-item" href="linedancelocationshtml"><img src="images/SaloonDoor.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Map</a></img></li>
+		<li id="locationsInfoText"><a class="dropdown-item" href="linedancelocationsinfohtml"><img src="images/WantedPosterLargerWanted.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Info</a></li>
+			<!--<li><a class="dropdown-item" href="linedancetipshtml">Line Dancing Tips</a></li>!-->
+			<!--<li><a class="dropdown-item" href="popularlinedanceshtml">Popular Line Dances</a></li>!-->
+			<li id="guidesText"><a class="dropdown-item" href="guideshtml"><img src="images/WesternStar.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Guides</a></li>
+			<li id="articlesText"><a class="dropdown-item" href="articleshtml"><img src="images/HorseshoeMerged.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Articles</a></li>
+			<li id="aboutText"><a class="dropdown-item" href="abouthtml"><img src="images/CowboyHat.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp About</a></li>
+ </ul>
+	</div>
+	</div>
+</div> 
+
+<script type="text/javascript" src="navigation.js"></script>
+ <br><br>
+<center>	
+	 <div id="map" class="LineDancingMap quickFadeIn" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"></div>
+
+	 <br>
+	 <button type="button" class="NearMeButton" onclick=NearMe();>Locate Near Me </button>
+	 <button type="button" class="ShowNames" onclick="showNames(); checkZoomClick();"> Toggle Venue Names </button>
+	 <br><br>
+	 <button type="button" class="showAllButton" onclick="showAll(); checkZoomClick();"> Show All</button>
+	 <button type="button" class="showWeeklyButton" onclick="showWeekly(); checkZoomClick();"><input type="checkbox" class="checkboxText" id="weekly" style="width: 17px; height: 17px; accent-color: #b55e21;"></"></input> Show Weekly</button>
+	 <button type="button" class="showMonthlyButton" onclick="showMonthly(); checkZoomClick();"><input type="checkbox" class="checkboxText" id="monthly" style="width: 17px; height: 17px; accent-color: #b55e21;"></input> Show Monthly</button>
+	 <button type="button" class="showRandomButton" onclick="showRandom(); checkZoomClick();"><input type="checkbox" class="checkboxText" id="random" style="width: 17px; height: 17px; accent-color: #b55e21;"></input> Show Special Events</button>
+	 <br>
+	 <b id="showingAll" class="All"></b> <!--Showing All!-->
+	 <b id="showingWeekly" class="Week"></b> <!--Show Weekly!-->
+	 <b id="showingMonthly" class="Month"></b> <!--Show Monthly!-->
+	 <b id="showingRandom" class="Random"></b> <!--Show Special Events!-->
+	 
+	 <br><b class="homeParagraph">Updated 2026</b>
+	
+	</center>
+	
+	<script>
+	</script>
+	
+	 
+	 <script>
+	 
+	
+	 
+	 function NearMe() {
+	map.locate({setView: true, maxZoom: 13});
+	map.on('locationfound', onLocationFound);
+	}
+	
+	
+	
+	function onLocationFound(e) {
+    var radius = e.accuracy;
+
+    var youAreHereMarker = L.marker(e.latlng, {icon: redIcon}).addTo(map)
+        .bindPopup("You are here").openPopup();
+
+
+    L.circle(e.latlng, radius).addTo(map);
+}
+	 
+	 var map = L.map('map').setView([34.1746908,-119.0244964], 10);
+	
+	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+
+map.addControl(new L.Control.Fullscreen());
+
+var largerIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 27],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var upOffsetIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 50],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var orangeIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var yellowIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var greenIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var redIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+
+var canyon = L.marker([34.143943, -118.755054], {
+	title: 'The Canyon',
+	label: 'The Canyon',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+var davenbusters = L.marker([34.1815359,-118.8798743,158], {
+	title: 'Dave & Busters',
+	label: 'Dave & Busters',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var tarantulahill = L.marker([34.1790311,-118.8732563,30], {
+	title: 'Tarantula Hill Brewing Co.',
+	label: 'Tarantula Hill Brewing Co.',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+var thePaddock = L.marker([34.1784215,-118.85609,124], {
+	title: 'The Paddock',
+	label: 'The Paddock',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var marker7 = L.marker([34.352674, -119.063679], {
+	title: 'E & D Hat Co.',
+	label: 'E & D Hat Co.',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var cowboyPalace = L.marker([34.2575305,-118.6015038,816], {
+	title: 'The Cowboy Palace Saloon',
+	label: 'The Cowboy Palace Saloon',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+var santaClaritaSportsCenter = L.marker([34.4373292,-118.5794696,209], {
+	title: 'Santa Clarita Sports Center',
+	label: 'Santa Clarita Sports Center',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+
+var redEngine = L.marker([34.3962873,-118.9207023,815], {
+	title: 'Red Engine Brewing Company',
+	label: 'Red Engine Brewing Company',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var venturaMusicHall = L.marker([34.2745958,-119.2730939,105], {
+	title: 'Ventura Music Hall',
+	label: 'Ventura Music Hall',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var conejoValleyLodge = L.marker([34.1714337,-118.8395939,56], {
+	title: 'Conejo Valley Lodge #807',
+	label: 'Conejo Valley Lodge #807',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var magnavinoCellars = L.marker([34.2106546,-119.1429478,35], {
+	title: 'Magnavino Cellars',
+	label: 'Magnavino Cellars',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var streyCellars = L.marker([34.2097398,-119.1426471,134], {
+	title: 'Strey Cellars',
+	label: 'Strey Cellars',
+	icon: largerIcon,
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var danceCreations = L.marker([34.273437, -118.781634], {
+	title: 'Dance Creations',
+	label: 'Dance Creations',
+	icon: upOffsetIcon,
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var varsityClub = L.marker([34.24287759584501, -119.20879469401014], {
+	title: 'Varsity Club',
+	label: 'Varsity Club',
+	icon: upOffsetIcon,
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var pcsBarGrill = L.marker([34.2713923,-118.711651,898], {
+	title: 'PC\'s Bar & Grill',
+	label: 'PC\'s Bar & Grill',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var grillOnTheGreen = L.marker([34.2897912,-118.695882,898], {
+	title: 'Grill On The Green',
+	label: 'Grill On The Green',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var corkAndBatterRoadhouse = L.marker([34.2838068,-118.76426,898], {
+	title: 'Cork & Batter Roadhouse',
+	label: 'Cork & Batter Roadhouse',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var enegrenBrewingCo = L.marker([34.2831012,-118.8706701,898], {
+	title: 'Enegren Brewing Co.',
+	label: 'Enegren Brewing Co.',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
+var showNameYesNo = 0;
+
+function showNames() {
+	if (showNameYesNo == 0) {
+	canyon.bindTooltip('The Canyon', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	davenbusters.bindTooltip("Dave & Buster's", { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	tarantulahill.bindTooltip('Tarantula Hill & Brewing Co.', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	thePaddock.bindTooltip('The Paddock', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	marker7.bindTooltip('E & D Hat Co.', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	cowboyPalace.bindTooltip('The Cowboy Palace Saloon', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	santaClaritaSportsCenter.bindTooltip('Santa Clarita Sports Center', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	redEngine.bindTooltip('Red Engine Brewing Company', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	venturaMusicHall.bindTooltip('Ventura Music Hall', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	conejoValleyLodge.bindTooltip('Conejo Valley Lodge #807', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	magnavinoCellars.bindTooltip('Magnavino Cellars', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	streyCellars.bindTooltip('Strey Cellars', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	danceCreations.bindTooltip('Dance Creations', { permanent: true, direction: 'bottom', offset: [0, 0] });
+	varsityClub.bindTooltip('Varsity Club', { permanent: true, direction: 'bottom', offset: [0, 5] });
+	pcsBarGrill.bindTooltip('PC\'s Bar & Grill', { permanent: true, direction: 'bottom', offset: [0, 5] });
+	grillOnTheGreen.bindTooltip('Grill On The Green', { permanent: true, direction: 'top', offset: [-16, -5] });
+	corkAndBatterRoadhouse.bindTooltip('Cork & Batter Roadhouse', { permanent: true, direction: 'top', offset: [-15, -15] });
+	enegrenBrewingCo.bindTooltip('Enegren Brewing Co.', { permanent: true, direction: 'bottom', offset: [-15, 15] });
+	
+	showNameYesNo = 1;
+	
+	return;
+	}
+	
+	if (showNameYesNo == 1) {
+	canyon.unbindTooltip();
+	davenbusters.unbindTooltip();
+	tarantulahill.unbindTooltip();
+    thePaddock.unbindTooltip();
+	marker7.unbindTooltip();
+	cowboyPalace.unbindTooltip();
+	santaClaritaSportsCenter.unbindTooltip();
+	redEngine.unbindTooltip();
+	venturaMusicHall.unbindTooltip();
+	conejoValleyLodge.unbindTooltip();
+	magnavinoCellars.unbindTooltip();
+	streyCellars.unbindTooltip();
+	danceCreations.unbindTooltip();
+	varsityClub.unbindTooltip();
+	pcsBarGrill.unbindTooltip();
+	grillOnTheGreen.unbindTooltip();
+	corkAndBatterRoadhouse.unbindTooltip();
+	enegrenBrewingCo.unbindTooltip();
+
+	showNameYesNo = 0;
+	
+	return;
+	}
+}
+
+
+var weekly = L.layerGroup().addTo(map);
+
+var monthly = L.layerGroup().addTo(map);
+
+var random = L.layerGroup().addTo(map);
+
+var showHideAll = 1;
+
+var showHideWeekly = 1;
+
+var showHideMonthly = 1;
+
+var showHideRandom = 1;
+
+function showMonthly() {
+if (showHideMonthly == 0) {
+map.addLayer(monthly);
+showHideMonthly = 1;
+checkVisibility();
+return;
+}
+
+if (showHideMonthly == 1) {
+map.removeLayer(monthly);
+showHideMonthly = 0;
+checkVisibility();
+return;
+}
+
+}
+
+function showRandom() {
+if (showHideRandom == 0) {
+map.addLayer(random);
+showHideRandom = 1;
+checkVisibility();
+return;
+}
+
+if (showHideRandom == 1) {
+map.removeLayer(random);
+showHideRandom = 0;
+checkVisibility();
+return;
+}
+
+}
+
+function showWeekly() {
+if (showHideWeekly == 0) {
+map.addLayer(weekly);
+showHideWeekly = 1;
+checkVisibility();
+
+return;
+}
+
+else {
+map.removeLayer(weekly);
+showHideWeekly = 0;
+checkVisibility();
+return;
+}
+
+}
+
+function showAll() {
+
+	if (showHideWeekly == 0) {
+	map.addLayer(weekly);
+	showHideWeekly = 1;
+	showHideAll = 1;
+	
+	}
+
+	if (showHideMonthly == 0) {
+	map.addLayer(monthly);
+	showHideMonthly = 1;
+	showHideAll = 1;
+	
+	
+	
+
+	if (showHideRandom == 0) {
+	map.addLayer(random);
+	showHideRandom = 1;
+	showHideAll = 1;
+	
+	
+}
+
+}
+checkVisibility();
+}
+
+	 function checkVisibility() {
+	 if (showHideAll == 1 && showHideMonthly == 1 && showHideWeekly == 1 && showHideRandom == 1)
+	 {
+		document.getElementById('showingAll').style.display = 'block';
+	 }
+	 if (showHideAll < 1 || showHideMonthly < 1 || showHideWeekly < 1 || showHideRandom < 1)
+	 {
+		document.getElementById('showingAll').style.display = 'none';
+	 }
+	 if (showHideWeekly == 1)
+	 {
+		document.getElementById('showingWeekly').style.display = 'block';
+		document.getElementById('showingAll').style.display = 'none';
+		document.getElementById("weekly").checked = true;
+	 }
+	 else
+	 {
+		document.getElementById('showingWeekly').style.display = 'none';
+		document.getElementById("weekly").checked = false;
+	 }
+	 if (showHideMonthly == 1)
+	 {
+		document.getElementById('showingMonthly').style.display = 'block';
+		document.getElementById("monthly").checked = true;
+	 }
+	else
+	{
+		document.getElementById('showingMonthly').style.display = 'none';
+		document.getElementById("monthly").checked = false;	
+	}
+	if (showHideRandom == 1)
+	{
+		document.getElementById('showingRandom').style.display = 'block';
+		document.getElementById("random").checked = true;
+	}
+	else
+	{
+		document.getElementById('showingRandom').style.display = 'none';
+		document.getElementById("random").checked = false;
+	}
+	 }
+
+canyon.bindPopup("<b><a href='linedancelocationsinfo.html#thecanyon' target='_blank'>The Canyon, Agoura Hills</b></a><br>Every Wednesday</b><br><b> 7:00pm - 12:30/1am.</br><b>Borderline Bar</b><br><br><a target='_blank' href='https://goo.gl/maps/WdHuusJ1DmEngWGT9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/borderlinebar/'>Instagram</a>").addTo(weekly);
+davenbusters.bindPopup("<b><a href='linedancelocationsinfo.html#daveandbusters' target='_blank'>Dave & Buster's, Thousand Oaks</b></a><br>Every Thursday</b><br><b> 7:00pm - 10:00pm.</br><b>Janice Carnahan</b><br><br><a target='_blank' href='https://goo.gl/maps/WMdnULtKFuDJFf296'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/dancinjan89/'>Instagram</a>").addTo(weekly);
+tarantulahill.bindPopup("<b><a href='linedancelocationsinfo.html#tarantulahill' target='_blank'>Tarantula Hill Brewing Co., Thousand Oaks</b></a><br>First Saturdays of Every Month</b><br><b> 6:00pm - 12:00/1am.</br><b>Borderline Bar</b><br><br><a target='_blank' href='https://maps.app.goo.gl/31fAgQSM9AJauomv6'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/borderlinebar/'>Instagram</a>").addTo(monthly);
+thePaddock.bindPopup("<b><a href='linedancelocationsinfo.html#oakslocal' target='_blank'>The Paddock, Thousand Oaks</b></a><br>Every Other Friday,</b><br><a href='https://www.instagram.com/thepaddock805/' target='_blank'>Click for Schedule</a><br><b> 7:00pm - 12:00am.</br><b>Oaks Local</b><br><br><a target='_blank' href='https://maps.app.goo.gl/ksKzaUkx9HhpegcSA'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/thepaddock805/'>Instagram</a>").addTo(weekly);
+marker7.bindPopup("<b><a href='linedancelocationsinfo.html#eanddhatco' target='_blank'>E & D Hat Co., Santa Paula</b></a><br>Saturdays About Once Every Few Months,</b><br><a target='_blank' href='https://www.instagram.com/e_and_d_hat_co/'>Click for Schedule</a><br><b> Time Varies By Event</br><b>Varied</b><br><br><a target='_blank' href='https://maps.app.goo.gl/5kQnippSpxKibQfu7'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/e_and_d_hat_co/'>Instagram</a>").addTo(random);
+cowboyPalace.bindPopup("<b><a href='linedancelocationsinfo.html#cowboypalacesaloon' target='_blank'>The Cowboy Palace Saloon, Chatsworth</b></a><br>Every Wednesday-Sunday</b><br><b> Often starts at 4:30pm or 6:00pm/7:00pm.<a target='_blank' href='https://thecowboypalacesaloon.com/'><br>Click for Schedule</a></b></br><b>Cowboy Palace</b><br><br><a target='_blank' href='https://maps.app.goo.gl/69NiXnSVz59GiE7x9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/cowboypalacesaloon/'>Instagram</a>").addTo(weekly);
+santaClaritaSportsCenter.bindPopup("<b><a href='linedancelocationsinfo.html#santaclaritasportscenter' target='_blank'>Santa Clarita Sports Center, Santa Clarita</b></a><br>Every Thursday</b><br><b> 7:45pm - 12:00am.</br><b>Borderline Bar</b><br><br><a target='_blank' href='https://maps.app.goo.gl/HKpDpbRWzV4cc8PD6'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/borderlinesantaclarita/'>Instagram</a>").addTo(weekly);
+redEngine.bindPopup("<b><a href='linedancelocationsinfo.html#redenginebrewingco' target='_blank'>Red Engine Brewing Company, Fillmore</b></a><br>Most Fridays</b><br><b> 6:00pm - 11:00pm.</br><b>Red Engine Brewing</b><br><br><a target='_blank' href='https://maps.app.goo.gl/9ALzWJRgu5z5Kjsu8'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/redenginebrewing/'>Instagram</a>").addTo(weekly);
+venturaMusicHall.bindPopup("<b><a href='linedancelocationsinfo.html#venturamusichall' target='_blank'>Ventura Music Hall, Ventura</b></a><br>Fridays or Saturdays About Once Every One to Two Months,</b><br><a target='_blank' href='https://www.venturamusichall.com/events'>Click for Schedule</a><br><b> 8:00pm - 12:00am.</br><b>Neon Moon Country Party</b><br><br><a target='_blank' href='https://maps.app.goo.gl/wgS5m9yUEXPNpNUE7'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/neonmooncountryparty/'>Instagram</a>").addTo(random);
+magnavinoCellars.bindPopup("<b><a href='linedancelocationsinfo.html#magnavinocellars' target='_blank'>Magnavino Cellars, Oxnard</b></a><br>Last Friday of Every Month,</b><br><a target='_blank' href='https://www.facebook.com/Magnavino'>Click for Schedule</a><br><b> 7:00pm - 10:00pm.</br><b>Varied (Older Live Country Style)</b><br><br><a target='_blank' href='https://maps.app.goo.gl/519NmCHVL3qZkRnz6'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/magnavino_cellars/'>Instagram</a>").addTo(monthly);
+streyCellars.bindPopup("<b><a href='linedancelocationsinfo.html#streycellars' 'target='_blank'>Strey Cellars, Oxnard</b></a><br>Once a Month on Sundays,</b><br><a target='_blank' href='https://www.streycellars.com/event-type-2/barfly/'>Click for Schedule</a><br><b> 2:00pm - 5:00pm.</br><b>Caught Red Handed (Older Live Country Style)</b><br><br><a target='_blank' href='https://maps.app.goo.gl/HgyKovkwrs9Ndfxr8'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/streycellars/'>Instagram</a>").addTo(monthly);
+danceCreations.bindPopup("<b><a href='linedancelocationsinfo.html#dancecreations' 'target='_blank'>Dance Creations, Simi Valley</b></a><br>Every Third Sunday</b><br><b> 6:00pm - 9:00pm.</br><b>Roanna Battocchio</b><br><br><a target='_blank' href='https://maps.app.goo.gl/5AZLpLqANhaoDE368'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/roannabattocchio/'>Instagram</a>").addTo(weekly);
+varsityClub.bindPopup("<b><a href='linedancelocationsinfo.html#varsityclub' target='_blank'>Varsity Club, Ventura</b></a><br>Friday/Saturdays About Once A Month,</b><br><a target='_blank' href='https://instagram.com/thevarsityclubatsis/'>Click for Schedule</a><br><b> 7:00pm - 11:00pm.</br><b>Ventucky Stompers</b><br><br><a target='_blank' href='https://maps.app.goo.gl/8LDE7vzYDr8XyuEMA'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://instagram.com/thevarsityclubatsis/'>Instagram</a>").addTo(random);
+pcsBarGrill.bindPopup("<b><a href='linedancelocationsinfo.html#pcsBarGrill' target='_blank'>PC\'s Bar & Grill, Simi Valley</b></a><br>Every Tuesday</b><br><b> 6:00pm - Closing</br><b>DJ Josh and DI Dev</b><br><br><a target='_blank' href='https://maps.app.goo.gl/jCH9kNu2cG4zXzLA7'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/dancingwithdev5678/'>Instagram</a>").addTo(weekly);
+grillOnTheGreen.bindPopup("<b><a href='linedancelocationsinfo.html#grillOnTheGreen' target='_blank'>Grill On The Green, Simi Valley</b></a><br>Every Wednesdays,</b><br><a target='_blank' href='https://www.instagram.com/grillonthegreen_simi/'>Click for Schedule</a><br><b> 6:00pm - 8:00pm.</br><b>Varied</b><br><br><a target='_blank' href='https://maps.app.goo.gl/46fZ8fzdyR9yW6VX7'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/grillonthegreen_simi/'>Instagram</a>").addTo(weekly);
+corkAndBatterRoadhouse.bindPopup("<b><a href='linedancelocationsinfo.html#corkAndBatterRoadhouse' target='_blank'>Cork & Batter Roadhouse, Simi Valley</b></a><br>Every Friday and Saturday</b><br><b> Friday 8:00pm - 11:00pm, Saturday 10:00pm - 12:00am</br><b>Chloe Kleiman</b><br><br><a target='_blank' href='https://maps.app.goo.gl/zzhUV62y2xnDz3ng8'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/corkandbatter.roadhouse/'>Instagram</a>").addTo(weekly);
+enegrenBrewingCo.bindPopup("<b><a href='linedancelocationsinfo.html#enegrenBrewingCo' target='_blank'>Enegren Brewing Co., Moorpark</b></a><br>Usually Once a Month on Saturdays,</b><br><a target='_blank' href='https://www.instagram.com/countryrosedancers/'>Click for Schedule</a><br><b> 6:00pm - 10:00pm.</br><b>Country Rose Dancers</b><br><br><a target='_blank' href='https://maps.app.goo.gl/kkGaKXawPboeHL956'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/countryrosedancers/'>Instagram</a>").addTo(monthly);
+
+var currentDayForVenues = new Date();
+const days = ["2025", "7", "10"];
+var currentDay = currentDayForVenues.getDate();
+var currentYear = currentDayForVenues.getFullYear();
+var currentMonth = currentDayForVenues.getMonth() + 1;
+
+	if (currentMonth <= "7" && currentYear == "2025")
+	{
+		if (currentMonth == "7" && currentDay <= "10")
+			conejoValleyLodge.bindPopup("<b><a href='linedancelocationsinfo.html#conejomasonary' target='_blank'>Conejo Valley Lodge #807, Thousand Oaks</b></a><br><b style='color: red;'><strong>Opening July 10th, 2025</strong></b><br><span id='ConejoMasonic'>Every Thursday</span><br><b> 6:00pm - 9:30pm.</br><b>Candy Sherwin</b><br><br><a target='_blank' href='https://maps.app.goo.gl/jfDkhAceYknuC4ca9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/candysherwin/'>Instagram</a>").addTo(weekly);
+		
+		if (currentMonth == "7" && currentDay > "10")
+			conejoValleyLodge.bindPopup("<b><a href='linedancelocationsinfo.html#conejomasonary' target='_blank'>Conejo Valley Lodge #807, Thousand Oaks</b></a><br><b style='color: green;'><strong>New</b><br><span id='ConejoMasonic'>Every Thursday</span><br><b> 6:00pm - 9:30pm.</br><b>Candy Sherwin</b><br><br><a target='_blank' href='https://maps.app.goo.gl/jfDkhAceYknuC4ca9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/candysherwin/'>Instagram</a>").addTo(weekly);
+		}			
+	else
+	{
+		conejoValleyLodge.bindPopup("<b><a href='linedancelocationsinfo.html#conejomasonary' target='_blank'>Conejo Valley Lodge #807, Thousand Oaks</b></a><br><span id='ConejoMasonic'>Every Thursday</span><br><b> 6:00pm - 9:30pm.</br><b>Candy Sherwin</b><br><br><a target='_blank' href='https://maps.app.goo.gl/jfDkhAceYknuC4ca9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/candysherwin/'>Instagram</a>").addTo(weekly);
+
+	}
+
+var currentZoom = map.getZoom();
+
+function checkZoomClick() {
+	currentZoom = map.getZoom();
+
+	if (currentZoom <= 10 && showNameYesNo == 1)
+		santaClaritaCheckTooltipsZoomedOut();
+	else if (currentZoom > 10 && showNameYesNo == 1)
+		santaClaritaCheckTooltipsZoomedIn();
+		
+	if (currentZoom >= 12 && showNameYesNo == 1) {
+	
+	}
+	else if (currentZoom < 12 && showNameYesNo == 1) {
+	streyCellars.unbindTooltip();
+	}
+	if (currentZoom < 13 && showNameYesNo == 1)
+		zoomedOutCheckTooltips();
+	if (currentZoom >= 13 && showNameYesNo == 1)
+		zoomedInCheckTooltips();
+	if (currentZoom < 13 && showNameYesNo == 1)
+		ultraZoomedOutCheckTooltips();
+	if (currentZoom >=13 && showNameYesNo == 1)
+		ultraZoomedInCheckTooltips();
+	if (currentZoom >=13 && showNameYesNo == 1)
+		ultraUltraZoomedInCheckTooltips();
+}
+
+map.on('zoomend', function (e) {
+	var zoom = (e.target._zoom);
+	currentZoom = map.getZoom();
+	if (currentZoom <= 10 && showNameYesNo == 1)
+		santaClaritaCheckTooltipsZoomedOut();
+	else if (currentZoom > 10 && showNameYesNo == 1)
+		santaClaritaCheckTooltipsZoomedIn();
+		
+	if (currentZoom >= 12 && showNameYesNo == 1) {
+	streyCellars.bindTooltip('Strey Cellars', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	}
+	else if (currentZoom < 12 && showNameYesNo == 1) {
+	streyCellars.unbindTooltip();
+	}
+	
+	if (currentZoom < 13 && showNameYesNo == 1)
+		zoomedOutCheckTooltips();
+	if (currentZoom >= 13 && showNameYesNo == 1)
+		zoomedInCheckTooltips();
+	if (currentZoom < 13 && showNameYesNo == 1)
+		ultraZoomedOutCheckTooltips();
+	if (currentZoom >=13 && showNameYesNo == 1)
+		ultraZoomedInCheckTooltips();
+	if (currentZoom >=13 && showNameYesNo == 1)
+		ultraUltraZoomedInCheckTooltips();
+	return zoom;
+});
+
+function santaClaritaCheckTooltipsZoomedIn() {
+santaClaritaSportsCenter.unbindTooltip();
+magnavinoCellars.unbindTooltip();
+magnavinoCellars.bindTooltip('Magnavino Cellars', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+santaClaritaSportsCenter.bindTooltip('Santa Clarita Sports Center', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+canyon.bindTooltip('The Canyon', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+}
+
+function santaClaritaCheckTooltipsZoomedOut() {
+santaClaritaSportsCenter.unbindTooltip();
+canyon.unbindTooltip();
+if (showNameYesNo == 1 && showHideMonthly == 1 && showHideRandom == 1)
+{
+magnavinoCellars.bindTooltip("Magnavino Cellars<br>and Strey Cellars", { permanent: true, direction: 'bottom', offset: [-2, 48] });
+}
+if (showNameYesNo == 1 && showHideMonthly != 1 || showHideRandom != 1)
+{
+magnavinoCellars.bindTooltip('Magnavino Cellars', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+}
+
+santaClaritaSportsCenter.bindTooltip('Santa Clarita Sports Center', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+
+}
+
+
+
+function zoomedOutCheckTooltips() {
+
+if (showHideWeekly == 1 && showHideMonthly == 1)
+{
+	davenbusters.unbindTooltip();
+	tarantulahill.unbindTooltip();
+	thePaddock.unbindTooltip();
+	conejoValleyLodge.unbindTooltip();
+	tarantulahill.bindTooltip('Dave & Busters,<br> Tarantula Hill & Brewing,<br> and Conejo Valley Lodge #807', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+}
+
+
+if (showNameYesNo == 1 && showHideWeekly != 1 || showHideMonthly != 1 && showHideRandom != 1) {
+    davenbusters.bindTooltip("Dave & Buster's", { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	tarantulahill.bindTooltip('Tarantula Hill & Brewing Co.', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	conejoValleyLodge.bindPopup("<b><a href='linedancelocationsinfo.html#BR30' target='_blank'>Conejo Valley Lodge #807, Thousand Oaks</b></a><br><span id='ConejoMasonic'>Every Thursday</span><br><b> 6:00pm - 9:30pm.</br><b>Candy Sherwin</b><br><br><a target='_blank' href='https://maps.app.goo.gl/jfDkhAceYknuC4ca9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/candysherwin/'>Instagram</a>").addTo(weekly);
+
+}
+
+if (showHideWeekly == 1 && showHideMonthly == 0)
+{
+	davenbusters.unbindTooltip();
+	tarantulahill.unbindTooltip();
+	thePaddock.unbindTooltip();
+	conejoValleyLodge.unbindTooltip();
+	
+}
+
+}
+
+function zoomedInCheckTooltips() {
+
+if (showHideWeekly == 1 && showHideMonthly == 1 && showHideRandom == 1)
+{
+	davenbusters.bindTooltip("Dave & Buster's", { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	tarantulahill.bindTooltip('Tarantula Hill & Brewing Co.', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	thePaddock.bindTooltip('The Paddock', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	conejoValleyLodge.bindTooltip('Conejo Valley Lodge #807', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	danceCreations.bindTooltip('Dance Creations', { permanent: true, direction: 'bottom', offset: [0, 0] });
+	
+}
+
+if (showNameYesNo == 1 && showHideWeekly != 1 || showHideMonthly != 1 || showHideRandom != 1) {
+    davenbusters.bindTooltip("Dave & Buster's", { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	tarantulahill.bindTooltip('Tarantula Hill & Brewing Co.', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	thePaddock.bindTooltip('The Paddock', { permanent: true, direction: 'bottom', offset: [-16, 30] });
+	conejoValleyLodge.bindTooltip('Conejo Valley Lodge #807', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+
+}
+
+
+}
+
+function ultraZoomedInCheckTooltips() {
+
+
+
+if (showHideWeekly == 0 && showHideMonthly == 1 && showHideRandom == 1) {
+	venturaMusicHall.bindTooltip('Ventura Music Hall', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+
+}
+
+if (showHideRandom == 0) {
+	danceCreations.bindTooltip('Crowne Plaza 101', { permanent: true, direction: 'top', offset: [0, -40] });
+	venturaMusicHall.bindTooltip('Ventura Music Hall', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+}
+
+
+
+
+}
+
+function ultraUltraZoomedInCheckTooltips() {
+
+if (showHideWeekly == 1 && showHideMonthly == 1 && showHideRandom == 1) {
+	venturaMusicHall.bindTooltip('Ventura Music Hall', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+}
+}
+
+function ultraZoomedOutCheckTooltips() {
+
+
+if (showHideWeekly == 0 && showHideMonthly == 1 && showHideRandom == 1) {
+	venturaMusicHall.bindTooltip('Ventura Music Hall', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+
+
+}
+
+
+}
+
+var markerZoomLevel = 12;
+
+
+canyon.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.143943, -118.755054], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.143943, -118.755054]);
+
+});
+
+davenbusters.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.189643, -118.879787], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.189643, -118.879787]);
+
+});
+
+tarantulahill.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.190606, -118.873012], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+    map.setView([34.190606, -118.873012]);
+	
+});
+
+thePaddock.on('click', function(e){
+	if (currentZoom < 12)
+  map.setView([34.191890, -118.856163], markerZoomLevel);
+else if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.191890, -118.856163]);
+
+});
+
+marker7.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.362820, -119.063502], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+    map.setView([34.362820, -119.063502]);
+
+});
+
+
+cowboyPalace.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.272641, -118.600942], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.272641, -118.600942]);
+});
+
+santaClaritaSportsCenter.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.442283, -118.579536], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.442283, -118.579536]);
+
+});
+
+
+
+redEngine.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.410505, -118.921379], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.410505, -118.921379]);
+
+});
+
+venturaMusicHall.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.294593, -119.272797], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.294593, -119.272797]);
+
+});
+
+conejoValleyLodge.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.180154, -118.839693], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.180154, -118.839693]);
+
+});
+
+magnavinoCellars.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.2266546,-119.1429478,35], markerZoomLevel);
+	else if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.2266546,-119.1429478,35]);
+
+});
+
+streyCellars.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.2227398,-119.1426471,134], markerZoomLevel);
+	else  if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.2227398,-119.1426471,134]);
+
+});
+
+danceCreations.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.273437, -118.781634], markerZoomLevel);
+	else  if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.273437, -118.781634]);
+
+});
+
+varsityClub.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView(e.target.getLatLng(), markerZoomLevel);
+	else  if (currentZoom == 12 || currentZoom == 13)
+	map.setView(e.target.getLatLng());
+
+});
+
+pcsBarGrill.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView(e.target.getLatLng(), markerZoomLevel);
+	else  if (currentZoom == 12 || currentZoom == 13)
+	map.setView(e.target.getLatLng());
+
+});
+
+grillOnTheGreen.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.3047912,-118.695882,898], markerZoomLevel);
+	else  if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.3047912,-118.695882,898]);
+
+}); 
+
+corkAndBatterRoadhouse.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.2868068,-118.76426,898], markerZoomLevel);
+	else  if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.2868068,-118.76426,898]);
+
+});
+
+enegrenBrewingCo.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.2931012,-118.8706701,898], markerZoomLevel);
+	else  if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.2931012,-118.8706701,898]);
+
+});
+
+
+	showAll();
+
+
+	</script>
+	
+<script type="text/javascript" src="navigation.js"></script>
+
+
+</body>
+
+
+</html>

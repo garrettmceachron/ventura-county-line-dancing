@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="images/BootIconContrast.png">
+<title>Ventura County Line Dancing Line Dance Directory</title>
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<meta charset="utf-8">
+
+</head>
+
+<script>
+
+
+
+ 
+
+
+	// document.getElementById("search1").innerHTML = $("#songTable td:visible:first").text();
+	// 	  document.getElementById("search2").innerHTML = $("#songTable td:visible").eq(1).text();
+	// 	  document.getElementById("search3").innerHTML = $("#songTable td:visible").eq(2).text();
+
+</script>
+
+
+<script>
+//W3
+var totalShown;
+
+$(document).ready(function(){
+  $("#searchInput").on("keyup", function() {
+  
+  var linedanceI = 0;
+
+const linedances = ['1, 2, 3',
+    '3 Tequila Floor',
+    '3 to Tango',
+    '6\'s to 9\'s',
+    'A Bar Song',
+    '"Aces and Eights" (aka Whip It)',
+    'Add A Little Flavor',
+    'Ain\'t Too Cool',
+    'American Kids',
+    'Around the Fire',
+    'Askin\' Questions',
+    'Austin',
+    'Bambalam',
+    'Been Like This',
+    'Beginner',
+    'Big Energy',
+    'Boys',
+	'Boots',
+    'Bringin\' the Wow',
+    'Burn It To The Ground',
+    'Call Me Senorita',
+    'Cha Cha Caliente',
+    'Cherry Bottom Boom (U Girl)',
+    'Cherry On Top',
+    'Church Clap',
+    'Come on and Jump',
+    'Cool Whip',
+    'Cooler Than Me',
+    'Countdown',
+    'Country Girl Shake',
+    'Country Girl Stomp',
+	'Cowboy Hip Hop',
+    'Cyber Remix',
+    'Dancing While Intoxicated',
+    'Delulu',
+    'Descarada',
+    'Dizzy',
+    'Do-Si-Do',
+    'Double D',
+    'Fake ID',
+    'Fire Burning',
+    'Flex',
+    'Four On The Floor',
+    'Freaky Skillz',
+    'Fuego',
+    'Ganja',
+    'Georgia Ways',
+    'Get It Baby',
+    'Gives Me Shivers',
+    'Get Dirty',
+    'Get Ugly',
+    'Goin&#39; Hamm',
+    'Half Past Tipsy',
+    'Headphones',
+    'Head Spin',
+    'HeartBreaker (Honky Tonk Heartbreak)',
+    'Heart Got Teeth',
+    'Help (I Had Some)',
+    'High Class (We High Class!)',
+    'Honky Tonk Way',
+    'I Got 21 Reasons',
+    'I&#39;m Fabulous!',
+    'Infectious',
+     'In The Six',
+    'Jumanji',
+    'Lil Bit',
+    'Lonely Drum',
+    'Make It Go Krazy',
+    'Make It Shake',
+    'Makin\' It Hot',
+    'M.I.B. (aka Men In Black)',
+    'Miles On It',
+    'Nothing But You',
+    'Off The Chain',
+    'Ooh Baby Baby (Scream)',
+    'Our Own Party',
+    'Outlaw',
+    'Out Out',
+    'Party In The Hills',
+    'Pieces To The Puzzle (Damn I Love Miami)',
+    'Play That Sax',
+    'PYT',
+    'Raised Like That',
+    '"Rampampam"',
+    'Redneck Angel',
+    'Ring On Your Wranglers (Do Si Don\'tcha)',
+    'Rodeo',
+    'Rude Dude',
+    'Sexy Mona Lisa',
+    'Shady',
+    'Shake Senora (B.O.B)',
+    'She\'s a Natural (Country Girl)',
+    'Slappin\' Leather',
+	'Slow Low (Baby Slow Down)',
+    'Showstopper',
+    'Spicy Margarita (Shot for Shot)',
+    'Stetson',
+    'Sugar Honey I.T.',
+	'Supa Sexxy',
+    'Swamp Thang',
+    'Take It Off',
+    'Take Me To The Beach',
+    'TatLO (Turn All the Lights On)',
+    'T.G.I.F',
+    'The Door (Show Me)',
+    'The Fighter',
+    'The Vibe',
+    'The Wolf',
+    'Tip Toe',
+    'Toxic (Project)',
+    'Turn It Up',
+    'Vibe Check',
+    'Walk The Line',
+    'Watch The Tempo',
+    'We Are Tonight',
+    'West Coast Passion',
+         'Advanced',
+    'Intermediate',
+      'Improver'
+     
+      
+
+];
+
+//Iterate through each line dance
+
+//var variableInput = document.getElementById("searchInput").innerHTML;
+var search;
+var inputFinalized = 1;
+
+while (linedanceI < linedances.length) 
+{
+	if (document.getElementById("search2").innerHTML == document.getElementById("search3").innerHTML || document.getElementById("search2").innerHTML == "")
+		document.getElementById("search3").innerHTML = "";
+	if (document.getElementById("search1").innerHTML ==	"") {
+		document.getElementById("search2").innerHTML = "";
+		document.getElementById("search3").innerHTML = "";
+	}
+	search = linedances[linedanceI].toLowerCase();
+	
+		var replacedlinedance = search.replaceAll(".", "");
+		replacedlinedance = replacedlinedance.replaceAll("&#39;", "");
+		replacedlinedance = replacedlinedance.replaceAll(",", "");
+		replacedlinedance = replacedlinedance.replaceAll("'", "");
+		replacedlinedance = replacedlinedance.replaceAll("-", " ");
+
+	
+	if (replacedlinedance.includes(document.getElementById("searchInput").value.toLowerCase()) && inputFinalized < 4 || search.includes(document.getElementById("searchInput").value.toLowerCase()) && inputFinalized < 4) {
+		document.getElementById("search" + inputFinalized).innerHTML = linedances[linedanceI];
+		inputFinalized++;
+
+		}
+	else if (inputFinalized < 4){
+		document.getElementById("search" + inputFinalized).innerHTML = "";
+		
+	}
+
+
+
+	linedanceI++;
+}
+  
+  
+	totalShown = 0;
+    var value = $(this).val().toLowerCase();
+    $("#search tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	  totalShown++;
+	 
+
+
+		checkSearchVisibility(); 
+
+		if (document.getElementById("searchInput").value == "") {
+			document.getElementById("search1").style.display = "none";
+			document.getElementById("search2").style.display = "none";
+			document.getElementById("search3").style.display = "none";
+		
+		}
+
+
+
+
+	  });
+    });
+  });
+
+function checkSearchVisibility() {
+		
+
+	if (document.getElementById("searchInput").innerHTML == "") {
+			document.getElementById("search1").style.display = "none";
+			document.getElementById("search2").style.display = "none";
+			document.getElementById("search3").style.display = "none";
+	
+	}
+
+
+	if (document.getElementById("search1").innerHTML == "") {
+		document.getElementById("search1").style.display = "none";
+		
+		}
+	else
+		document.getElementById("search1").style.display = "block";
+
+
+
+  	if (document.getElementById("search2").innerHTML == "") {
+		document.getElementById("search2").style.display = "none";
+		
+		}
+	else
+		document.getElementById("search2").style.display = "block";
+
+
+
+	if (document.getElementById("search3").innerHTML == "") {
+		document.getElementById("search3").style.display = "none";
+		
+		}
+	else
+		document.getElementById("search3").style.display = "block";
+}
+
+function clearSearchVisibility() {
+			document.getElementById("search1").style.display = "none";
+			document.getElementById("search2").style.display = "none";
+			document.getElementById("search3").style.display = "none";
+
+}
+
+
+
+function pasteSearchInput(linedanceNameToCopy) {
+	document.getElementById("searchInput").value = linedanceNameToCopy;
+	const inputToHide = document.getElementById("searchInput");
+	inputToHide.blur();
+    
+    var totalShown;
+
+$(document).ready(function(){
+ 
+	totalShown = 0;
+    var value = $("#searchInput").val().toLowerCase();
+    $("#search tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	  totalShown++;
+	 	 // document.getElementById("search1").innerHTML = $("#songTable td:visible:first").text();
+	 // 	  document.getElementById("search2").innerHTML = $("#songTable td:visible").eq(1).text();
+	 // 	  document.getElementById("search3").innerHTML = $("#songTable td:visible").eq(2).text();
+		checkSearchVisibility(); 
+
+clearSearchVisibility();
+
+
+
+	  });
+    });
+
+    
+    
+
+	clearSearchVisibility();
+
+}
+
+function clearSearchInput() {
+	document.getElementById("searchInput").value = "";
+	pasteSearchInput('');
+}
+
+</script>
+<link rel="stylesheet" href="css/style.css">
+</style>
+<body class = "pageBackground" id="localBackground">
+ <center>
+ <h1 class="pageTitle">Ventura County Line Dance Directory</h1>
+ <!--<h3 class="h3">Line Dancing Tips</h3>--!>
+ </center>
+<div class="containerfluid">
+ <div class="navbar-expand-lg navbar-light dropdown-menu-left" class="containerfluid">
+ <div class="btn-group">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+		<li id="homeText"><a class="dropdown-item" href="index"><img src="images/BootIcon.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Home</a></li>
+		<li id="locationsMapText"><a class="dropdown-item" href="linedancelocations"><img src="images/SaloonDoor.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Map</a></img></li>
+		<li id="locationsInfoText"><a class="dropdown-item" href="linedancelocationsinfo"><img src="images/WantedPosterLargerWanted.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Info</a></li>
+			<!--<li><a class="dropdown-item" href="linedancetips">Line Dancing Tips</a></li>--!>
+			<!--<li><a class="dropdown-item" href="popularlinedances">Popular Line Dances</a></li>--!>
+			<li id="guidesText"><a class="dropdown-item" href="guides"><img src="images/WesternStar.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Guides</a></li>
+			<li id="articlesText"><a class="dropdown-item" href="articles"><img src="images/HorseshoeMerged.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Articles</a></li>
+			<li id="aboutText"><a class="dropdown-item" href="about"><img src="images/CowboyHat.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp About</a></li>
+ </ul>
+	</div>
+	</div>
+</div> 
+
+<script type="text/javascript" src="navigation.js"></script>
+<br><br>
+<center>
+<div class="homeParagraph container">
+
+
+
+
+
+<br>
+<input type="text" id="searchInput" placeholder="Search any category" list="linedancenamed" style="position: relative; left: 20px;">
+<span class="deleteButton" onclick="clearSearchInput();">&nbsp&nbspX&nbsp&nbsp</span>
+
+
+<table id="autocomplete;" style="position: relative;">
+<td class="embedSearchDiv quickFadeInEmbed" id="search1" onclick="pasteSearchInput(this.innerHTML);"></td>
+<td class="embedSearchDiv quickFadeInEmbed" id="search2" style="top: 32px;" onclick="pasteSearchInput(this.innerHTML);"></td>
+<td class="embedSearchDiv quickFadeInEmbed" id="search3" style="top: 64px;" onclick="pasteSearchInput(this.innerHTML);"></td>
+
+
+</table>
+
+<!--div style="font-size: 24px; background-color: white; width: 70px; height: 40px; border: solid 2px black;" onclick="videoPlaybackSpeed('1');"><p>0.75</p></div--!>
+
+<script>
+
+checkSearchVisibility(); 
+
+//function videoPlaybackSpeed(Speed) {
+//
+//document.getElementById("youtubeEmbed").setPlaybackRate(0.75);
+//
+//}
+
+
+
+</script>
+
+<br><br>
+
+
+
+
+<datalist id="linedancename">
+	<option value='1, 2, 3'></option>
+	<option value='3 Tequila Floor'></option>
+	<option value='3 to Tango'></option>
+	<option value="6's to 9's"></option>
+	<option value='A Bar Song'></option>
+	<option value='Aces and Eights'></option>
+
+
+	
+</datalist>
+
+
+<script>
+
+//function checkSearchInput() {
+//
+//}
+</script>
+
+
+<script>
+
+const inputToHide = document.getElementById("searchInput");
+
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 13) {
+        inputToHide.blur();
+    }
+});
+</script>
+
+<script>
+
+
+
+function lessonTitle(linedanceName, type) {
+
+if (type == "lesson")
+document.getElementById("embedTitle").innerHTML = linedanceName;
+
+if (type == "demo")
+document.getElementById("embedTitle").innerHTML = linedanceName;
+
+if (linedanceName == "Rude Dude")
+alert("Note: Rude Dude's steps in venues around Ventura County often changes around the turns. Instead of half turn back, it is half turn left then right instead.");
+
+if (linedanceName == "Swamp Thang")
+alert("Note: Swamp Thang is usually done in a rotating cirlce in venues around Ventura County. I would recommend watching the circle a few times then try it. However, it should be similar to the lessons and demo shown here.");
+
+if (linedanceName == "The Wolf")
+alert("Note: For The Wolf, after the third step back in venues around Ventura County, it's common to do a full turn. However, either way works.");
+
+if (linedanceName == "Tip Toe")
+alert("Note: For Tip Toe, it is a common flair that people spin at the second tag (after the song says 'Look like you do ballet' during the second tag). It is no requirement, however thought it is worth mentioning considering the popularity of it.");
+
+if (linedanceName == "Toxic (Project)")
+alert("Note: As a fun thing people do in Ventura County to Toxic (Project), at 2:21 in this demo, people stop for a full set of counts when the singer says 'Stop'. After, people usually resume like normal. It's not part of the original line dance, it is just a thing for fun.");
+
+}
+
+
+var tableExpanded = 0;
+
+function tableExpand() {
+
+if (tableExpanded == "0") {
+document.getElementById('songTable').classList.remove('embedTable');
+tableExpanded++;
+document.getElementById('expandText').innerHTML = "Click  to minimize";
+return;
+}
+if (tableExpanded == "1") {
+document.getElementById('songTable').classList.add('embedTable');
+tableExpanded = "0";
+document.getElementById('expandText').innerHTML = "Click  to expand";
+
+return;
+
+}
+}
+
+</script>
+
+<div class="embedTitleDiv" style="">
+<b id="embedTitle" style="">Please select a line dance to continue</b>
+</div>
+<iframe class="newYoutubeEmbedded" style="background-color: #242424;" name="embed" id="youtubeEmbed" width="%" height="315" src="about:blank" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<br>
+<a onclick="tableExpand();" href="#" id="expandText">Click to expand</a>
+
+<table class="embedTable" id="songTable">
+ <thead>
+ <tr class="stepsheetInsideBorder">
+  <th class="stepsheetInsideBorder" style="">Line Dance</th>
+     <th class="stepsheetInsideBorder">Level</th>
+   <th class="stepsheetInsideBorder">Lesson</th>
+   <th class="stepsheetInsideBorder">Demo</th>
+  <th class="stepsheetInsideBorder">Stepsheet</th>
+
+
+  
+
+ </tr>
+ </thead>
+ <tbody id="search">
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"1, 2, 3"</td>
+   <th class="stepsheetInsideBorder">Beginner/<br>Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/YCGenVW5aX8?si=i67PcXIq3wbe_CkY" target="embed" onclick="lessonTitle('1, 2, 3', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a class="songLink" href="https://www.youtube.com/embed/2bVE5mK7vcE?si=aWtq48h92DlCpeKj" target="embed" onclick="lessonTitle('1, 2, 3', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/189752/1-2-3" target="_blank">Link</a></th>
+
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"3 Tequila Floor"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/m_0tZkxwiwA?si=zeOs7SXM71b9YFlL" target="embed" onclick="lessonTitle('3 Tequila Floor', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a class="songLink" href="https://www.youtube.com/embed/2WfoNMfCFUM?si=d0AFgcJvSiZ7fqp7" target="embed" onclick="lessonTitle('3 Tequila Floor', 'demo');">Demo</a></th>
+   <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/169311/3-tequila-floor" target="_blank">Link</a></th>
+
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"3 to Tango"</td>
+    <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/mNcFWHH2IyY?si=G05YGSujYeEdehrk" target="embed" onclick="lessonTitle('3 to Tango', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/oXGYG_cUVBY?si=8YTu0m5B7V6X1H37" target="embed" onclick="lessonTitle('3 to Tango', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/135946/3-to-tango" target="_blank">Link</a></th>
+ </tr>
+ 
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"6's to 9's"</td>
+    <th class="stepsheetInsideBorder">Intermediate</th>
+   <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/ercp1T006hA?si=oAwocUNsuSzDHbN5" target="embed" onclick="lessonTitle('6\'s to 9\'s', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/2HxZKBIAf-w?si=KdDFqrzZzaCeaynr" target="embed" onclick="lessonTitle('6\'s to 9\'s', 'demo');">Demo</a></th>
+ 
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/165184/6s-to-9s" target="_blank">Link</a></th>
+ </tr>
+
+ 
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"A Bar Song"</td>
+    <th class="stepsheetInsideBorder">Beginner</th>
+<th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/CLkqWNXJNQM?si=UyWZXf15NLOzwlvE" target="embed" onclick="lessonTitle('A Bar Song', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/C8syXIES6Yg?si=lDd_TJRfRnMmam0o" target="embed" onclick="lessonTitle('A Bar Song', 'demo');">Demo</a></th>
+   <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/181815/a-bar-song" target="_blank">Link</a></th>
+
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Aces and Eights" (aka Whip It)</td>
+    <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Rq2hqibkWKI?si=xjo_hKFjjgcpASoE" target="embed" onclick="lessonTitle('Aces and Eights (aka Whip It)', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/zwjXaDF0QKk?si=_bhtrIrO1-YoFZW9" target="embed" onclick="lessonTitle('Aces and Eights (aka Whip It)', 'demo');">Demo</a></th>
+ 
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/109262/aces-and-eights" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Add A Little Flavor"</td>
+    <th class="stepsheetInsideBorder">Low Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/GlWWmo6Ezl4?si=jgc5vZtDRC7DyFwv" target="embed" onclick="lessonTitle('Add A Little Flavor', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/DeSIFe0bkpA?si=q6gvqjgzx0eJt-co" target="embed" onclick="lessonTitle('Add A Little Flavor', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/156806/add-a-little-flavor" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Ain't Too Cool"</td>
+    <th class="stepsheetInsideBorder">Improver</th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/jK5ALNwymEk?si=6pnRkO2rjZGxpvOD" target="embed" onclick="lessonTitle('Aint Too Cool', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/ZvHEyUf33Fw?si=gB9wN3N2ibHHHY5w" target="embed" onclick="lessonTitle('Aint Too Cool', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/108592/aint-too-cool" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"American Kids"</td>
+    <th class="stepsheetInsideBorder">High Beginner</th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Blsi8nAnjAw?si=XTNZ-7URzJT-9DCJ" target="embed" onclick="lessonTitle('American Kids', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/GP26lID8OC8?si=E0W8X_pw_QdFoWha" target="embed" onclick="lessonTitle('American Kids', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/98907/american-kids" target="_blank">Link</a></th>
+ </tr>
+
+
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Around the Fire"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/-wc9aEz6mtY?si=aNrcZguZ1Cz0nfxp" target="embed" onclick="lessonTitle('Around the Fire', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/-wc9aEz6mtY?si=aNrcZguZ1Cz0nfxp&amp;start=671" target="embed" onclick="lessonTitle('Around the Fire', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/176253/around-the-fire" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Askin' Questions"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/D8lY59xS-n8?si=etWTWyBXMn9spPdk" target="embed" onclick="lessonTitle('Askin Questions', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/2dHdV78J2GQ?si=wNg-X0nWKzaZxRdo" target="embed" onclick="lessonTitle('Askin Questions', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/78741/askin-questions" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Austin"</td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/mCXCq7tkn5g?si=OjDOGYTesGlxCDu3" target="embed" onclick="lessonTitle('Austin', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Vbwpx8feEPU?si=CYJO5tf-5aar7Nzc" target="embed" onclick="lessonTitle('Austin', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/179724/austin" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Bambalam"</td>
+  <th class="stepsheetInsideBorder">Easy Intermediate,<br> Contra (2 person)</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/L7VkBfNIDD8?si=UXPaTISRXzr02Y6-" target="embed" onclick="lessonTitle('Bambalam', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/NoNzNHpRrmM?si=BGDFgZcK-CPYGQqQ" target="embed" onclick="lessonTitle('Bambalam', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/139567/bambalam" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Been Like This"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/muuTUVPOxU4?si=uS4E1_8K4nZfFcBC&amp;start=62" target="embed" onclick="lessonTitle('Been Like This', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/muuTUVPOxU4?si=uS4E1_8K4nZfFcBC" target="embed" onclick="lessonTitle('Been Like This', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/181694/been-like-this" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Big Energy"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/K3emJOpidbA?si=DA7LScdaFky2jf9X" target="embed" onclick="lessonTitle('Big Energy', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/73aypq2mMqg?si=oFGMV1PStpjutCL6" target="embed" onclick="lessonTitle('Big Energy', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/165102/big-energy" target="_blank">Link</a></th>
+ </tr>
+   <td class="stepsheetInsideBorder stepsheetLineDanceName">"Boots"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/xw_3xu0okwU?si=72InQ35_sXY2FK-C" target="embed" onclick="lessonTitle('Boots', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/TQRIS3fDuiM?si=ncWt6YtZnXiNIE-U" target="embed" onclick="lessonTitle('Boots', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/121174/boots" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Boys"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/gHe_oQc9FaM?si=ZZOSLpLvn3nYQ_GL" target="embed" onclick="lessonTitle('Boys', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/PNjlAKjD5Xo?si=H-FyYycGQdMqTy5o" target="embed" onclick="lessonTitle('Boys', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/134055/boys" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Bringin' the Wow"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/1k9MLuzFP4c?si=318fk-hqjD8RsEfw" target="embed" onclick="lessonTitle('Bringin\' the Wow', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/m2AcLpbmDo8?si=ViL9V2h7VHcT4VYL" target="embed" onclick="lessonTitle('Bringin\' the Wow', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/188753/bringin-the-wow" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Burn It To The Ground"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/J2J38a-pH1M?si=CcQSAkB1gHyOCUqC" target="embed" onclick="lessonTitle('Burn It To The Ground', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/9EBvr0K32FM?si=1fSdxuB-zHeK47My" target="embed" onclick="lessonTitle('Burn It To The Ground', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/168773/burn-it-to-the-ground" target="_blank">Link</a></th>
+ </tr>
+     <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Call Me Senorita"</td>
+  <th class="stepsheetInsideBorder">Easy Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/9RiYdQXQApU?si=pgGcHt7RCa2k1Hsl" target="embed" onclick="lessonTitle('Call Me Senorita', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/9RiYdQXQApU?si=pgGcHt7RCa2k1Hsl&amp;start=334" target="embed" onclick="lessonTitle('Call Me Senorita', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/134466/call-me-senorita" target="_blank">Link</a></th>
+ </tr>
+    <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cha Cha Caliente"</td>
+  <th class="stepsheetInsideBorder">High Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/S8oubklWOWM?si=RNEx9IF1X_QEwCnC" target="embed" onclick="lessonTitle('Cha Cha Caliente', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/S8oubklWOWM?si=vUQjubYEvzoZq6ly&amp;start=501" target="embed" onclick="lessonTitle('Cha Cha Caliente', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder">N/A<br><a href="https://youtu.be/S8oubklWOWM?si=o17drZGQ_fi_dSmt" target="_blank">Video</a></th>
+ </tr>
+
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cherry Bottom Boom (U Girl)"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/wvWFRLt7OSc?si=yX24uRAFi2tZMgD3" target="embed" onclick="lessonTitle('Cherry Bottom Boom (U Girl)', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/fGtA6U4dguw?si=f5cQ4k2h1mAgkOtF" target="embed" onclick="lessonTitle('Cherry Bottom Boom (U Girl)', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/156814/cherry-bottom-boom-aka-u-gurl" target="_blank">Link</a></th>
+ </tr>
+ 
+
+    <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cherry On Top"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/cHCxLiA1XO4?si=4fTKsLXC570c-4jP" target="embed" onclick="lessonTitle('Cherry On Top', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/CbwEwuBBIto?si=tRL7N6BUyKfBIhhK" target="embed" onclick="lessonTitle('Cherry On Top', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/137006/cherry-on-top" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Church Clap"</td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/tAAgDSs25Iw?si=MuxJdBkEdDtXWLJH" target="embed" onclick="lessonTitle('Church Clap', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/y6e31BBcgTY?si=dQI4cMenUIlGzWF1" target="embed" onclick="lessonTitle('Church Clap', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/159888/church-clap" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Come on and Jump"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/HY8fwWctpe0?si=ZECwwVpmKJAQiRdv" target="embed" onclick="lessonTitle('Come on and Jump', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/yUNkDBN3zMc?si=euEsxQS3dv78e5w3" target="embed" onclick="lessonTitle('Come on and Jump', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/160699/come-on-and-jump" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cool Whip"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/kYhonnDW8v8?si=MS3eg-Ve1Xpro_w2" target="embed" onclick="lessonTitle('Cool Whip', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/kYhonnDW8v8?si=MS3eg-Ve1Xpro_w2&amp;start=66" target="embed" onclick="lessonTitle('Cool Whip', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/59939/cool-whip" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cooler Than Me"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/h4auIQUvZJU?si=2NdEaoTmp2z0nCEl&amp;start=214" target="embed" onclick="lessonTitle('Cooler Than Me', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/IN7pBJiOdtg?si=L6SaEy58zC7QnURN" target="embed" onclick="lessonTitle('Cooler Than Me', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/173921/cooler-than-me" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Countdown"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/TriEjQPm9-U?si=ZeYTtf4KcLqPwAo_" target="embed" onclick="lessonTitle('Countdown', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/TriEjQPm9-U?si=ZeYTtf4KcLqPwAo_&amp;start=497" target="embed" onclick="lessonTitle('Countdown', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/167265/countdown" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Country Girl Shake"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/KGziXRBYYig?si=ia_nzE1iMAbfmkZN" target="embed" onclick="lessonTitle('Country Girl Shake', 'lesson');">Lesson</a></th> 
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/KGziXRBYYig?si=ia_nzE1iMAbfmkZN&amp;start=255" target="embed" onclick="lessonTitle('Country Girl Shake', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/82657/country-girl-shake" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Country Girl Stomp"</td>
+  <th class="stepsheetInsideBorder">High Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/JEXyElyOGSQ?si=PTQhgpFefk-alsOU" target="embed" onclick="lessonTitle('Country Girl Stomp', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/BoZPv7q47nw?si=16Ln0zyEBNy7xaJ6" target="embed" onclick="lessonTitle('Country Girl Stomp', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/117714/country-girl-stomp" target="_blank">Link</a></th>
+ </tr>
+
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cowboy Hip Hop"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/KU-s55y_MBQ?si=iKgGkQkHBueqNes2" target="embed" onclick="lessonTitle('Cowboy Hip Hop', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/IVs-4no9tr0?si=_SZ9Zo8ZqDYgXF05" target="embed" onclick="lessonTitle('Cowboy Hip Hop', 'demo');">Demo</a></th>
+   <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/51707/hip-hop" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Cyber Remix"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/zwQIZa2PixI?si=SLu9VFx1ohDmTXHg" target="embed" onclick="lessonTitle('Cyber Remix', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/yxF_pl3jeL4?si=tbwuQc-rvJ9uY6w6" target="embed" onclick="lessonTitle('Cyber Remix', 'demo');">Demo</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/146163/cyber-remix" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Dancing While Intoxicated" (DWI)</td>
+  <th class="stepsheetInsideBorder">Improver/<br>Low Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/afG5YJZZsTs?si=VkkOhMooEXaaJQgB" target="embed" onclick="lessonTitle('Dancing While Intoxicated (DWI)', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/jkdAjxHJTf4?si=b7_mV-mBVRH91hET" target="embed" onclick="lessonTitle('Dancing While Intoxicated (DWI)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/89534/dancing-while-intoxicated" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Delulu"</td>
+  <th class="stepsheetInsideBorder">Low Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/qTCvrsgV3GE?si=gPRrw27Z--XilqF7" target="embed" onclick="lessonTitle('Delulu', 'lesson');">Lesson</a></th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/zLppBZx99W8?si=i1s2R0tHbnUT_O_i" target="embed" onclick="lessonTitle('Delulu', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/187716/delulu" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Descarada"</td>
+    <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/lRNQGm9Zlrc?si=6xY4mw8qztaauNXv" target="embed" onclick="lessonTitle('Descarada', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/kWvwrM4vEEY?si=UNTS3WRMX1Izueay" target="embed" onclick="lessonTitle('Descarada', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/83281/descarada" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Dizzy"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/DZtKxoYIpyc?si=3o0bM3_NX4KSJm2L" target="embed" onclick="lessonTitle('Dizzy', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/DZtKxoYIpyc?si=3o0bM3_NX4KSJm2L&amp;start=221" target="embed" onclick="lessonTitle('Dizzy', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/57764/dizzy" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Do-Si-Do"</td>
+  <th class="stepsheetInsideBorder">High Improver</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Flbw5tMUcT4?si=IBn4Fr41K9oNK42r" target="embed" onclick="lessonTitle('Do-Si-Do', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Flbw5tMUcT4?si=IBn4Fr41K9oNK42r&amp;start=592" target="embed" onclick="lessonTitle('Do-Si-Do', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/142160/do-si-do" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Double D"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/TS69MUlUJ1o?si=UGVAecORhm5q7SIL" target="embed" onclick="lessonTitle('Double D', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/TS69MUlUJ1o?si=UGVAecORhm5q7SIL&amp;start=200" target="embed" onclick="lessonTitle('Double D', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/104501/double-d-duck-dynasty" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Fake ID"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Ou-nLL1s2Fg?si=Hx-PqZin4Ah9WxV0" target="embed" onclick="lessonTitle('Fake ID', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Ou-nLL1s2Fg?si=Hx-PqZin4Ah9WxV0&amp;start=598" target="embed" onclick="lessonTitle('Fake ID', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/86422/fake-id-2011-footloose-movie" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Fire Burning"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/GoXPE2jC4jU?si=St_qJ88bkych6tCv" target="embed" onclick="lessonTitle('Fire Burning', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/GoXPE2jC4jU?si=St_qJ88bkych6tCv&amp;start=655" target="embed" onclick="lessonTitle('Fire Burning', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/172260/fire-burning" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Flex"</td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/l-6lxOZBowo?si=pp8smnP0BSPvqnt1" target="embed" onclick="lessonTitle('Flex', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/nHY8qMfNF-c?si=s9mt89sr-b5dERID" target="embed" onclick="lessonTitle('Flex', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder">N/A<br><a href="https://youtu.be/l-6lxOZBowo?si=FaswMzNWq1OQxNfl" target="_blank">Video</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Four On The Floor"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/1Ei73EJX4kU?si=pjzi9IfoTCNF_UDO" target="embed" onclick="lessonTitle('Four On The Floor', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/1Ei73EJX4kU?si=ymh9iABqxWXs68Ex&amp;start=468" target="embed" onclick="lessonTitle('Four On The Floor', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/84183/four-on-the-floor" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Freaky Skillz"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/TCB7AcrKIx8?si=LFuE4wwc4WP9c9uC&amp;start=28" target="embed" onclick="lessonTitle('Freaky Skillz', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/8Jransi6ER0?si=2N4oeJC8Fevb67r7" target="embed" onclick="lessonTitle('Freaky Skillz', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/73796/freaky-skillz" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Fuego"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/wHEZx5AKoqY?si=UspVA1VBb1-wkrRX" target="embed" onclick="lessonTitle('Fuego', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/GL5VCi2N5eE?si=AafxImevJCQgx46M" target="embed" onclick="lessonTitle('Fuego', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/178608/fuego" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Ganja"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/xtpG84y76aI?si=6eG-CUmXu64e2Lys&amp;start=198" target="embed" onclick="lessonTitle('Ganja', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/xtpG84y76aI?si=P1j1a1H2T2tfE7r8" target="embed" onclick="lessonTitle('Ganja', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/191337/ganja" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Georgia Ways"</td>
+  <th class="stepsheetInsideBorder">High Beginner</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/o8jvhR4zg9w?si=Jh99HLCJ6hG59kXy" target="embed" onclick="lessonTitle('Georgia Ways', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/mie-ejKS6cQ?si=UmJYrd2hgvSRDaRp" target="embed" onclick="lessonTitle('Georgia Ways', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/190300/georgia-ways" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Get It Baby"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/D8tSud6fzpQ?si=5EqLCorh8t34RE61" target="embed" onclick="lessonTitle('Get It Baby', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/wD6Jxb42gWI?si=fLdfI6phB0pl571Q" target="embed" onclick="lessonTitle('Get It Baby', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/112262/get-it-baby" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Gives Me Shivers"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/7JI50fJA_rM?si=nnhFZcEUWdHnxFRM" target="embed" onclick="lessonTitle('Gives Me Shivers', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Y-pOEG8vOyI?si=gp28AfhKznSFK23p" target="embed" onclick="lessonTitle('Gives Me Shivers', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/154517/gives-me-shivers" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Get Dirty"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/YOp0znRCSN8?si=A1l5YryuRFnr5wtz" target="embed" onclick="lessonTitle('Get Dirty', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/wE8bP3INavE?si=d0jM_K9v3Xok2n6G" target="embed" onclick="lessonTitle('Get Dirty', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/163085/get-dirty" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Get Ugly"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/CN4eAnXCfhM?si=9W7InbJ74HB3lW2h" target="embed" onclick="lessonTitle('Get Ugly', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/CN4eAnXCfhM?si=9W7InbJ74HB3lW2h&amp;start=381" target="embed" onclick="lessonTitle('Get Ugly', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/108054/get-ugly" target="_blank">Link</a></th>
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Goin' Hamm"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/-t8rClEqXTw?si=JbHt5ks6uaYlr3jT" target="embed" onclick="lessonTitle('Goin\' Hamm', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/-t8rClEqXTw?si=JbHt5ks6uaYlr3jT&amp;start=281" target="embed" onclick="lessonTitle('Goin\' Hamm', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/160714/goin-hamm" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Half Past Tipsy"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/AvOf4j-o9t8?si=pfhA0HYuhj_lbCeS" target="embed" onclick="lessonTitle('Half Past Tipsy', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/AvOf4j-o9t8?si=pfhA0HYuhj_lbCeS&amp;start=407" target="embed" onclick="lessonTitle('Half Past Tipsy', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/137347/half-past-tipsy" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Headphones"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/GEx-hvmojNg?si=5THVD-Osn91yYZNl&amp;start=25" target="embed" onclick="lessonTitle('Headphones', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/OGl4UkdisHM?si=B4qwBUeDZ0m3G0at" target="embed" onclick="lessonTitle('Headphones', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/161569/headphones" target="_blank">Link</a></th>
+</tr>
+
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Head Spin"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/lYmQIdzJcg4?si=OkTBGwF9LhP-JOO5" target="embed" onclick="lessonTitle('Head Spin', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/RFXmq0VZZyk?si=A33QTfYcqYmJLOFl" target="embed" onclick="lessonTitle('Head Spin', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/192050/head-spin" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"HeartBreaker (Honky Tonk Heartbreak)"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/ST6jfeWFyKo?si=R_N4AiLeHM30LgCp&amp;start=23" target="embed" onclick="lessonTitle('HeartBreaker (Honky Tonk HeartBreak)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Gs-3h5LIK_0?si=q3WC57fXjlBXkBLs" target="embed" onclick="lessonTitle('HeartBreaker (Honky Tonk HeartBreak)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/175691/heartbreaker" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Heart Got Teeth"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/dYoJzarbh8g?si=pmWUIGHsPRERTmTc" target="embed" onclick="lessonTitle('Heart Got Teeth', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/dYoJzarbh8g?si=pmWUIGHsPRERTmTc&amp;start=533" target="embed" onclick="lessonTitle('Heart Got Teeth', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/183306/heart-got-teeth" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Help (I Had Some)"</td>
+  <th class="stepsheetInsideBorder">High Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/u4Hd-kRaq2U?si=_3V66iN9tABx4y8Z" target="embed" onclick="lessonTitle('Help (I Had Some)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/u4Hd-kRaq2U?si=_3V66iN9tABx4y8Z&amp;start=539" target="embed" onclick="lessonTitle('Help (I Had Some)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/183036/help-i-had-some" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"High Class (We High Class!)"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/EDbC8liAq0E?si=llLiGb-c_LcjVsqu" target="embed" onclick="lessonTitle('High Class (We High Class!)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/fDsF8hqJjQE?si=SuLrnley3AcuoMyT" target="embed" onclick="lessonTitle('High Class (We High Class!)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/107991/high-class-we-high-class" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"High Horse"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/x-n6FfRfEGk?si=wwLKJillKY6LqGW1" target="embed" onclick="lessonTitle('High Horse', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/x-n6FfRfEGk?si=wwLKJillKY6LqGW1&amp;start=286" target="embed" onclick="lessonTitle('High Horse', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/129614/high-horse" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Honky Tonk Way"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/KMItGKCWkH4?si=V-X4BPNtKpR204GC" target="embed" onclick="lessonTitle('Honky Tonk Way', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Ie3H31bWzlU?si=6JMZ4GZSrTAGqNeG&amp;start=35" target="embed" onclick="lessonTitle('Honky Tonk Way', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/155792/honky-tonk-way" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"I Got 21 Reasons"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/IcnW90im_UI?si=m4_YPDUVQ1qCap_T" target="embed" onclick="lessonTitle('I Got 21 Reasons', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/p1DvY5311Qw?si=XMmf962SaIWp475c" target="embed" onclick="lessonTitle('I Got 21 Reasons', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/175862/i-got-21-reasons" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"I'm Fabulous!"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+      <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/830koLDBfRU?si=3TtzybWaBF0Yuu5d" target="embed" onclick="lessonTitle('I\'m Fabulous!', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/2NHVMcjqeOQ?si=bgBtD8DuqujG9V9L&amp;start=20" target="embed" onclick="lessonTitle('I\'m Fabulous!', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/164725/im-fabulous" target="_blank">Link</a></th>
+</tr>
+       
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Infectious"</td>
+  <th class="stepsheetInsideBorder">High Intermediate</th>
+   <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/eDJcNaOU-sg?si=KWlfS-7nOFnSUIpM" target="embed" onclick="lessonTitle('Infectious', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Wm81kQiB4ww?si=HZr2oo-dk3OHfjox" target="embed" onclick="lessonTitle('Infectious', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/150148/infectious" target="_blank">Link</a></th>
+ </tr>
+
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"In The Six"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+      <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/byaf8xWqecI?si=OyrKXI0dGO-dEo9K" target="embed" onclick="lessonTitle('In The Six', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/bi9Pc8d3I8I?si=fj_8GKejnsjDBUjc" target="embed" onclick="lessonTitle('In The Six', 'demo');">Demo</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/132028/in-the-six" target="_blank">Link</a></th>
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Jumanji"</td>
+  <th class="stepsheetInsideBorder">High Intermediate</th>
+      <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/CRLTeNU6yk4?si=G6bC_0KQlUgHJWpH" target="embed" onclick="lessonTitle('Jumanji', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/bAg8o_nn7Ho?si=IfU-JZ-6hDAoAZ_c" target="embed" onclick="lessonTitle('Jumanji', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/165082/jumanji" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Lil Bit"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+        <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/BcZsp7-Ykr4?si=gRcRfkIWrr_gxdQZ" target="embed" onclick="lessonTitle('Lil Bit', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Iw0og_fySWc?si=9AIl2S2_lGCQZju4" target="embed" onclick="lessonTitle('Lil Bit', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/146330/lil-bit" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Lonely Drum"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+   <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/TTZas7-zg0o?si=Yzb9IFS9mooSARmr" target="embed" onclick="lessonTitle('Lonely Drum', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Izh4l8-brYw?si=lTy8W0p7KTzZ7vqk" target="embed" onclick="lessonTitle('Lonely Drum', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/119005/lonely-drum" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Make It Go Krazy"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+     <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/jvdH43NuSko?si=7fdXcuP8g6h6PX_2" target="embed" onclick="lessonTitle('Make It Go Krazy', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/j0Gx5-SDy50?si=xrpcWWMkVRtsFlm1" target="embed" onclick="lessonTitle('Make It Go Krazy', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/182657/make-it-go-krazy" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Make It Shake"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+     <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/KmRHNJp2TDM?si=0B9Qwj2cfTg-XbH9" target="embed" onclick="lessonTitle('Make It Shake', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/NW-e_ZmIwTo?si=A7rmWHIfwFLT30cs" target="embed" onclick="lessonTitle('Make It Shake', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/100761/make-it-shake" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Makin' It Hot"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+     <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/t8fHZW--Fqc?si=zLRTiSGKj_tlmMQj" target="embed" onclick="lessonTitle('Makin\' It Hot', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Q-qYP5B9nuY?si=jhWi3Z-ZirIWEjpN" target="embed" onclick="lessonTitle('Makin\' It Hot', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/191922/makin-it-hot" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"M.I.B. <br>(aka Men In Black)"</td>
+  <th class="stepsheetInsideBorder">N/A</th>
+     <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/igquQ4aHIJo?si=NbyaaRteB6bCFCQV" target="embed" onclick="lessonTitle('M.I.B. (aka Men In Black)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/FX4i9CkYMIs?si=SoXFkLgRdMfdjMc7" target="embed" onclick="lessonTitle('M.I.B. (aka Men In Black)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/30601/mib" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Miles On It"</td>
+  <th class="stepsheetInsideBorder">Absolute<br>Beginner</th>
+     <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/hzgQ7nbbDDU?si=ijcEJZ638N2soA-Y" target="embed" onclick="lessonTitle('Miles On It', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/fb5q8ipYUiU?si=sJ1WGMdKm4RutOzK" target="embed" onclick="lessonTitle('Miles On It', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/182749/miles-on-it" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Nothing But You"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+     <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/io_vCLdGwH0?si=HDHnbo4iZMkEr0Rv" target="embed" onclick="lessonTitle('Nothing But You', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/io_vCLdGwH0?si=UjLvWD1hGSK-C3X1&amp;start=587" target="embed" onclick="lessonTitle('Nothing But You', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/131385/nothing-but-you" target="_blank">Link</a></th>
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Off The Chain"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+     <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Bk8p-p17jE0?si=lV0xjdH77fK7J9oS" target="embed" onclick="lessonTitle('Off The Chain', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/IOFR5Hm_wGM?si=w8ybYft-Ni2RnsS_" target="embed" onclick="lessonTitle('Off The Chain', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/98749/off-the-chain" target="_blank">Link</a></th>
+</tr>
+
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Ooh Baby Baby (Scream)"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+  <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/tHS15kXDsB8?si=cop8bEBbt5R8aoVu" target="embed" onclick="lessonTitle('Ooh Baby Baby (Scream)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/7q1bovN-r_M?si=wyGqsoJ0iokKdo74" target="embed" onclick="lessonTitle('Ooh Baby Baby (Scream)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/166697/ooh-baby-baby" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Our Own Party"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/0E4O7oHEkxA?si=44sYkE-otHRg_cAH&amp;start=30" target="embed" onclick="lessonTitle('Our Own Party', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/_NaW9bqGkUA?si=s0bq-3ZlJ7G_ILdn" target="embed" onclick="lessonTitle('Our Own Party', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/175718/our-own-party" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Outlaw"</td>
+  <th class="stepsheetInsideBorder">Beginner/<br>Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/5zQp4FkzKT4?si=lGV9duiCOQBFOIhN" target="embed" onclick="lessonTitle('Outlaw', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/eB16nk_g9lc?si=kJav6uNUPNCzHO2m" target="embed" onclick="lessonTitle('Outlaw', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/82368/the-outlaw" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Out Out"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/DsQ_A504xAg?si=NTUWB7P-pStcIQCQ&amp;start=30" target="embed" onclick="lessonTitle('Out Out', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/gS3frcvBnQQ?si=hDmpv6zBgwTdm7d3" target="embed" onclick="lessonTitle('Out Out', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/155501/out-out" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Party In The Hills"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/IJI5PTlNLwc?si=UClBvwKo6PYm7leI" target="embed" onclick="lessonTitle('Party In The Hills', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/JJoipuxXMQc?si=0fzWBiaZcGlLkfyJ" target="embed" onclick="lessonTitle('Party In The Hills', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/136989/party-in-the-hills" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Pieces To The Puzzle (Damn I Love Miami)"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/qeQsdKwdI1M?si=POOAxRklcVFAra2Q" target="embed" onclick="lessonTitle('Pieces To The Puzzle (Damn I Love Miami)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/FdOT1IK3AwM?si=nABz_lv6v7d1Wofg" target="embed" onclick="lessonTitle('Pieces To The Puzzle (Damn I Love Miami)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/181791/pieces-to-the-puzzle" target="_blank">Link</a></th>
+</tr>
+
+
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Play That Sax"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/ip0AdY6WwwA?si=Br1qcHpsgLoP-30p" target="embed" onclick="lessonTitle('Play That Sax', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/EV1Nn45K5us?si=ruSQrEsvgUwW9JEO" target="embed" onclick="lessonTitle('Play That Sax', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/121390/play-that-sax" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"PYT"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/MAabpg9335E?si=X3uB7LejSCrVJovI" target="embed" onclick="lessonTitle('PYT', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/GROhRgNs7iQ?si=6zAyt-7xipliYOSA" target="embed" onclick="lessonTitle('PYT', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/182116/pyt" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Raised Like That"</td>
+  <th class="stepsheetInsideBorder">Improver/<br>Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/kH8CbDkP7AY?si=mXoMMbrIc11gtVb6" target="embed" onclick="lessonTitle('Raised Like That', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/kH8CbDkP7AY?si=mXoMMbrIc11gtVb6&amp;start=580" target="embed" onclick="lessonTitle('Raised Like That', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/154113/raised-like-that" target="_blank">Link</a></th>
+ </tr>
+  </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Rampampam"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/oZ5pTaERY6o?si=NAGaU6GrNnDQbg8g" target="embed" onclick="lessonTitle('Rampampam', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/oZ5pTaERY6o?si=NAGaU6GrNnDQbg8g&amp;start=529" target="embed" onclick="lessonTitle('Rampampam', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/150459/rampampam" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Redneck Angel"</td>
+  <th class="stepsheetInsideBorder">High Beginner</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/6z2GydiaOuo?si=d2qecYv7GNDJ27wV" target="embed" onclick="lessonTitle('Redneck Angel', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/WsZ3FjhE5HM?si=EgzOYR9Wf-S0cfBe" target="embed" onclick="lessonTitle('Redneck Angel', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/83248/redneck-angel" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Ring On Your Wranglers (Do Si Don'tcha)"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/QCuMTdtue8k?si=Zt8cTLRpZfvuvYNW" target="embed" onclick="lessonTitle('Ring On Your Wranglers (Do Si Don\'tcha)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/2qcUENQuG6Y?si=asVvCGx34wEx_i9-" target="embed" onclick="lessonTitle('Ring On Your Wranglers (Do Si Don\'tcha)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/164236/ring-on-your-wranglers" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Rodeo"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/E5piMAtYD8g?si=2q_slR4-VwvRfJaq" target="embed" onclick="lessonTitle('Rodeo', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/EObeUGE6Mvw?si=TIehf4dUya6YSUD8" target="embed" onclick="lessonTitle('Rodeo', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/155234/rodeo" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Rude Dude"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/PKrwzdhnKyA?si=KnyYiUX7e2Nmpcn0" target="embed" onclick="lessonTitle('Rude Dude', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/JPLr00izLRk?si=28X8twvVrPohxae7&amp;start=42" target="embed" onclick="lessonTitle('Rude Dude', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/145588/rude-dude" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Sexy Mona Lisa"</td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/pPNAi55aUkc?si=uc9930DIDQgbPhd_" target="embed" onclick="lessonTitle('Sexy Mona Lisa', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/pPNAi55aUkc?si=uc9930DIDQgbPhd_&amp;start=239" target="embed" onclick="lessonTitle('Sexy Mona Lisa', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/170447/sexy-mona-lisa" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Shady"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/9r4N2v5P2FM?si=cAHuOJk11zXey38I" target="embed" onclick="lessonTitle('Shady', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/v98pe1hn3mE?si=0_8M7f6rWmdv5nca" target="embed" onclick="lessonTitle('Shady', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/115261/shady" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Shake Senora (B.O.B)"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/5TSzAkqb1zE?si=kbyXLUJ_PToT9pMg&amp;start=21" target="embed" onclick="lessonTitle('Shake Senora (B.O.B)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Tw6XVYJl8Zs?si=EJoox7nkDX4IKL2y" target="embed" onclick="lessonTitle('Shake Senora (B.O.B)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/196276/shake-senora-bob" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"She's a Natural (Country Girl)"</td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/uhBke1nJ-WU?si=H2WntTOigaJ1bzPF" target="embed" onclick="lessonTitle('She\'s a Natural (Country Girl)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/uhBke1nJ-WU?si=H2WntTOigaJ1bzPF&amp;start=466" target="embed" onclick="lessonTitle('She\'s a Natural (Country Girl)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/161630/shes-a-natural-country-girl" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Slappin' Leather"</td>
+  <th class="stepsheetInsideBorder">Beginner</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/NWLsVfwXcVI?si=wIdjRG9HsORz0UVH" target="embed" onclick="lessonTitle('Slappin\' Leather', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/NWLsVfwXcVI?si=wIdjRG9HsORz0UVH&amp;start=233" target="embed" onclick="lessonTitle('Slappin\' Leather', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/38828/slapping-leather" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Showstopper"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/e7hRZe2kkZs?si=WF-UCstLEng5n_0t" target="embed" onclick="lessonTitle('Showstopper', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/e7hRZe2kkZs?si=vB9yZAvFlCvYX_sy&amp;start=623" target="embed" onclick="lessonTitle('Showstopper', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/94001/showstopper" target="_blank">Link</a></th>
+ </tr>
+    <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Slow Low (Baby Slow Down)"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Hbz2Ghe0Rsg?si=ARL7G8d4G478XQlz&amp;start=35" target="embed" onclick="lessonTitle('Slow Low (Baby Slow Down)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Cl4EeqbiDO4?si=bZ0OAtdi9uLDEzPZ" target="embed" onclick="lessonTitle('Slow Low (Baby Slow Down)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/196027/baby-slow-down" target="_blank">Link</a></th>
+ </tr>
+ 
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Spicy Margarita (Shot for Shot)"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/1NYBSXSLFdg?si=e8eDWJta8CRWk8Y9" target="embed" onclick="lessonTitle('Spicy Margarita (Shot for Shot)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/1NYBSXSLFdg?si=e8eDWJta8CRWk8Y9&amp;start=475" target="embed" onclick="lessonTitle('Spicy Margarita (Shot for Shot)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/180013/spicy-margarita-shot-for-shot" target="_blank">Link</a></th>
+</tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Stetson"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/bp28nr8i8MI?si=DIXvA94iz31ixr2U" target="embed" onclick="lessonTitle('Stetson', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/w8BqD2FsUGQ?si=Kdn0oX5r9wIFKZ9n" target="embed" onclick="lessonTitle('Stetson', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/173885/stetson" target="_blank">Link</a></th>
+ </tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Sugar Honey I.T."</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/yIy4Jza69vw?si=3lnMAnbmJ2hm1oZU" target="embed" onclick="lessonTitle('Sugar Honey I.T.', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/yIy4Jza69vw?si=3lnMAnbmJ2hm1oZU&amp;start=238" target="embed" onclick="lessonTitle('Sugar Honey I.T.', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/106685/sugar-honey-it" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Supa Sexxy"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/3DdXMWpJK-A?si=Eaj-JeSupAcbHtCV&amp;start=20" target="embed" onclick="lessonTitle('Supa Sexxy', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/KuujFqa0Cuc?si=5HytnBZYsZjGWysk" target="embed" onclick="lessonTitle('Supa Sexxy', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/196695/supa-sexxy" target="_blank">Link</a></th>
+</tr>
+<tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Swamp Thang"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/OEhEef-Y7Ps?si=3V0r0D-ALohpcXF3" target="embed" onclick="lessonTitle('Swamp Thang', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/qUYToQ_KHts?si=MMUq8sh83sXed4J4" target="embed" onclick="lessonTitle('Swamp Thang', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/41440/swamp-thang" target="_blank">Link</a></th>
+</tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Take It Off"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/SHCWgwzJ9iI?si=iYgIBbGx46mvExv1" target="embed" onclick="lessonTitle('Take It Off', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/SHCWgwzJ9iI?si=iYgIBbGx46mvExv1&amp;start=276" target="embed" onclick="lessonTitle('Take It Off', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/172895/take-it-off" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Take Me To The Beach"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/gM80g-_5KXw?si=KK5yNzI6s0y07l0N" target="embed" onclick="lessonTitle('Take Me To The Beach', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/gM80g-_5KXw?si=KK5yNzI6s0y07l0N&amp;start=591" target="embed" onclick="lessonTitle('Take Me To The Beach', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/188882/take-me-to-the-beach" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"TatLO (Turn All the Lights On)"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+   <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/85dy6h75t0M?si=uHzNv6xJC1IY1PH1" target="embed" onclick="lessonTitle('TatLO (Turn All the Lights On)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/kV_1wCtNv98?si=KSTXLH8DlQgLybN3" target="embed" onclick="lessonTitle('TatLO (Turn All the Lights On)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/177826/tatlo" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"T.G.I.F"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/tatP43f_Cjs?si=9evIyqQyR6lga0a5" target="embed" onclick="lessonTitle('T.G.I.F', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/90goWcbRQVY?si=rRpx-aAsZcKWgSmc" target="embed" onclick="lessonTitle('T.G.I.F', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/42573/tgif" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"The Door (Show Me)"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/aKjLW5ZIOes?si=VmnxJvQ5XMmw7-5k" target="embed" onclick="lessonTitle('The Door (Show Me)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/aKjLW5ZIOes?si=VmnxJvQ5XMmw7-5k&amp;start=309" target="embed" onclick="lessonTitle('The Door (Show Me)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/181914/the-door-show-me" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"The Fighter"</td>
+  <th class="stepsheetInsideBorder">Low Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/oHDGEKmedJI?si=m13HD-v11LVG-qSy" target="embed" onclick="lessonTitle('The Fighter', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/oHDGEKmedJI?si=WinG5aPVf5xTHP4F&amp;start=303" target="embed" onclick="lessonTitle('The Fighter', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/115280/the-fighter" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"The Vibe"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/7211I7b22HQ?si=kvl9C7h-MNL4K4oo" target="embed" onclick="lessonTitle('The Vibe', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/7211I7b22HQ?si=kvl9C7h-MNL4K4oo&amp;start=396" target="embed" onclick="lessonTitle('The Vibe', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/142214/the-vibe" target="_blank">Link</a></th>
+ </tr>
+ <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"The Wolf"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Pl4SLzkX810?si=oXD7yfPlZ14uTeYc" target="embed" onclick="lessonTitle('The Wolf', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Pl4SLzkX810?si=oXD7yfPlZ14uTeYc&amp;start=301" target="embed" onclick="lessonTitle('The Wolf', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/123669/the-wolf" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Tip Toe"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/7suZWVpFBVU?si=Ug0un_VaiUrv3LGD" target="embed" onclick="lessonTitle('Tip Toe', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/ETVO92h-wGs?si=DYntRkVHpb90Yp-r" target="embed" onclick="lessonTitle('Tip Toe', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/123754/tiptoe" target="_blank">Link</a></th>
+ </tr>
+
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Toxic (Project)"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/9keG6MHd2oU?si=kKqiq0rxrkbw_t3T" target="embed" onclick="lessonTitle('Toxic (Project)', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/a1rCC7RFlm0?si=0mU4qTwZD3YQ8lkx" target="embed" onclick="lessonTitle('Toxic (Project)', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://linedancin.net/stepsheets/toxic.pdf" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Turn It Up"</td>
+  <th class="stepsheetInsideBorder">Intermediate/<br>Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/cWL9HuiBL3Q?si=PtKs_kKGlM3jJWyH" target="embed" onclick="lessonTitle('Turn It Up', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/q7bINX6sNZk?si=Ue-sDZWl7lbIljGj" target="embed" onclick="lessonTitle('Turn It Up', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/186386/turn-it-up" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Vibe Check"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/3V7j-y7GcW4?si=rsBhcbyJ6hC95ZuL" target="embed" onclick="lessonTitle('Vibe Check', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/3V7j-y7GcW4?si=rsBhcbyJ6hC95ZuL&amp;start=330" target="embed" onclick="lessonTitle('Vibe Check', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/183629/vibe-check" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Walk The Line"</td>
+  <th class="stepsheetInsideBorder">Improver</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/BHfBs7W5R1U?si=N_rIzswJ3ycNHdKw" target="embed" onclick="lessonTitle('Walk The Line', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/iN-BBMRm6tU?si=Ph3nCKCMXWR9s2em" target="embed" onclick="lessonTitle('Walk The Line', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/45138/walk-the-line" target="_blank">Link</a></th>
+ </tr>
+   <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"Watch The Tempo"</td>
+  <th class="stepsheetInsideBorder">Advanced</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/omkGIFnl7oo?si=ooX9C-uTod0z6sTo" target="embed" onclick="lessonTitle('Watch The Tempo', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/Uxyq138cqls?si=ZU2ogXVV07oX9J3w" target="embed" onclick="lessonTitle('Watch The Tempo', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/124008/watch-the-tempo" target="_blank">Link</a></th>
+ </tr>
+    <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"We Are Tonight"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/MLm67JvkN9Y?si=-V-xKYRvyx0FwUAt" target="embed" onclick="lessonTitle('We Are Tonight', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/MLm67JvkN9Y?si=-V-xKYRvyx0FwUAt&amp;start=262" target="embed" onclick="lessonTitle('We Are Tonight', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/95128/we-are-tonight" target="_blank">Link</a></th>
+ </tr>
+  <tr>
+  <td class="stepsheetInsideBorder stepsheetLineDanceName">"West Coast Passion"</td>
+  <th class="stepsheetInsideBorder">Intermediate</th>
+    <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/oWgGWlYddlY?si=kE68H4FTk_5UMoio" target="embed" onclick="lessonTitle('West Coast Passion', 'lesson');">Lesson</a></th>
+ <th class="stepsheetInsideBorder"><a href="https://www.youtube.com/embed/FzQ3WaT3kpA?si=_k0HtQuvRuFIBbPE" target="embed" onclick="lessonTitle('West Coast Passion', 'demo');">Demo</a></th>
+<th class="stepsheetInsideBorder"><a href="https://www.copperknob.co.uk/stepsheets/136521/west-coast-passion" target="_blank">Link<br><br><br></a></th>
+ </tr>
+ </table> <br><br><br> <!--
+ <tr><th><a href="#">Click To Go To Top</a></th><th></th></tr>
+ <tr><th style="opacity:0.0;">Bottom Of Page</th><th></th></tr>
+
+ </tbody>
+</table>
+</body>
+</html>

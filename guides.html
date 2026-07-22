@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="images/BootIconContrast.png">
+
+<title>Ventura County Line Dancing Guides</title>
+
+
+
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+	 
+	  <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</head>
+
+<link rel="stylesheet" href="css/style.css">
+
+</style>
+
+<body class = "pageBackground" id="localBackground">
+	<center>
+	<h1 class="pageTitle">Ventura County Line Dancing Guides</h1>
+	
+	
+	<!--<h3 class="h3">Line Dancing Tips</h3>--!>
+	</center>
+<div class="containerfluid">
+	<div class="navbar-expand-lg navbar-light dropdown-menu-left" class="containerfluid">
+	<div class="btn-group">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+	
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+		<li id="homeText"><a class="dropdown-item" href="index"><img src="images/BootIcon.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Home</a></li>
+		<li id="locationsMapText"><a class="dropdown-item" href="linedancelocations"><img src="images/SaloonDoor.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Map</a></img></li>
+		<li id="locationsInfoText"><a class="dropdown-item" href="linedancelocationsinfo"><img src="images/WantedPosterLargerWanted.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Locations Info</a></li>
+			<!--<li><a class="dropdown-item" href="linedancetips">Line Dancing Tips</a></li>--!>
+			<!--<li><a class="dropdown-item" href="popularlinedances">Popular Line Dances</a></li>--!>
+			<li id="guidesText"><a class="dropdown-item" href="guides"><img src="images/WesternStar.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Guides</a></li>
+			<li id="articlesText"><a class="dropdown-item" href="articles"><img src="images/HorseshoeMerged.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp Articles</a></li>
+			<li id="aboutText"><a class="dropdown-item" href="about"><img src="images/CowboyHat.png" class="homeIcon">&nbsp&nbsp&nbsp&nbsp About</a></li>
+ </ul>
+	</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="navigation.js"></script>
+
+<center>
+<br><br><br><br>
+
+<div class="card" id="guide1">
+<div class="card-body">
+	<h4 class="card-title">&#128161Tips</h4>
+	<p class="card-text">Learn line dance tips and terms along with popular beginner line dances.</p>
+	<a href="linedancetips" class="btn btn-primary">View Guide</a>
+	</div>
+</div>
+<br>
+<div class="card" id="guide2">
+<div class="card-body">
+	<h4 class="card-title">&#128220 Stepsheets</h4>
+	<p class="card-text">Search line dances by name, level, choreographer, song swaps and more.</p>
+	<a href="stepsheets" class="btn btn-primary">View Guide</a>
+	</div>
+</div>
+<br>
+
+<div class="card" id="guide3">
+<div class="card-body">
+	<h4 class="card-title"><img src="images/youtube-icon.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class="youtubeIconSize"></img> Line Dance Directory</h4>
+	<p class="card-text">Quicky search line dances by YouTube lessons, demos and stepsheets.</p>
+	<a href="linedancedirectory" class="btn btn-primary">View Guide</a>
+	</div>
+</div>
+<br>
+
+
+<div class="card" id="guide4">
+<div class="card-body">
+	<h4 class="card-title">&#128200 Popular Line Dances</h4>
+	<p class="card-text">Learn popular line dances to Ventura County via YouTube lessons.</p>
+	<a href="popularlinedances" class="btn btn-primary">View Guide</a>
+	</div>
+</div>
+<br>
+<div class="card" id="guide5">
+<div class="card-body">
+	<h4 class="card-title">&#128131 Popular Line Dance Moves</h4>
+	<p class="card-text">Learn some of the most popular line dancing moves via YouTube videos.</p>
+	<a href="popularlinedancemoves" class="btn btn-primary">View Guide</a>
+	</div>
+</div>
+
+<br><br><br>
+
+
+
+</center>
+
+<script>
+document.getElementById('guide1').style.animation="scrollUpAnimation 0.3s linear";
+document.getElementById('guide2').style.animation="scrollUpAnimation 0.3s linear";
+document.getElementById('guide3').style.animation="scrollUpAnimation 0.3s linear";
+document.getElementById('guide4').style.animation="scrollUpAnimation 0.3s linear";
+
+</script>
+
+
+</body>
+
+</html>
