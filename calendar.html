@@ -19,7 +19,7 @@
 </head>
 
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="calendarstyle.css">
+<link rel="stylesheet" href="css/calendarstyle.css">
 
 
 </style>
@@ -943,6 +943,11 @@ if (venueName == "★danceOrDieRedENgine") {
 if (venueName == "★nectarOfTheDogs") {
    tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">Live Music</span>&nbsp<span class="card-tag">Two Drink Minimum</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/roannabattocchio/" target="_blank">Roanna Battocchio</a></span>';
    venueInfo = { title: "Nectar Of The Dogs Wine", time: "6:00 PM", location: "791 Chambers Ln Unit 130, Simi Valley, CA 93065", URL: "https://www.instagram.com/nectarofthedogswine/" };
+}
+
+if (venueName == "theBarn") {
+   tags = '<span class="card-tag">All Ages</span><br><span class="card-tag">Led By <a href="https://www.facebook.com/francie.broughton" target="_blank">Francie Broughton</a></span>';
+   venueInfo = { title: "The Barn", time: "7:00 PM - 9:00 PM", location: "3320 Chestnut Ln, Santa Rosa Valley, CA 93012", URL: "https://www.facebook.com/francie.broughton" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -2294,7 +2299,7 @@ document.getElementById(calendarDay).classList.add("currentDay");
 }
 }
  //End of Week
- if (dayrn >= "2" && newDay >= datern + 1 && dayOfWeek == "Tuesday" && currentMonth == month && currentYear == year) {
+ if (dayrn >= "2" && newDay >= datern + 1 && dayOfWeek == "Monday" && currentMonth == month && currentYear == year) {
  
 //if (newDay > datern + 6 && currentMonth == month && currentYear == year) {
 if (mobileCompact == "1") {	//If you change the style below for the current day, make sure to change it for the .includes in the viewVenue function
@@ -2578,10 +2583,6 @@ if (createCustomEvent("Jun 20, 2026"))
 if (createCustomEvent("Jul 18, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★camarilloHeritageDays2026\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Camarillo Heritage Days</span>"
 
-					 //banditsBarGrill4thOfJuly
-//if (createCustomEvent("Jul 4, 2026"))
-//    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★banditsBarGrill4thOfJuly\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Bandits Grill & Bar 4th of July BBQ</span>"
-
 					 //conejoValleyDays2026
 if (createCustomEvent("Jun 25, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★conejoValleyDays2026\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Conejo Valley Days @ Conejo Creek Park</span>"
@@ -2603,13 +2604,13 @@ if (createCustomEvent("Jun 28, 2026"))
 if (createCustomEvent("Jun 26, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★crawfordsSocial\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Crawford's Social</span>"
 
-							 //danceOrDieRedENgine
-if (createCustomEvent("Jul 17, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★danceOrDieRedENgine\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Dance Or Die @ Red Engine Brewing Co.</span>"
-
-					 //nectarOfTheDogs
+		//nectarOfTheDogs
 if (createCustomEvent("Jul 31, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★nectarOfTheDogs\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Nectar Of The Dogs Wine </span>"
+
+		//theBarn
+if (dayOfWeek == "Monday")
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"theBarn\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Nectar Of The Dogs Wine </span>"
 
 					
 if (scheduleView == 1) {
@@ -2866,15 +2867,6 @@ getMonthInfo();
 
 createDays();
 getMonthInfo();
-
-
-		//document.getElementById("calendarHead").style.display = "none";
-		//document.getElementById("search").style.display = "none";
-		//for (i = 1; i < 4; i++) {
-		//	document.getElementById("afterTableBR" + i).style.display = "none";
-		//	if (i < 2 || i == 4) 
-		//	document.getElementById("brTop" + i).style.display = "none";
-		//}
 		
 		function toggleCalendar() {
 		 if (document.getElementById("compactMode").innerText.includes("Show Calendar") == 0) {
