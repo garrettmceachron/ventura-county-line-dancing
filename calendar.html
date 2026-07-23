@@ -764,14 +764,6 @@ if (venueName == "★bootsInTheParkSantaClarita") {
     venueInfo = { title: "Boots In The Park Santa Clarita @ Central Park", time: "1:00 PM", location: "27150 Bouquet Canyon Rd, Santa Clarita, CA 91350", URL: "https://events.bootsinthepark.com/santaclarita" };
 }
 
-if (venueName == "★vaqueroYMar") {
-	 venueInfo = { title: "Vaquero Y Mar", time: "7:00 PM", location: "435 E Thompson Blvd, Ventura, CA 93001", URL: "https://www.facebook.com/jay.pwd" };
-	if (month == 1 && year == 2026) {
-	venueInfo.URL = "https://www.facebook.com/groups/132023303541331/posts/25926883086961999/";
-	 tags = '<span class="card-tag">Two Step Lesson @ 7pm</span><br><span class="card-tag">2 Step & WCS</span>&nbsp<span class="card-tag">Line Dancing</span>';
-	}
-}
-
 if (venueName == "#BIWEEKLYthePaddock") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span>';
    venueInfo = { title: "The Paddock", time: "6:00 PM - 11:00 PM", location: "1345 Thousand Oaks Blvd, Thousand Oaks, CA 91362", URL: "https://www.instagram.com/dancingwithdev5678/" };
@@ -953,6 +945,11 @@ if (venueName == "theBarn") {
 if (venueName == "★goldenSpeakeasy") {
    tags = '<span class="card-tag">DJ Rick Dominguez</span><br><span class="card-tag">No Lessons</span><br><span class="card-tag">Led by <a href="https://www.instagram.com/p/DbHgz1wy9N2/" target="_blank">The Ventucky Stompers</a></span>';
    venueInfo = { title: "Golden Speakeasy @ The Ventura County Fair", time: "9:00 PM - 11:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/p/DbHgz1wy9N2/" };
+}
+
+if (venueName == "★vaqueroYMar") {
+   tags = '<span class="card-tag">All Ages</span>';
+   venueInfo = { title: "Vaquero Y Mar", time: "7:00 PM - Closing", location: "435 E Thompson Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/sbeventhorizon/" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -2621,6 +2618,10 @@ if (dayOfWeek == "Monday")
 					//goldenSpeakeasy
 if (createCustomEvent("Aug 3, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★goldenSpeakeasy\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Golden Speakeasy @ The Ventura County Fair</span>"
+
+					//vaqueroYMar
+if (createCustomEvent("Jul 25, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★vaqueroYMar\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Vaquero Y Mar</span>"
 					
 if (scheduleView == 1) {
 

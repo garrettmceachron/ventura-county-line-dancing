@@ -324,6 +324,14 @@ var theBarn = L.marker([34.25154462089485, -118.92147448769454], {
 	}
 }).addTo(map);
 
+var vaqueroYMar = L.marker([34.2784087,-119.2941012,77], {
+	title: 'Vaquero Y Mar',
+	label: 'Vaquero Y Mar',
+	labelOptions: {
+	noHide: false
+	}
+}).addTo(map);
+
 var showNameYesNo = 0;
 
 function showNames() {
@@ -347,6 +355,8 @@ function showNames() {
 	corkAndBatterRoadhouse.bindTooltip('Cork & Batter Roadhouse', { permanent: true, direction: 'top', offset: [-15, -15] });
 	enegrenBrewingCo.bindTooltip('Enegren Brewing Co.', { permanent: true, direction: 'bottom', offset: [-15, 15] });
 	theBarn.bindTooltip('The Barn', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	vaqueroYMar.bindTooltip('Vaquero Y Mar', { permanent: true, direction: 'bottom', offset: [-16, 25] });
+	
 	showNameYesNo = 1;
 	
 	return;
@@ -534,6 +544,7 @@ grillOnTheGreen.bindPopup("<b><a href='linedancelocationsinfo.html#grillOnTheGre
 corkAndBatterRoadhouse.bindPopup("<b><a href='linedancelocationsinfo.html#corkAndBatterRoadhouse' target='_blank'>Cork & Batter Roadhouse, Simi Valley</b></a><br>Every Friday and Saturday</b><br><b> Friday 8:00pm - 11:00pm, Saturday 10:00pm - 12:00am</br><b>Chloe Kleiman</b><br><br><a target='_blank' href='https://maps.app.goo.gl/zzhUV62y2xnDz3ng8'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/corkandbatter.roadhouse/'>Instagram</a>").addTo(weekly);
 enegrenBrewingCo.bindPopup("<b><a href='linedancelocationsinfo.html#enegrenBrewingCo' target='_blank'>Enegren Brewing Co., Moorpark</b></a><br>Usually Once a Month on Saturdays,</b><br><a target='_blank' href='https://www.instagram.com/countryrosedancers/'>Click for Schedule</a><br><b> 6:00pm - 10:00pm.</br><b>Country Rose Dancers</b><br><br><a target='_blank' href='https://maps.app.goo.gl/kkGaKXawPboeHL956'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/countryrosedancers/'>Instagram</a>").addTo(monthly);
 theBarn.bindPopup("<b><a href='linedancelocationsinfo.html#theBarn' target='_blank'>The Barn, Santa Rosa Valley</b></a><br>Every Monday</b><br><b> 7:00pm - 9:00pm.</br><b>Francie Broughton</b><br><br><a target='_blank' href='https://maps.app.goo.gl/eFRhD1m6EMC8hxki9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.facebook.com/francie.broughton'>Facebook</a>").addTo(monthly);
+vaqueroYMar.bindPopup("<b><a href='linedancelocationsinfo.html#vaqueroYMar' target='_blank'>Vaquero Y Mar, Ventura</b></a><br>Saturdays,</b><br><a target='_blank' href='https://www.instagram.com/sbeventhorizon/'>Click for Schedule</a><br><b> 7:00pm - Closing.</br><b>SB Event Horizon</b><br><br><a target='_blank' href='https://maps.app.goo.gl/GbQJym6p3WtpmF757'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/sbeventhorizon/'>Instagram</a>").addTo(monthly);
 
 
 var currentDayForVenues = new Date();
@@ -883,6 +894,14 @@ theBarn.on('click', function(e){
     map.setView([34.25154462089485, -118.92147448769454], markerZoomLevel);
 	else  if (currentZoom == 12 || currentZoom == 13)
 	map.setView([34.25154462089485, -118.92147448769454]);
+
+});
+
+vaqueroYMar.on('click', function(e){
+	if (currentZoom < 12)
+    map.setView([34.2784087,-119.2941012,77], markerZoomLevel);
+	else  if (currentZoom == 12 || currentZoom == 13)
+	map.setView([34.2784087,-119.2941012,77]);
 
 });
 
