@@ -284,14 +284,6 @@ var varsityClub = L.marker([34.24287759584501, -119.20879469401014], {
 	}
 }).addTo(map);
 
-var pcsBarGrill = L.marker([34.2713923,-118.711651,898], {
-	title: 'PC\'s Bar & Grill',
-	label: 'PC\'s Bar & Grill',
-	labelOptions: {
-	noHide: false
-	}
-}).addTo(map);
-
 var grillOnTheGreen = L.marker([34.2897912,-118.695882,898], {
 	title: 'Grill On The Green',
 	label: 'Grill On The Green',
@@ -303,14 +295,6 @@ var grillOnTheGreen = L.marker([34.2897912,-118.695882,898], {
 var corkAndBatterRoadhouse = L.marker([34.2838068,-118.76426,898], {
 	title: 'Cork & Batter Roadhouse',
 	label: 'Cork & Batter Roadhouse',
-	labelOptions: {
-	noHide: false
-	}
-}).addTo(map);
-
-var enegrenBrewingCo = L.marker([34.2831012,-118.8706701,898], {
-	title: 'Enegren Brewing Co.',
-	label: 'Enegren Brewing Co.',
 	labelOptions: {
 	noHide: false
 	}
@@ -350,10 +334,8 @@ function showNames() {
 	streyCellars.bindTooltip('Strey Cellars', { permanent: true, direction: 'bottom', offset: [-16, 25] });
 	danceCreations.bindTooltip('Dance Creations', { permanent: true, direction: 'bottom', offset: [0, 0] });
 	varsityClub.bindTooltip('Varsity Club', { permanent: true, direction: 'bottom', offset: [0, 5] });
-	pcsBarGrill.bindTooltip('PC\'s Bar & Grill', { permanent: true, direction: 'bottom', offset: [0, 5] });
 	grillOnTheGreen.bindTooltip('Grill On The Green', { permanent: true, direction: 'top', offset: [-16, -5] });
 	corkAndBatterRoadhouse.bindTooltip('Cork & Batter Roadhouse', { permanent: true, direction: 'top', offset: [-15, -15] });
-	enegrenBrewingCo.bindTooltip('Enegren Brewing Co.', { permanent: true, direction: 'bottom', offset: [-15, 15] });
 	theBarn.bindTooltip('The Barn', { permanent: true, direction: 'bottom', offset: [-16, 25] });
 	vaqueroYMar.bindTooltip('Vaquero Y Mar', { permanent: true, direction: 'bottom', offset: [-16, 25] });
 	
@@ -377,10 +359,8 @@ function showNames() {
 	streyCellars.unbindTooltip();
 	danceCreations.unbindTooltip();
 	varsityClub.unbindTooltip();
-	pcsBarGrill.unbindTooltip();
 	grillOnTheGreen.unbindTooltip();
 	corkAndBatterRoadhouse.unbindTooltip();
-	enegrenBrewingCo.unbindTooltip();
 	theBarn.unbindTooltip();
 	vaqueroYMar.unbindTooltip();
 	
@@ -541,10 +521,8 @@ magnavinoCellars.bindPopup("<b><a href='linedancelocationsinfo.html#magnavinocel
 streyCellars.bindPopup("<b><a href='linedancelocationsinfo.html#streycellars' 'target='_blank'>Strey Cellars, Oxnard</b></a><br>Once a Month on Sundays,</b><br><a target='_blank' href='https://www.streycellars.com/event-type-2/barfly/'>Click for Schedule</a><br><b> 2:00pm - 5:00pm.</br><b>Caught Red Handed (Older Live Country Style)</b><br><br><a target='_blank' href='https://maps.app.goo.gl/HgyKovkwrs9Ndfxr8'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/streycellars/'>Instagram</a>").addTo(monthly);
 danceCreations.bindPopup("<b><a href='linedancelocationsinfo.html#dancecreations' 'target='_blank'>Dance Creations, Simi Valley</b></a><br>Every Third Sunday</b><br><b> 6:00pm - 9:00pm.</br><b>Roanna Battocchio</b><br><br><a target='_blank' href='https://maps.app.goo.gl/5AZLpLqANhaoDE368'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/roannabattocchio/'>Instagram</a>").addTo(weekly);
 varsityClub.bindPopup("<b><a href='linedancelocationsinfo.html#varsityclub' target='_blank'>Varsity Club, Ventura</b></a><br>Friday/Saturdays About Once A Month,</b><br><a target='_blank' href='https://instagram.com/thevarsityclubatsis/'>Click for Schedule</a><br><b> 7:00pm - 11:00pm.</br><b>Ventucky Stompers</b><br><br><a target='_blank' href='https://maps.app.goo.gl/8LDE7vzYDr8XyuEMA'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://instagram.com/thevarsityclubatsis/'>Instagram</a>").addTo(random);
-pcsBarGrill.bindPopup("<b><a href='linedancelocationsinfo.html#pcsBarGrill' target='_blank'>PC\'s Bar & Grill, Simi Valley</b></a><br>Every Tuesday</b><br><b> 6:00pm - Closing</br><b>DJ Josh and DI Dev</b><br><br><a target='_blank' href='https://maps.app.goo.gl/jCH9kNu2cG4zXzLA7'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/dancingwithdev5678/'>Instagram</a>").addTo(weekly);
 grillOnTheGreen.bindPopup("<b><a href='linedancelocationsinfo.html#grillOnTheGreen' target='_blank'>Grill On The Green, Simi Valley</b></a><br>Every Wednesdays,</b><br><a target='_blank' href='https://www.instagram.com/grillonthegreen_simi/'>Click for Schedule</a><br><b> 6:00pm - 8:00pm.</br><b>Varied</b><br><br><a target='_blank' href='https://maps.app.goo.gl/46fZ8fzdyR9yW6VX7'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/grillonthegreen_simi/'>Instagram</a>").addTo(weekly);
 corkAndBatterRoadhouse.bindPopup("<b><a href='linedancelocationsinfo.html#corkAndBatterRoadhouse' target='_blank'>Cork & Batter Roadhouse, Simi Valley</b></a><br>Every Friday and Saturday</b><br><b> Friday 8:00pm - 11:00pm, Saturday 10:00pm - 12:00am</br><b>Chloe Kleiman</b><br><br><a target='_blank' href='https://maps.app.goo.gl/zzhUV62y2xnDz3ng8'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/corkandbatter.roadhouse/'>Instagram</a>").addTo(weekly);
-enegrenBrewingCo.bindPopup("<b><a href='linedancelocationsinfo.html#enegrenBrewingCo' target='_blank'>Enegren Brewing Co., Moorpark</b></a><br>Usually Once a Month on Saturdays,</b><br><a target='_blank' href='https://www.instagram.com/countryrosedancers/'>Click for Schedule</a><br><b> 6:00pm - 10:00pm.</br><b>Country Rose Dancers</b><br><br><a target='_blank' href='https://maps.app.goo.gl/kkGaKXawPboeHL956'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/countryrosedancers/'>Instagram</a>").addTo(monthly);
 theBarn.bindPopup("<b><a href='linedancelocationsinfo.html#theBarn' target='_blank'>The Barn, Santa Rosa Valley</b></a><br>Every Monday</b><br><b> 7:00pm - 9:00pm.</br><b>Francie Broughton</b><br><br><a target='_blank' href='https://maps.app.goo.gl/eFRhD1m6EMC8hxki9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.facebook.com/francie.broughton'>Facebook</a>").addTo(monthly);
 vaqueroYMar.bindPopup("<b><a href='linedancelocationsinfo.html#vaqueroYMar' target='_blank'>Vaquero Y Mar, Ventura</b></a><br>Saturdays,</b><br><a target='_blank' href='https://www.instagram.com/sbeventhorizon/'>Click for Schedule</a><br><b> 7:00pm - Closing.</br><b>SB Event Horizon</b><br><br><a target='_blank' href='https://maps.app.goo.gl/GbQJym6p3WtpmF757'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/sbeventhorizon/'>Instagram</a>").addTo(monthly);
 
@@ -859,14 +837,6 @@ varsityClub.on('click', function(e){
 
 });
 
-pcsBarGrill.on('click', function(e){
-	if (currentZoom < 12)
-    map.setView(e.target.getLatLng(), markerZoomLevel);
-	else  if (currentZoom == 12 || currentZoom == 13)
-	map.setView(e.target.getLatLng());
-
-});
-
 grillOnTheGreen.on('click', function(e){
 	if (currentZoom < 12)
     map.setView([34.3047912,-118.695882,898], markerZoomLevel);
@@ -880,14 +850,6 @@ corkAndBatterRoadhouse.on('click', function(e){
     map.setView([34.2868068,-118.76426,898], markerZoomLevel);
 	else  if (currentZoom == 12 || currentZoom == 13)
 	map.setView([34.2868068,-118.76426,898]);
-
-});
-
-enegrenBrewingCo.on('click', function(e){
-	if (currentZoom < 12)
-    map.setView([34.2931012,-118.8706701,898], markerZoomLevel);
-	else  if (currentZoom == 12 || currentZoom == 13)
-	map.setView([34.2931012,-118.8706701,898]);
 
 });
 
