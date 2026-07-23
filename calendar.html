@@ -838,8 +838,8 @@ if (venueName == "★popUpCountry") {
 }
 
 if (venueName == "★countryNightPoolLights") {
-   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Family Event</span><br><span class="card-tag">Pool Activities</span><br><span class="card-tag">Led By <a href="https://rsrpd.org/recreation/dive_in_movies.php" target="_blank">Rancho Simi</a></span>';
-   venueInfo = { title: "Country Nights & Pool Lights @ Rancho Simi Parks N Rec", time: "5:00 PM - 9:00 PM", location: "4201 Guardian St., Simi Valley, CA 93063", URL: "https://rsrpd.org/recreation/dive_in_movies.php" };
+   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Family Event</span><br><span class="card-tag">Pool Activities</span><br><span class="card-tag">Led By <a href="https://rsrpd.org/recreation/dive_in_movies.php" target="_blank">Boot Scootin Bailey</a></span>';
+   venueInfo = { title: "Country Nights & Pool Lights @ Rancho Simi Parks N Rec", time: "6:30 PM - 7:30 PM", location: "4201 Guardian St., Simi Valley, CA 93063", URL: "https://rsrpd.org/recreation/dive_in_movies.php" };
 }
 
 if (venueName == "★palominoSpinningSpurs") {
@@ -948,6 +948,11 @@ if (venueName == "★nectarOfTheDogs") {
 if (venueName == "theBarn") {
    tags = '<span class="card-tag">All Ages</span><br><span class="card-tag">Led By <a href="https://www.facebook.com/francie.broughton" target="_blank">Francie Broughton</a></span>';
    venueInfo = { title: "The Barn", time: "7:00 PM - 9:00 PM", location: "3320 Chestnut Ln, Santa Rosa Valley, CA 93012", URL: "https://www.facebook.com/francie.broughton" };
+}
+
+if (venueName == "★goldenSpeakeasy") {
+   tags = '<span class="card-tag">DJ Rick Dominguez</span><br><span class="card-tag">No Lessons</span><br><span class="card-tag">Led by <a href="https://www.instagram.com/p/DbHgz1wy9N2/" target="_blank">The Ventucky Stompers</a></span>';
+   venueInfo = { title: "Golden Speakeasy @ The Ventura County Fair", time: "9:00 PM - 11:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/p/DbHgz1wy9N2/" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -2612,6 +2617,10 @@ if (createCustomEvent("Jul 31, 2026"))
 if (dayOfWeek == "Monday")
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"theBarn\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Nectar Of The Dogs Wine </span>"
 
+
+					//goldenSpeakeasy
+if (createCustomEvent("Aug 3, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★goldenSpeakeasy\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Golden Speakeasy @ The Ventura County Fair</span>"
 					
 if (scheduleView == 1) {
 
