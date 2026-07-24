@@ -952,6 +952,11 @@ if (venueName == "★vaqueroYMar") {
    venueInfo = { title: "Vaquero Y Mar", time: "7:00 PM - Closing", location: "435 E Thompson Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/sbeventhorizon/" };
 }
 
+if (venueName == "★billyClower") {
+   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span>';
+   venueInfo = { title: "Billy Clower Dance Studio", time: "7:00 PM - 9:00 PM", location: "75 MacMillan Ave, Ventura, CA 93001", URL: "https://www.instagram.com/p/Da8kXmZy6HN/" };
+}
+
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
 		document.getElementById(venueInfoToReplace).innerHTML = createVenue;
@@ -2622,6 +2627,10 @@ if (createCustomEvent("Aug 3, 2026"))
 					//vaqueroYMar
 if (createCustomEvent("Jul 25, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★vaqueroYMar\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Vaquero Y Mar</span>"
+
+					//billyClower
+if (createCustomEvent("Jul 24, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★billyClower\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Billy Clower</span>"
 					
 if (scheduleView == 1) {
 
