@@ -501,7 +501,6 @@ if (loadNextMonthCards == 1 && month == currentMonth + 1 && dayClicked > (emptyF
 return;
 
 if (loadVenueCards == true && document.getElementById(dayClicked).classList.contains('weekAfterToday')) {
-	if (todayId.length == 1)
 	 todayId.push(cardInfo.length);
 	
 }
@@ -1853,7 +1852,7 @@ function getMonthInfo() {
 		}
 	
   	
-   for (let i = todayId.at(0); i < todayId.length + 1; i++) {
+   for (let i = todayId.at(0); i < cardInfo.length; i++) {
 		tagCountMet = 0;
 		optionalTagsMet = 0;
 		for (let j = 0; j < checkForTags.length; j++) {
