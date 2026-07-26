@@ -767,7 +767,7 @@ if (venueName == "#BIWEEKLYthePaddock") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span>';
    venueInfo = { title: "The Paddock", time: "6:00 PM - 11:00 PM", location: "1345 Thousand Oaks Blvd, Thousand Oaks, CA 91362", URL: "https://www.instagram.com/dancingwithdev5678/" };
    if (month == 6 && (dayClicked == 13 || dayClicked == 27))
-   tags += '<br><span class="card-tag">Led By <a href="https://www.instagram.com/dancingwithdev5678/" target="_blank">DJ Xenyeehaw & DI Dev</a></span>';
+   tags += '<br><span class="card-tag">Led By <a href="https://www.instagram.com/dancingwithdev5678/" target="_blank">DJ Xenia & DI Dev</a></span>';
 
 }
 
@@ -870,19 +870,9 @@ if (venueName == "★corkBatterRoadhouse4thOfJuly") {
 
 }
 
-if (venueName == "★californiaStrawberryFestival") {
-   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Led By <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
-   venueInfo = { title: "California Strawberry Festival @ The Ventura County Fairgrounds", time: "4:00 PM - 5:30 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://castrawberryfestival.org/entertainment/" };
-}
-
 if (venueName == "★summerRewind26DowntownVentura") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span>&nbsp<span class="card-tag">Beginner Level</span><br><span class="card-tag">Led By <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
    venueInfo = { title: "Summer Rewind @ The Downtown Ventura Stage", time: "6:00 PM - 8:00 PM", location: "N California St & E Main St, Ventura, CA 93001", URL: "https://www.instagram.com/p/DYAPHNJmyUq/?img_index=2" };
-}
-
-if (venueName == "★simiFest2026") {
-   tags = '<span class="card-tag">Free</span>&nbsp<span class="card-tag">Live Music</span>&nbsp<span class="card-tag">Lessons @ 2PM & 4PM</span>';
-   venueInfo = { title: "SimiFest @ Cronies Sports Grill", time: "12:00 PM", location: "2752 Cochran St, Simi Valley, CA 93065", URL: "https://www.instagram.com/p/DYx9LlLPBjs/" };
 }
 
 if (venueName == "★stagecoachInnMuseum") {
@@ -922,8 +912,8 @@ if (venueName == "★camarilloShoppingJamboree") {
 }
 
 if (venueName == "★crawfordsSocial") {
-   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span>';
-   venueInfo = { title: "Crawford's Social", time: "8:00 PM - 12:00 AM", location: "974 S Westlake Blvd, Westlake Village, CA 91361", URL: "https://www.facebook.com/arlene.mckinnon.9/posts/pfbid0asAp1Kfggt4MR7gAcv9Z1nhsHUvk3er959ArbRD5WSPLAgrTHGBsLQZsAuuT5jAPl" };
+   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span><br><span class="card-tag">Outdoors</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/xenyeehaw/" target="_blank">DJ Xenia</a><span>';
+   venueInfo = { title: "Crawford's Social", time: "8:00 PM", location: "974 S Westlake Blvd, Westlake Village, CA 91361", URL: "https://www.facebook.com/arlene.mckinnon.9/posts/pfbid0asAp1Kfggt4MR7gAcv9Z1nhsHUvk3er959ArbRD5WSPLAgrTHGBsLQZsAuuT5jAPl" };
 }
 
 if (venueName == "★danceOrDieRedENgine") {
@@ -2279,6 +2269,32 @@ return isEvenOdd(weeksBetweenDate);
 
 }
 
+function everySixWeeks(date) {
+
+const lastDayWeek = new Date(year, month + 1, 0);
+const inputFullDate = new Date(date);
+
+var inputDate = Date.parse(date);
+
+var convertedArticleDate = Math.floor(inputDate / (1000 * 60 * 60 * 24 * 7));
+
+
+var currentMilisecondsDate = Date.parse(currentDate) - "25200000";
+var convertedcurrentMiliseconds = Math.floor(currentMilisecondsDate / (1000 * 60 * 60 * 24 * 7));
+
+var weeksBetweenDate = convertedcurrentMiliseconds - convertedArticleDate;
+							  
+inputMonth = inputFullDate.getMonth();
+inputDay = inputFullDate.getDate();
+inputYear = inputFullDate.getFullYear();
+
+
+if (Number.isInteger(weeksBetweenDate / 6) && (month >= inputMonth && year >= inputYear || year > inputYear))
+return isEvenOdd(weeksBetweenDate);
+
+
+}
+
 
 
 
@@ -2553,23 +2569,9 @@ if (createCustomEvent("June 30, 2026") || createCustomEvent("July 28, 2026"))
 if (dayOfWeek == "Wednesday")
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"grillOnTheGreen\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Grill On The Green</span>"
 
-					 //grillOnTheGreenMovedToThursday
-if (createCustomEvent("July 2, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★grillOnTheGreen\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Grill On The Green</span>"
-
-
-					 //californiaStrawberryFestival
-if (createCustomEvent("May 16, 2026") || createCustomEvent("May 17, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★californiaStrawberryFestival\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> California Strawberry Festival @ The Ventura County Fairgrounds</span>"
-
 					 //summerRewind26DowntownVentura
-if (createCustomEvent("May 27, 2026") || createCustomEvent("June 10, 2026") || createCustomEvent("August 12, 2026"))
+if (createCustomEvent("August 12, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★summerRewind26DowntownVentura\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Summer Rewind @ The Downtown Ventura Stage</span>"
-
-
-					//simiFest2026
-if (createCustomEvent("May 31, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★simiFest2026\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> SimiFest @ Cronies Sports Grill</span>"
 
 					//stagecoachInnMuseum
 if (createCustomEvent("Jun 6, 2026") || createCustomEvent("July 4, 2026"))
@@ -2607,7 +2609,7 @@ if (createCustomEvent("Jun 28, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★haloSummerfest\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Halo Summerfest</span>"
 					
 							 //crawfordsSocial
-if (createCustomEvent("Jun 26, 2026"))
+if (everySixWeeks("August 28, 2026") && dayOfWeek == "Friday")
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★crawfordsSocial\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Crawford's Social</span>"
 
 		//nectarOfTheDogs
