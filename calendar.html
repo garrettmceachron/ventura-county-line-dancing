@@ -932,8 +932,8 @@ if (venueName == "theBarn") {
 }
 
 if (venueName == "★goldenSpeakeasy") {
-   tags = '<span class="card-tag">DJ Rick Dominguez</span><br><span class="card-tag">No Lessons</span><br><span class="card-tag">Led by <a href="https://www.instagram.com/p/DbHgz1wy9N2/" target="_blank">The Ventucky Stompers</a></span>';
-   venueInfo = { title: "Golden Speakeasy @ The Ventura County Fair", time: "9:00 PM - 11:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/p/DbHgz1wy9N2/" };
+   tags = '<span class="card-tag">DJ Rick Dominguez</span><br><span class="card-tag">No Lessons</span><br><span class="card-tag">Led by <a href="https://www.instagram.com/ventuckystompers/" target="_blank">The Ventucky Stompers</a></span>';
+   venueInfo = { title: "The Golden Pony Speakeasy @ The Ventura County Fair Surf Rodeo", time: "9:00 PM - 11:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/p/DbHup1uSnjY/" };
 }
 
 if (venueName == "★vaqueroYMar") {
@@ -944,6 +944,16 @@ if (venueName == "★vaqueroYMar") {
 if (venueName == "★billyClower") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span>';
    venueInfo = { title: "Billy Clower Dance Studio", time: "7:00 PM - 9:00 PM", location: "75 MacMillan Ave, Ventura, CA 93001", URL: "https://www.instagram.com/p/Da8kXmZy6HN/" };
+}
+
+if (venueName == "★venturaCountyFairAug1") {
+   tags = '<span class="card-tag">Preshow for Jake Owen</span><br><span class="card-tag">Led by <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
+   venueInfo = { title: "The Ventura County Fair At The Grand Stadium", time: "6:00 PM - 7:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
+}
+
+if (venueName == "★venturaCountyFairAug5") {
+   tags = '<span class="card-tag">Preshow for Nate Smith</span><br><span class="card-tag">Led by <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
+   venueInfo = { title: "The Ventura County Fair At The Grand Stadium", time: "6:00 PM - 7:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -2423,7 +2433,7 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 //Special Events
 
 		//Tarantula Hill
-			if (weekPassed == "1" && dayOfWeek == "Saturday" && createCustomEvent("July 4, 2026") != 1 || createCustomEvent("July 11, 2026")) {
+			if (weekPassed == "1" && dayOfWeek == "Saturday" || createCustomEvent("Aug 15, 2026")) {
 				document.getElementById(calendarDay).style.textDecoration = ""; //Create Underline On Date
 				
 				document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"#MOTarantulaHill\", " + calendarDay + ");'><span class='whiteLi'>&#8226</span> Tarantula Hill</span>"
@@ -2632,6 +2642,15 @@ if (createCustomEvent("Jul 25, 2026"))
 					//billyClower
 if (createCustomEvent("Jul 24, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★billyClower\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Billy Clower</span>"
+
+					 //venturaCountyFairAug1
+if (createCustomEvent("Aug 1, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug1\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Ventura County Fair At The Grand Stadium</span>"
+
+					 //venturaCountyFairAug1
+if (createCustomEvent("Aug 5, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug5\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Ventura County Fair At The Grand Stadium</span>"
+
 					
 if (scheduleView == 1) {
 
