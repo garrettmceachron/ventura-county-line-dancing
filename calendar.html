@@ -927,7 +927,7 @@ if (venueName == "★nectarOfTheDogs") {
 }
 
 if (venueName == "theBarn") {
-   tags = '<span class="card-tag">All Ages</span><br><span class="card-tag">Led By <a href="https://www.facebook.com/francie.broughton" target="_blank">Francie Broughton</a></span>';
+   tags = '<span class="card-tag">All Ages</span><br><span class="card-tag">Led By <a href="https://www.facebook.com/francie.broughton" target="_blank">DJ Francie Broughton</a></span>';
    venueInfo = { title: "The Barn", time: "7:00 PM - 9:00 PM", location: "3320 Chestnut Ln, Santa Rosa Valley, CA 93012", URL: "https://www.facebook.com/francie.broughton" };
 }
 
@@ -954,6 +954,21 @@ if (venueName == "★venturaCountyFairAug1") {
 if (venueName == "★venturaCountyFairAug5") {
    tags = '<span class="card-tag">Preshow for Nate Smith</span><br><span class="card-tag">Led by <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
    venueInfo = { title: "The Ventura County Fair At The Grand Stadium", time: "6:00 PM - 7:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
+}
+
+if (venueName == "★tavernTuesdays") {
+   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Indoors & Outdoors</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/xenyeehaw/" target="_blank">DJ Xenia</a></span>';
+   venueInfo = { title: "Tavern 101 Grand Opening Line Dance Night", time: "6:00 PM - 11:00 PM", location: "28434 Roadside Dr, Agoura Hills, CA 91301", URL: "https://www.instagram.com/p/DbYoaXTsOAu/" };
+}
+
+if (venueName == "tavernTuesdays") {
+   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Indoors & Outdoors</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/xenyeehaw/" target="_blank">DJ Xenia</a></span>';
+   venueInfo = { title: "Tavern 101", time: "6:00 PM - 11:00 PM", location: "28434 Roadside Dr, Agoura Hills, CA 91301", URL: "https://www.instagram.com/p/DbYoaXTsOAu/" };
+}
+
+if (venueName == "★outlawsCountryClassicRockNight") {
+   tags = '';
+   venueInfo = { title: "Outlaws Country & Classic Rock Night", time: "9:00 PM", location: "2167 Pickwick Dr, Camarillo, CA 93010", URL: "https://www.instagram.com/p/DbXbMaZOHpX/" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -2650,6 +2665,17 @@ if (createCustomEvent("Aug 1, 2026"))
 					 //venturaCountyFairAug1
 if (createCustomEvent("Aug 5, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug5\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Ventura County Fair At The Grand Stadium</span>"
+
+					 //tavernTuesdays
+if (createCustomEvent("Aug 11, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★tavernTuesdays\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Tavern 101</span>"
+
+if (dayOfWeek == "Tuesday" && year >= 2026 && month > 6 && (createCustomEvent("Aug 4, 2026") != 1 && createCustomEvent("Aug 11, 2026") != 1))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"tavernTuesdays\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Tavern 101</span>"
+
+					 //outlawsCountryClassicRockNight
+if (createCustomEvent("Jul 31, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★outlawsCountryClassicRockNight\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Outlaws Country & Classic Rock Night</span>"
 
 					
 if (scheduleView == 1) {
