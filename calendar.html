@@ -932,8 +932,8 @@ if (venueName == "theBarn") {
 }
 
 if (venueName == "★goldenSpeakeasy") {
-   tags = '<span class="card-tag">DJ Rick Dominguez</span><br><span class="card-tag">Led by <a href="https://www.instagram.com/ventuckystompers/" target="_blank">The Ventucky Stompers</a></span>';
-   venueInfo = { title: "The Golden Pony Speakeasy @ The Ventura County Fair Surf Rodeo", time: "9:00 PM - 11:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/p/DbHup1uSnjY/" };
+   tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">DJ Rick Dominguez</span><br><span class="card-tag">Led by <a href="https://www.instagram.com/ventuckystompers/" target="_blank">The Ventucky Stompers</a></span>';
+   venueInfo = { title: "The Ventura County Fair Surf Rodeo", time: "9:00 PM - 11:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/p/DbHup1uSnjY/" };
 }
 
 if (venueName == "★vaqueroYMar") {
@@ -947,13 +947,18 @@ if (venueName == "★billyClower") {
 }
 
 if (venueName == "★venturaCountyFairAug1") {
-   tags = '<span class="card-tag">Preshow for Jake Owen</span><br><span class="card-tag">No Lessons</span><br><span class="card-tag">Led by <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
-   venueInfo = { title: "The Ventura County Fair At The Grand Stadium", time: "6:54 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
+   tags = '<span class="card-tag">No Lessons</span><br><span class="card-tag">Led by <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
+   venueInfo = { title: "The Ventura County Fair Grand Stadium", time: "6:54 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
 }
 
 if (venueName == "★venturaCountyFairAug5") {
-   tags = '<span class="card-tag">Preshow for Nate Smith</span><br><span class="card-tag">No Lessons</span><br><span class="card-tag">Led by <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
-   venueInfo = { title: "The Ventura County Fair At The Grand Stadium", time: "6:54 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
+   tags = '<span class="card-tag">No Lessons</span><br><span class="card-tag">Led by <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
+   venueInfo = { title: "The Ventura County Fair Grand Stadium", time: "6:54 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
+}
+
+if (venueName == "★venturaCountyFairAug6and7") {
+   tags = '<span class="card-tag">More traditional set</span><br><span class="card-tag">Led by <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
+   venueInfo = { title: "The Ventura County Fair Pacifico Stage", time: "6:00 PM - 7:30 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
 }
 
 if (venueName == "★tavernTuesdays") {
@@ -2666,6 +2671,12 @@ if (createCustomEvent("Aug 1, 2026"))
 if (createCustomEvent("Aug 5, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug5\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Ventura County Fair At The Grand Stadium</span>"
 
+					 //venturaCountyFairAug6and7
+if (createCustomEvent("Aug 6, 2026") || createCustomEvent("Aug 7, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug6and7\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Ventura County Fair Pacifico Stage</span>"
+
+
+	
 					 //tavernTuesdays
 if (createCustomEvent("Aug 11, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★tavernTuesdays\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Tavern 101</span>"
