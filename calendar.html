@@ -788,7 +788,7 @@ if (venueName == "★enegrenBrewingCompany") {
 
 if (venueName == "★bootsAndBrews") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Live Music</span>&nbsp<span class="card-tag">Outdoors</span><br><span class="card-tag">Led By <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
-   venueInfo = { title: "Boots & Brews 2026 @ The Ventura Plaza Park", time: "2:00 PM - 10:00 PM", location: "E Thompson Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/p/DY8LCidPfL2/"};
+   venueInfo = { title: "Boots & Brews @ Ventura Plaza Park", time: "Times TBA", location: "E Thompson Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/bootsandbrews_/"};
 }
 
 if (venueName == "★harleySimiValleyBowl") {
@@ -961,11 +961,6 @@ if (venueName == "★venturaCountyFairAug6and7") {
    venueInfo = { title: "The Ventura County Fair Pacifico Stage", time: "6:00 PM - 7:30 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
 }
 
-if (venueName == "★tavernTuesdays") {
-   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Indoors & Outdoors</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/xenyeehaw/" target="_blank">DJ Xenia</a></span>';
-   venueInfo = { title: "Tavern 101 Grand Opening Line Dance Night", time: "6:00 PM - 11:00 PM", location: "28434 Roadside Dr, Agoura Hills, CA 91301", URL: "https://www.instagram.com/p/DbYoaXTsOAu/" };
-}
-
 if (venueName == "tavernTuesdays") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Indoors & Outdoors</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/xenyeehaw/" target="_blank">DJ Xenia</a></span>';
    venueInfo = { title: "Tavern 101", time: "6:00 PM - 11:00 PM", location: "28434 Roadside Dr, Agoura Hills, CA 91301", URL: "https://www.instagram.com/p/DbYoaXTsOAu/" };
@@ -974,6 +969,16 @@ if (venueName == "tavernTuesdays") {
 if (venueName == "★outlawsCountryClassicRockNight") {
    tags = '';
    venueInfo = { title: "Outlaws Country & Classic Rock Night", time: "9:00 PM", location: "2167 Pickwick Dr, Camarillo, CA 93010", URL: "https://www.instagram.com/p/DbXbMaZOHpX/" };
+}
+
+if (venueName == "★santaPaulaCarRallyWesternDance") {
+   tags = '<span class="card-tag">$50 Presale Tickets</span>';
+   venueInfo = { title: "Santa Paula Rotary Club Car Rally & Western Dance @", time: "5:00 PM - 10:00 PM", location: "18201 E Telegraph Rd, Santa Paula, CA 93060", URL: "https://www.instagram.com/p/Dbg1D-kkljE/?img_index=1" };
+}
+
+if (venueName == "★paintLineDanceWine") {
+   tags = '<span class="card-tag">$45 Per Ticket</span>&nbsp<span class="card-tag">One Drink Minimum</span>';
+   venueInfo = { title: "Paint, Line Dance & Wine @ Giessinger Winery", time: "3:00 PM - 6:00 PM", location: "365 Santa Clara St, Fillmore, CA 93015", URL: "https://www.facebook.com/groups/vcblackprofessionals/posts/37425731093738108/" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -2558,8 +2563,8 @@ if (everyOtherWeek("July 10, 2026") && dayOfWeek == "Friday")
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"#BIWEEKLYthePaddock\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Paddock</span>"
 
 //boots&Brews
-if (createCustomEvent("Jun 13, 2026")) 
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★bootsAndBrews\", " + calendarDay + ");'><span class='redLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Boots & Brews 2026</span>"
+if (createCustomEvent("Sep 20, 2026")) 
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★bootsAndBrews\", " + calendarDay + ");'><span class='redLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Boots & Brews</span>"
 
 						  //coastalCowgirlVentura
 if (createCustomEvent("Aug 22, 2026"))
@@ -2678,16 +2683,21 @@ if (createCustomEvent("Aug 6, 2026") || createCustomEvent("Aug 7, 2026"))
 
 	
 					 //tavernTuesdays
-if (createCustomEvent("Aug 11, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★tavernTuesdays\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Tavern 101</span>"
-
-if (dayOfWeek == "Tuesday" && year >= 2026 && month > 6 && (createCustomEvent("Aug 4, 2026") != 1 && createCustomEvent("Aug 11, 2026") != 1))
+if (dayOfWeek == "Tuesday" && year >= 2026 && month > 6 && createCustomEvent("Aug 4, 2026") != 1)
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"tavernTuesdays\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Tavern 101</span>"
 
 					 //outlawsCountryClassicRockNight
 if (createCustomEvent("Jul 31, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★outlawsCountryClassicRockNight\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Outlaws Country & Classic Rock Night</span>"
 
+
+					//santaPaulaCarRallyWesternDance
+if (createCustomEvent("Sep 26, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★santaPaulaCarRallyWesternDance\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Santa Paula Rotary Club Car Rally & Western Dance</span>"
+
+					//paintLineDanceWine
+if (createCustomEvent("Aug 15, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★paintLineDanceWine\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Paint, Line Dance & Wine @ Giessinger Winery</span>"
 					
 if (scheduleView == 1) {
 
