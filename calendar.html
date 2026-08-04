@@ -981,6 +981,21 @@ if (venueName == "★paintLineDanceWine") {
    venueInfo = { title: "Paint, Line Dance & Wine @ Giessinger Winery", time: "3:00 PM - 6:00 PM", location: "365 Santa Clara St, Fillmore, CA 93015", URL: "https://www.facebook.com/groups/vcblackprofessionals/posts/37425731093738108/" };
 }
 
+if (venueName == "★america250SwingDance") {
+   tags = '<span class="card-tag">Minimum Purchase Required</span><br><span class="card-tag">Swing & Line Dancing</span>';
+   venueInfo = { title: "America\'s 250th Swing Dance @ Fermentation House Ventura", time: "6:30 PM", location: "2290 Eastman Ave #109, Ventura, CA 93003", URL: "https://www.instagram.com/p/DbfL-vznWVE/" };
+}
+
+if (venueName == "★Bombay") {
+   tags = '';
+   venueInfo = { title: "Bombay Bar & Grill", time: "7:00pm - 12:30/1:00am", location: "28912 Roadside Dr, Agoura Hills, CA 91301", URL: "https://instagram.com/borderlinebar" };
+}
+
+if (venueName == "★santaPaulaSportsParkFreeLineDanceLessons") {
+   tags = '<span class="card-tag">Free</span><br><span class="card-tag">Prep for Santa Paula Car Rally & Dance</span>';
+   venueInfo = { title: "Santa Paula Sports Park Free Line Dancing Lessons", time: "4:00 PM - 6:00 PM", location: "301 Harvest Loop, Santa Paula, CA 93060", URL: "https://www.instagram.com/p/Dbg1D-kkljE/?img_index=2" };
+}
+
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
 		document.getElementById(venueInfoToReplace).innerHTML = createVenue;
@@ -2698,6 +2713,16 @@ if (createCustomEvent("Sep 26, 2026"))
 					//paintLineDanceWine
 if (createCustomEvent("Aug 15, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★paintLineDanceWine\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Paint, Line Dance & Wine @ Giessinger Winery</span>"
+
+					//america250SwingDance
+if (createCustomEvent("Aug 14, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★america250SwingDance\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> America\'s 250th Swing Dance @ Fermentation House Ventura</span>"
+
+
+
+					//santaPaulaSportsParkFreeLineDanceLessons
+if (createCustomEvent("Sep 5, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★santaPaulaSportsParkFreeLineDanceLessons\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Santa Paula Sports Park Free Line Dancing Lessons</span>"
 					
 if (scheduleView == 1) {
 
