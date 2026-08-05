@@ -986,11 +986,6 @@ if (venueName == "★america250SwingDance") {
    venueInfo = { title: "America\'s 250th Swing Dance @ Fermentation House Ventura", time: "6:30 PM", location: "2290 Eastman Ave #109, Ventura, CA 93003", URL: "https://www.instagram.com/p/DbfL-vznWVE/" };
 }
 
-if (venueName == "★Bombay") {
-   tags = '';
-   venueInfo = { title: "Bombay Bar & Grill", time: "7:00pm - 12:30/1:00am", location: "28912 Roadside Dr, Agoura Hills, CA 91301", URL: "https://instagram.com/borderlinebar" };
-}
-
 if (venueName == "★santaPaulaSportsParkFreeLineDanceLessons") {
    tags = '<span class="card-tag">Free</span><br><span class="card-tag">Prep for Santa Paula Car Rally & Dance</span>';
    venueInfo = { title: "Santa Paula Sports Park Free Line Dancing Lessons", time: "4:00 PM - 6:00 PM", location: "301 Harvest Loop, Santa Paula, CA 93060", URL: "https://www.instagram.com/p/Dbg1D-kkljE/?img_index=2" };
@@ -2620,7 +2615,7 @@ if (dayOfWeek == "Wednesday")
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"grillOnTheGreen\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Grill On The Green</span>"
 
 					 //summerRewind26DowntownVentura
-if (createCustomEvent("August 12, 2026"))
+if (createCustomEvent("August 12, 2026") || createCustomEvent("Sep 9, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★summerRewind26DowntownVentura\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Summer Rewind @ The Downtown Ventura Stage</span>"
 
 					//stagecoachInnMuseum
