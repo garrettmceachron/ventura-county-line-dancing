@@ -991,6 +991,11 @@ if (venueName == "★santaPaulaSportsParkFreeLineDanceLessons") {
    venueInfo = { title: "Santa Paula Sports Park Free Line Dancing Lessons", time: "4:00 PM - 6:00 PM", location: "301 Harvest Loop, Santa Paula, CA 93060", URL: "https://www.instagram.com/p/Dbg1D-kkljE/?img_index=2" };
 }
 
+if (venueName == "★elRoblar") {
+   tags = '<span class="card-tag">All Ages</span>';
+   venueInfo = { title: "Hotel El Roblar with Diane Anastasio", time: "6:00 PM - 9:00 PM", location: "122 E Ojai Ave, Ojai, CA 93023", URL: "https://www.instagram.com/theroblar/" };
+}
+
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
 		document.getElementById(venueInfoToReplace).innerHTML = createVenue;
@@ -2591,7 +2596,7 @@ if (createCustomEvent("May 24, 2026"))
 
 	
 		//Magnavino Cellars
-			if (createCustomEvent("July 24, 2026")) {
+			if (createCustomEvent("Aug 7, 2026") || createCustomEvent("Aug 28, 2026")) {
 					document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★Magnavino\", " + calendarDay + ");'><span class='orangeLi' style='font-size: 16px; line-height: 1.6;'>&#9733</span> Magnavino Cellars - Live Country</span>"
 				}
 
@@ -2714,10 +2719,13 @@ if (createCustomEvent("Aug 14, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★america250SwingDance\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> America\'s 250th Swing Dance @ Fermentation House Ventura</span>"
 
 
-
 					//santaPaulaSportsParkFreeLineDanceLessons
 if (createCustomEvent("Sep 5, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★santaPaulaSportsParkFreeLineDanceLessons\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Santa Paula Sports Park Free Line Dancing Lessons</span>"
+
+					//elRoblar
+if (createCustomEvent("Aug 11, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★elRoblar\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Hotel El Roblar with Diane Anastasio</span>"
 					
 if (scheduleView == 1) {
 
