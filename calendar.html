@@ -711,6 +711,10 @@ if (venueName == "★varsityKHAYRaffle") {
 if (venueName == "★varsityClub") {
 	tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Led By <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
     venueInfo = { title: "The Varsity Club", time: "7:00 PM - 11:00 PM", location: "5811 Olivas Park Dr, Ventura, CA 93003", URL: "https://www.instagram.com/ventuckystompers/" };
+
+	if (month == 8 && year == 2026) 
+		venueInfo.title = "The Varsity Club Boots & Brews Pre-Party";
+	
 }
 
 if (venueName == "★EDHatCo") {
@@ -2532,7 +2536,7 @@ if (createCustomEvent("Apr 11, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★varsityKHAYRaffle\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Varsity Club KHAY Raffle</span>"
 
 //varsityClub			    
-if (createCustomEvent("July 24, 2026"))
+if (createCustomEvent("Sep 19, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★varsityClub\", " + calendarDay + ");'><span class='orangeLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Varsity Club</span>"
 
 //E&DHatCo
