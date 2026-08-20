@@ -996,6 +996,11 @@ if (venueName == "★elRoblar") {
    venueInfo = { title: "Hotel El Roblar with Diane Anastasio", time: "6:00 PM - 9:00 PM", location: "122 E Ojai Ave, Ojai, CA 93023", URL: "https://www.instagram.com/theroblar/" };
 }
 
+if (venueName == "★tarantulaHillLineDanceCause") {
+   tags = '<span class="card-tag">Outdoors</span>&nbsp<span class="card-tag">Led By <a href="https://instagram.com/borderlinebar" target="_blank">Borderline Bar</a></span>';
+   venueInfo = { title: "Tarantula Hill Brewing Co. Line Dance For A Cause", time: "4:00 PM - 10:00 PM", location: "244 E Thousand Oaks Blvd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/DcPdjP4q8GW/" };
+}
+
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
 		document.getElementById(venueInfoToReplace).innerHTML = createVenue;
@@ -1382,8 +1387,7 @@ var filterTags = "";
 var checkForOptionalTags = [];
 
 
-const venuesClosed = ['Red Engine Brewing Co.', 'July 24, 2026',
-					  'Dave & Busters', 'August 13, 2026'
+const venuesClosed = ['Red Engine Brewing Co.', 'August 21, 2026',
 						];
  
 function enableFilters() {
@@ -2473,7 +2477,7 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 //Special Events
 
 		//Tarantula Hill
-			if (weekPassed == "1" && dayOfWeek == "Saturday" || createCustomEvent("Aug 15, 2026")) {
+			if (weekPassed == "1" && dayOfWeek == "Saturday") {
 				document.getElementById(calendarDay).style.textDecoration = ""; //Create Underline On Date
 				
 				document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"#MOTarantulaHill\", " + calendarDay + ");'><span class='whiteLi'>&#8226</span> Tarantula Hill</span>"
@@ -2722,6 +2726,10 @@ if (createCustomEvent("Sep 5, 2026"))
 					//elRoblar
 if (createCustomEvent("Aug 11, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★elRoblar\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Hotel El Roblar with Diane Anastasio</span>"
+
+					//tarantulaHillLineDanceCause
+if (createCustomEvent("Sep 6, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★tarantulaHillLineDanceCause\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Tarantula Hill Brewing Co. Line Dance For A Cause</span>"
 					
 if (scheduleView == 1) {
 
