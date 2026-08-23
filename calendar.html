@@ -59,14 +59,14 @@
 <br id='brTop1'><br id='brTop2'><br id='brTop3'>
 
 <div id="blackFocus" style="display: none;" class="blackFocusFade blackFocusFadeIn" onclick="exitVenuePopup();"></div>
-<span id="compactMode" class="compactButton" onclick="toggleCalendar();" style="padding: 2px; display: none;"><img src="images/view_compact_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg" width="35px" height="35px"></img>Show Calendar&nbsp</span>
+<span id="compactMode" class="compactButton" onclick="toggleCalendar();" style="padding: 2px;"><img src="images/view_compact_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg" width="35px" height="35px"></img>Show Calendar&nbsp</span>
 
 	    
 	    
 	<br>   
 <span id="previousMonthButton" onclick="previousMonth();" class="previousNextMonth unselectableText eventsDiv"  style="filter: brightness(1.05); padding: 4px; border-radius: 19px; border-width: 4px; font-size: 21px; font-weight: bold;"> Previous Month</span><span class="unselectableText"> &nbsp&nbsp</span><span onclick="nextMonth();" class="previousNextMonth unselectableText eventsDiv" style="filter: brightness(1.05); padding: 4px; border-radius: 19px; border-width: 4px; font-size: 21px; font-weight: bold;"> Next Month </span>
 <br><br>
-<span class="stickyTitle" style="font-size: 24px; text-align: center; caption-side:top; font-weight: 600;" id="title">July 2025</span>
+<span class="" style="font-size: 24px; text-align: center; caption-side:top; font-weight: 600;" id="title">July 2025</span>
  
 <br><span id="dateLastUpdated"></span><br>
 	
@@ -493,7 +493,7 @@ if (loadVenueCards == true && document.getElementById(dayClicked).classList.cont
 
 
 
-if (month == currentMonth && year == currentYear && dayClicked < currentDayId && dayClicked > 0)
+if (loadVenueCards == true && (month == currentMonth && year == currentYear && dayClicked < currentDayId && dayClicked > 0))
 		return;
 
 
@@ -623,22 +623,6 @@ if (venueName == "★CanyonSpecialEvent") {
 
 }
 
-if (venueName == "CowboyPalace") {
-var cowboyPalaceTime = "4:30 PM - 9:00 PM";
-
-if (fulldateDay == 0)
-cowboyPalaceTime = "4:30 PM - 6:30 PM";
-if (fulldateDay == 3 || fulldateDay == 4)
-cowboyPalaceTime = "6:00 PM - 7:45pm";
-if (fulldateDay == 5 || fulldateDay == 6)
-cowboyPalaceTime = "7:00 PM - 9:00 PM";
-
-
-
-tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">Live Country & DJ</span>';	
- venueInfo = { title: "Cowboy Palace Saloon", time: cowboyPalaceTime, location: "21635 Devonshire St, Chatsworth, CA 91311", URL: "https://www.instagram.com/cowboypalacesaloon/" };
-}
-
 if (venueName == "SantaClarita") {
 	tags = '<span class="card-tag">18+</span>&nbsp<span class="card-tag">College Night</span>';
 venueInfo = { title: "Santa Clarita Sports Center", time: "8:00 PM - 12:00 AM", location: "25385 Rye Canyon Rd, Santa Clarita, CA 91355", URL: "https://www.instagram.com/borderlinesantaclarita/" };
@@ -673,7 +657,7 @@ tags = '<span class="card-tag">All Ages Until 10 PM</span>&nbsp<span class="card
 }
 
 if (venueName == "#MOStreyCellars") {
-	tags = '<span class="card-tag">Live Music</span>&nbsp<span class="card-tag">Older Country Style</span>&nbsp<span class="card-tag">Early Lessons at 1pm</span>';
+	tags = '<span class="card-tag">Live Music</span>&nbsp<span class="card-tag">Older Country Style</span><br><span class="card-tag">Early Lessons at 1pm</span>';
  venueInfo = { title: "Strey Cellars - Live Country", time: "2:00 PM - 5:00 PM", location: "951 Rice Ave, Oxnard, CA 93030", URL: "https://www.streycellars.com/event-type-2/barfly/" };
 }
 
@@ -999,7 +983,7 @@ if (venueName == "★elRoblar") {
 
 if (venueName == "★tarantulaHillLineDanceCause") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Outdoors</span><br><span class="card-tag">Led By <a href="https://instagram.com/borderlinebar" target="_blank">Borderline Bar</a></span>';
-   venueInfo = { title: "Tarantula Hill Brewing Co. Line Dance For A Cause", time: "4:00 PM - 10:00 PM", location: "244 E Thousand Oaks Blvd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/DcPdjP4q8GW/" };
+   venueInfo = { title: "Tarantula Hill Line Dance For A Cause", time: "4:00 PM - 10:00 PM", location: "244 E Thousand Oaks Blvd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/DcPdjP4q8GW/" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -1274,7 +1258,9 @@ var googleMapsLink;
 
 
 
-
+if (venueInfoToReplace == "venuePopupDiv")
+document.getElementById(venueInfoToReplace).innerHTML = '<span id="exitVenuePopup" class="exitVenuePopup unselectableText" onclick="exitVenuePopup();" style="display: block; z-index: 9999; margin-left: 15px; font-size: 21px; cursor: pointer;">x</span>' + document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleMapsLink' target='_blank' href='#'><img src='images/google-maps (1).webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Directions</a>";
+else
 document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleMapsLink' target='_blank' href='#'><img src='images/google-maps (1).webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Directions</a>";
 //document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleCalendarLink' target='_blank' href='#'><img src='images/calender.webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img> + </a>";
 
@@ -2175,13 +2161,13 @@ backButtonVisible = 0;
 document.getElementById("blackFocus").style.display = "none";
 
 scheduleView = "1";
-document.getElementById("calendar").style.display = "none";
+document.getElementById("calendar").style.display = "";
 createDays();
 return;
 }
 else {
 scheduleView = "0";
-document.getElementById("calendar").style.display = "none";
+document.getElementById("calendar").style.display = "";
 dayViewLoaded = 0;
 createDays();
 return;
@@ -2405,8 +2391,7 @@ if (dayOfWeek == "Wednesday") {
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='yellowUnderline dayFontSize' onclick='viewVenue(\"Canyon\", " + calendarDay + ");'><span class='yellowLi' style='color: #fcf047; font-size: 22px;'>&#8226</span> The Canyon Club</span></span>";
 
 	if (createCustomEvent("Dec 24, 2025") != 1)
-	document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightblueUnderline dayFontSize' onclick='viewVenue(\"CowboyPalace\", " + calendarDay + ");'><span class='lightblueLi'>&#8226</span> Cowboy Palace Saloon</span></span>";
-    document.getElementById(calendarDay).style.textDecoration = ""; //Create Underline On Date
+	document.getElementById(calendarDay).style.textDecoration = ""; //Create Underline On Date
 }
 
 	//Santa Clarita Sports Center, Dave & Busters, Cowboy Palace Saloon & Conejo Valley Lodge #807
@@ -2417,12 +2402,8 @@ if (dayOfWeek == "Wednesday") {
 	
 	if (month != 11 && year == 2025 || month >= 0 && year >= 2026 && createCustomEvent("Jan 1, 2026") != 1)
 		document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightlightblueUnderline dayFontSize' onclick='viewVenue(\"DaveNBusters\", " + calendarDay + ");'><span class='lightlightblueLi'>&#8226</span> Dave & Busters</span>";
-		if (createCustomEvent("Jan 1, 2026") != 1)
-		document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightblueUnderline dayFontSize' onclick='viewVenue(\"CowboyPalace\", " + calendarDay + ");'><span class='lightblueLi'>&#8226</span> Cowboy Palace Saloon</span></span>";
 	}
-	if (createCustomEvent("Nov 13, 2025") == 1)
-	document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='greenUnderline dayFontSize' onclick='viewVenue(\"SantaClarita\", " + calendarDay + ");'><span class='greenLi'>&#8226</span> Santa Clarita Sports Center</span><br><span class='lightblueUnderline dayFontSize' onclick='viewVenue(\"CowboyPalace\", " + calendarDay + ");'><span class='lightblueLi'>&#8226</span> Cowboy Palace Saloon</span></span>";
- 
+	 
  
  
  if (month => 8 && year == 2025) {
@@ -2434,7 +2415,6 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 			
 			
 			
-			document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='greenUnderline dayFontSize' onclick='viewVenue(\"SantaClarita\", " + calendarDay + ");'><span class='greenLi'>&#8226</span> Santa Clarita Sports Center</span>";
 			}
 
 	
@@ -2453,7 +2433,6 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 				}
 					
 				if (createCustomEvent("Oct 31, 2025") != 1) {
-		document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightblueUnderline dayFontSize' onclick='viewVenue(\"CowboyPalace\", " + calendarDay + ");'><span class='lightblueLi'>&#8226</span> Cowboy Palace Saloon</span></span>";
 		//document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"mb2SC\", " + calendarDay + ");'><span class='redLi'>&#8226</span> MB2 Entertainment</span>";
 			document.getElementById(calendarDay).style.textDecoration = ""; //Create Underline On Date
 				}
@@ -2462,13 +2441,11 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 	//Cowboy Palace Saloon
 		if (dayOfWeek == "Saturday" && createCustomEvent("Oct 25, 2025") != 1) {
 			document.getElementById(calendarDay).style.textDecoration = ""; //Create Underline On Date
-			document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightblueUnderline dayFontSize' onclick='viewVenue(\"CowboyPalace\", " + calendarDay + ");'><span class='lightblueLi'>&#8226</span> Cowboy Palace Saloon</span></span>";
 
 			}
 	//Cowboy Palace Saloon
 		if (dayOfWeek == "Sunday") {
 			document.getElementById(calendarDay).style.textDecoration = ""; //Create Underline On Date
-				document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightblueUnderline dayFontSize' onclick='viewVenue(\"CowboyPalace\", " + calendarDay + ");'><span class='lightblueLi'>&#8226</span> Cowboy Palace Saloon</span></span>";
 		
 		//if (everyOtherWeek("Sep 7, 2025") && createCustomEvent("Oct 5, 2025") !=1)
 		//		document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='blueUnderline dayFontSize' onclick='viewVenue(\"OaksLocal\", " + calendarDay + ");'><span class='blueLi'>&#8226</span> Oaks Local</span>"
@@ -2487,25 +2464,17 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 				document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><img src='images/1545699121.png' class='halloweenImg' onclick=''></img><br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"#MOTarantulaHill\", " + calendarDay + ");'><span class='whiteLi'>&#8226</span> Tarantula Hill</span>"
 
 			
- //Gibsons Neighorbood Bar
-			if (dayOfWeek == "Wednesday" && year >= 2026 && month < 3) {
-document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"Gibsons\", " + calendarDay + ");'><span class='lightredLi'>&#8226</span> KJs Neighborhood Bar</span>"
-				}
 				
 				if (year >= 2026 && document.getElementById(calendarDay).innerHTML.includes("KJs Neighborhood Bar"))
 					  document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML.replaceAll("KJ's", "KJ's");
 
 					 //corkBatterRoadhouse on Friday
 if (dayOfWeek == "Friday")
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"corkBatterRoadhouseFriday\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Cork & Batter Roadhouse</span>"
-
-//corkBatterRoadhouse on 4th of July
-if (createCustomEvent("July 4, 2026"))
-	document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★corkBatterRoadhouse4thOfJuly\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Cork & Batter Roadhouse</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"corkBatterRoadhouseFriday\", " + calendarDay + ");'><span class='lightredLi'>&#8226;</span> Cork & Batter Roadhouse</span>"
 
 		//NeonMoonCountry
 if (createCustomEvent("Jul 11, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='purpleUnderline dayFontSize' onclick='viewVenue(\"★NeonMoonCountry\", " + calendarDay + ");'><span class='purpleLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Neon Moon Country Party @ Ventura Music Hall</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='purpleUnderline dayFontSize' onclick='viewVenue(\"★NeonMoonCountry\", " + calendarDay + ");'><span class='purpleLi'>&#9733;</span> Neon Moon Country Party @ Ventura Music Hall</span>"
 	
 	if (createCustomEvent("Oct 21, 2025"))
 				document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><img src='images/1545699121.png' class='halloweenImg' onclick=''></img>";
@@ -2513,7 +2482,7 @@ if (createCustomEvent("Jul 11, 2026"))
 	
 	//BorderlineMalibu
 if (createCustomEvent("Sep 16, 2025") || createCustomEvent("Oct 21, 2025"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='blueUnderline dayFontSize' style='border-bottom-color: #3782d2;' onclick='viewVenue(\"★BorderlineMalibu\", " + calendarDay + ");'><span class='blueLi' style='color: #3782d2; font-size: 16px; line-height: 1.2;'>&#9733;</span> Borderline Malibu</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='blueUnderline dayFontSize' style='border-bottom-color: #3782d2;' onclick='viewVenue(\"★BorderlineMalibu\", " + calendarDay + ");'><span class='blueLi' style='color: #3782d2; font-size: 16px; '>&#9733;</span> Borderline Malibu</span>"
 		
 		//Bombay Bar & Grill
 		if (createCustomEvent("Oct 11, 2025") || createCustomEvent("Nov 8, 2025") || createCustomEvent("Dec 13, 2025"))
@@ -2521,216 +2490,206 @@ document.getElementById(calendarDay).innerHTML = document.getElementById(calenda
 
 
 		//Strey Cellars
-		if (createCustomEvent("Sep 7, 2025") || year >= 2025 && month >= 9 && weekPassed == 1 && dayOfWeek == "Sunday" || year >= 2026 && weekPassed == 1 && dayOfWeek == "Sunday" && (month != "3" && year == 2026) || createCustomEvent("Apr 12, 2026"))
-document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightlightblueUnderline dayFontSize' onclick='viewVenue(\"#MOStreyCellars\", " + calendarDay + ");'><span class='lightlightblueLi'>&#8226</span> Strey Cellars - Live Country</span>"
+		if (year >= 2025 && weekPassed == 1 && dayOfWeek == "Sunday" || year >= 2026 && weekPassed == 1 && dayOfWeek == "Sunday")
+document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightlightblueUnderline dayFontSize' onclick='viewVenue(\"#MOStreyCellars\", " + calendarDay + ");'><span class='lightlightblueLi'>&#8226</span> Strey Cellars</span>"
 
 	//IntAdvanced
 if (createCustomEvent("Sep 21, 2025") || createCustomEvent("Oct 19, 2025") || createCustomEvent("Nov 16, 2025") || createCustomEvent("Dec 21, 2025") || year >= 2026 && dayOfWeek == "Sunday" && weekPassed == 3)
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='blueUnderline dayFontSize' onclick='viewVenue(\"#MOIntAdvanced\", " + calendarDay + ");'><span class='blueLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Intermediate Advanced Social</span>"
-
-//varsityKHAYRaffle
-if (createCustomEvent("Apr 11, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★varsityKHAYRaffle\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Varsity Club KHAY Raffle</span>"
-
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='blueUnderline dayFontSize' onclick='viewVenue(\"#MOIntAdvanced\", " + calendarDay + ");'><span class='blueLi'>&#9733;</span> Intermediate Advanced Social</span>"
 //varsityClub			    
 if (createCustomEvent("Sep 19, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★varsityClub\", " + calendarDay + ");'><span class='orangeLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Varsity Club</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★varsityClub\", " + calendarDay + ");'><span class='orangeLi'>&#9733;</span> The Varsity Club</span>"
 
 //E&DHatCo
 //if (createCustomEvent("April 11, 2026") || createCustomEvent("May 16, 2026"))
-//    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★EDHatCo\", " + calendarDay + ");'><span class='orangeLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> E&D Hat Co. - Live Country</span>"
+//    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★EDHatCo\", " + calendarDay + ");'><span class='orangeLi'>&#9733;</span> E&D Hat Co. - Live Country</span>"
 
 //14CannonsCountryNight
 if (createCustomEvent("Mar 20, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★14CannonsCountryNight\", " + calendarDay + ");'><span class='orangeLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> 14 Cannons Country Night</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★14CannonsCountryNight\", " + calendarDay + ");'><span class='orangeLi'>&#9733;</span> 14 Cannons Country Night</span>"
 
 //minioakHeartCMF
 if (createCustomEvent("May 30, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★oakHeartCMF\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Oak Heart Country Music Festival @ Conejo Creek Park</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★oakHeartCMF\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Oak Heart Country Music Festival @ Conejo Creek Park</span>"
 
 //stomp&Sip
 if (createCustomEvent("Mar 8, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★stompandSip\", " + calendarDay + ");'><span class='orangeLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Sip Step & Stomp at St. Francis Church</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★stompandSip\", " + calendarDay + ");'><span class='orangeLi'>&#9733;</span> Sip Step & Stomp at St. Francis Church</span>"
 
 //roundUpCountry
 if (createCustomEvent("Apr 18, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★roundUpCountry\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Round Up Country Music Festival</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★roundUpCountry\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Round Up Country Music Festival</span>"
 
 //dancingInTheValley
 if (createCustomEvent("Apr 18, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★dancingInTheValley\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Dancing In the Valley @ The Simoore Grange</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★dancingInTheValley\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Dancing In the Valley @ The Simoore Grange</span>"
 
 
 //santaClaritaCowboyFestival
 if (createCustomEvent("Apr 18, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★santaClaritaCowboyFestival\", " + calendarDay + ");'><span class='redLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Santa Clarita Cowboy Festival @ Old Town Newhall</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★santaClaritaCowboyFestival\", " + calendarDay + ");'><span class='redLi'>&#9733;</span> Santa Clarita Cowboy Festival @ Old Town Newhall</span>"
 
 //bootsInTheParkSantaClarita
 if (createCustomEvent("May 9, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★bootsInTheParkSantaClarita\", " + calendarDay + ");'><span class='redLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Boots In The Park Santa Clarita @ Central Park</span>"
-
-
-//vaqueroYMar
-if (dayOfWeek == "Saturday")
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"vaqueroYMar\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Vaquero Y Mar</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★bootsInTheParkSantaClarita\", " + calendarDay + ");'><span class='redLi'>&#9733;</span> Boots In The Park Santa Clarita @ Central Park</span>"
 
 //thePaddock
 if (everyOtherWeek("July 10, 2026") && dayOfWeek == "Friday")
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"#BIWEEKLYthePaddock\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Paddock</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='blueUnderline dayFontSize' onclick='viewVenue(\"#BIWEEKLYthePaddock\", " + calendarDay + ");'><span class='blueLi'>&#8226;</span> The Paddock</span>"
 
 //boots&Brews
 if (createCustomEvent("Sep 20, 2026")) 
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★bootsAndBrews\", " + calendarDay + ");'><span class='redLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Boots & Brews</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★bootsAndBrews\", " + calendarDay + ");'><span class='redLi'>&#9733;</span> Boots & Brews</span>"
 
 						  //coastalCowgirlVentura
 if (createCustomEvent("Aug 22, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★coastalCowgirlVentura\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Coastal Cowgirl @ Promenade Park</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★coastalCowgirlVentura\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Coastal Cowgirl @ Promenade Park</span>"
 
 
 						//fuzionDanceStudio
 if (createCustomEvent("June 11, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★fuzionDanceStudio\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Fuzion Dance Studio Pop-Up</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★fuzionDanceStudio\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Fuzion Dance Studio Pop-Up</span>"
 
 						//Enegren Brewing
 if (createCustomEvent("May 24, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★enegrenBrewingCompany\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Country Dance Shindig @ Enegren Brewing Co.</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★enegrenBrewingCompany\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Country Dance Shindig @ Enegren Brewing Co.</span>"
 
 	
 		//Magnavino Cellars
 			if (createCustomEvent("Aug 7, 2026") || createCustomEvent("Aug 28, 2026")) {
-					document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★Magnavino\", " + calendarDay + ");'><span class='orangeLi' style='font-size: 16px; line-height: 1.6;'>&#9733</span> Magnavino Cellars - Live Country</span>"
+					document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★Magnavino\", " + calendarDay + ");'><span class='orangeLi'>&#9733</span> Magnavino Cellars</span>"
 				}
 
 						//beachCowboyFestivalRedEngine
 if (createCustomEvent("May 22, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★beachCowboyFestivalRedEngine\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Beach Country Festival @ Red Engine Brewing Co.</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★beachCowboyFestivalRedEngine\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Beach Country Festival @ Red Engine Brewing Co.</span>"
 
 						//popUpCountry
 if (createCustomEvent("Apr 17, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★popUpCountry\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Pop Up Country Night @ Dave & Busters</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★popUpCountry\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Pop Up Country Night @ Dave & Busters</span>"
 
 //countryNightPoolLights
 if (createCustomEvent("Jul 25, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★countryNightPoolLights\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Country Nights & Pool Lights @ Rancho Simi Parks N Rec</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★countryNightPoolLights\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Country Nights & Pool Lights @ Rancho Simi Parks N Rec</span>"
 					 //palominoSpinningSpurs
 if (createCustomEvent("June 30, 2026") || createCustomEvent("July 28, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★palominoSpinningSpurs\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Line Dancing With The Spinning Spurs @ Palomino </span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★palominoSpinningSpurs\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Line Dancing With The Spinning Spurs @ Palomino </span>"
 
 					 //grillOnTheGreen
 if (dayOfWeek == "Wednesday")
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"grillOnTheGreen\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Grill On The Green</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='greenUnderline dayFontSize' onclick='viewVenue(\"grillOnTheGreen\", " + calendarDay + ");'><span class='greenLi'>&#8226;</span> Grill On The Green</span>"
 
 					 //summerRewind26DowntownVentura
 if (createCustomEvent("August 12, 2026") || createCustomEvent("Sep 9, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★summerRewind26DowntownVentura\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Summer Rewind @ The Downtown Ventura Stage</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★summerRewind26DowntownVentura\", " + calendarDay + ");'><span class='orangeLi'>&#9733;</span> Summer Rewind @ The Downtown Ventura Stage</span>"
 
 					//stagecoachInnMuseum
 if (createCustomEvent("Jun 6, 2026") || createCustomEvent("July 4, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★stagecoachInnMuseum\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Pioneer Jamboree @ The Stagecoach Inn Museum</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★stagecoachInnMuseum\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Pioneer Jamboree @ The Stagecoach Inn Museum</span>"
 
 
 					//Red Engine Boots & Brew Pre Party
 if (createCustomEvent("Jun 12, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★RedEngineBootsBrewPreParty\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Pioneer Jamboree @ The Stagecoach Inn Museum</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★RedEngineBootsBrewPreParty\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Pioneer Jamboree @ The Stagecoach Inn Museum</span>"
 
 
 //harleySimiValleyBowl
 if (createCustomEvent("Jun 20, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★harleySimiValleyBowl\", " + calendarDay + ");'><span class='redLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Harley's Valley Bowl Country Night</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"★harleySimiValleyBowl\", " + calendarDay + ");'><span class='redLi'>&#9733;</span> Harley's Valley Bowl Country Night</span>"
 					
 					 //camarilloHeritageDays2026
 if (createCustomEvent("Jul 18, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★camarilloHeritageDays2026\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Camarillo Heritage Days</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★camarilloHeritageDays2026\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Camarillo Heritage Days</span>"
 
 					 //conejoValleyDays2026
 if (createCustomEvent("Jun 25, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★conejoValleyDays2026\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Conejo Valley Days @ Conejo Creek Park</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★conejoValleyDays2026\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Conejo Valley Days @ Conejo Creek Park</span>"
 
 					 //camarilloShoppingJamboree
 if (createCustomEvent("Jun 14, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★camarilloShoppingJamboree\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Camarillo Outlet Shopping Jamboree</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★camarilloShoppingJamboree\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Camarillo Outlet Shopping Jamboree</span>"
 
 					
 		//stPaschals
 if (createCustomEvent("Jun 27, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★stPaschals\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Country Night @ St Paschal Baylon Church</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★stPaschals\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Country Night @ St Paschal Baylon Church</span>"
 					
 //haloSummerfest
 if (createCustomEvent("Jun 28, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★haloSummerfest\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Halo Summerfest</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★haloSummerfest\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Halo Summerfest</span>"
 					
 							 //crawfordsSocial
 if (everySixWeeks("August 28, 2026") && dayOfWeek == "Friday")
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★crawfordsSocial\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Crawford's Social</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★crawfordsSocial\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Crawford's Social</span>"
 
 		//nectarOfTheDogs
 if (createCustomEvent("Sep 11, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★nectarOfTheDogs\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Nectar Of The Dogs Wine </span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★nectarOfTheDogs\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Nectar Of The Dogs Wine </span>"
 
 		//theBarn
 if (dayOfWeek == "Monday")
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"theBarn\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Nectar Of The Dogs Wine </span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"theBarn\", " + calendarDay + ");'><span class='lightredLi'>&#8226;</span> The Barn </span>"
 
 
 					//goldenSpeakeasy
 if (createCustomEvent("Aug 3, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★goldenSpeakeasy\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Golden Speakeasy @ The Ventura County Fair</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★goldenSpeakeasy\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Golden Speakeasy @ The Ventura County Fair</span>"
 
 					//vaqueroYMar
-if (createCustomEvent("Jul 25, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"vaqueroYMar\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Vaquero Y Mar</span>"
+if (dayOfWeek == "Saturday")
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"vaqueroYMar\", " + calendarDay + ");'><span class='orangeLi'>&#8226;</span> Vaquero Y Mar</span>"
 
 					//billyClower
 if (createCustomEvent("Jul 24, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★billyClower\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Billy Clower</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★billyClower\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Billy Clower</span>"
 
 					 //venturaCountyFairAug1
 if (createCustomEvent("Aug 1, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug1\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Ventura County Fair At The Grand Stadium</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug1\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> The Ventura County Fair At The Grand Stadium</span>"
 
 					 //venturaCountyFairAug1
 if (createCustomEvent("Aug 5, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug5\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Ventura County Fair At The Grand Stadium</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug5\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> The Ventura County Fair At The Grand Stadium</span>"
 
 					 //venturaCountyFairAug6and7
 if (createCustomEvent("Aug 7, 2026") || createCustomEvent("Aug 8, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug7and8\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Ventura County Fair Pacifico Stage</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★venturaCountyFairAug7and8\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> The Ventura County Fair Pacifico Stage</span>"
 
 
 	
 					 //tavernTuesdays
 if (dayOfWeek == "Tuesday" && year >= 2026 && month > 6 && createCustomEvent("Aug 4, 2026") != 1)
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"tavernTuesdays\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Tavern 101</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"tavernTuesdays\", " + calendarDay + ");'><span class='lightredLi'>&#8226;</span> Tavern 101</span>"
 
 					 //outlawsCountryClassicRockNight
 if (createCustomEvent("Jul 31, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★outlawsCountryClassicRockNight\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Outlaws Country & Classic Rock Night</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★outlawsCountryClassicRockNight\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Outlaws Country & Classic Rock Night</span>"
 
 
 					//santaPaulaCarRallyWesternDance
 if (createCustomEvent("Sep 26, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★santaPaulaCarRallyWesternDance\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Santa Paula Rotary Club Car Rally & Western Dance</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★santaPaulaCarRallyWesternDance\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Santa Paula Rotary Club Car Rally & Western Dance</span>"
 
 					//paintLineDanceWine
 if (createCustomEvent("Aug 15, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★paintLineDanceWine\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Paint, Line Dance & Wine @ Giessinger Winery</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★paintLineDanceWine\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Paint, Line Dance & Wine @ Giessinger Winery</span>"
 
 					//america250SwingDance
 if (createCustomEvent("Aug 14, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★america250SwingDance\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> America\'s 250th Swing Dance @ Fermentation House Ventura</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★america250SwingDance\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> America\'s 250th Swing Dance @ Fermentation House Ventura</span>"
 
 
 					//santaPaulaSportsParkFreeLineDanceLessons
 if (createCustomEvent("Sep 5, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★santaPaulaSportsParkFreeLineDanceLessons\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Santa Paula Sports Park Free Line Dancing Lessons</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★santaPaulaSportsParkFreeLineDanceLessons\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Santa Paula Sports Park Free Line Dancing Lessons</span>"
 
 					//elRoblar
 if (createCustomEvent("Aug 11, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★elRoblar\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Hotel El Roblar with Diane Anastasio</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★elRoblar\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Hotel El Roblar with Diane Anastasio</span>"
 
 					//tarantulaHillLineDanceCause
 if (createCustomEvent("Sep 6, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★tarantulaHillLineDanceCause\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Tarantula Hill Brewing Co. Line Dance For A Cause</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"★tarantulaHillLineDanceCause\", " + calendarDay + ");'><span class='whiteLi'>&#9733;</span> Tarantula Hill Line Dance For A Cause</span>"
 					
 if (scheduleView == 1) {
 
@@ -3000,6 +2959,7 @@ getMonthInfo();
 			document.getElementById("compactMode").innerHTML = '<span style="padding: 2px;"><img src="images/view_compact_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg" style="position: relative; bottom: 2px;" width="30px" height="30px"></img>&nbspHide Calendar';
 		  	document.getElementById("calendarHead").style.display = "";
 			document.getElementById("search").style.display = "";
+
 				
 			
 		 }
