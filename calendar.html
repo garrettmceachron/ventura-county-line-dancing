@@ -840,18 +840,6 @@ if (venueName == "★grillOnTheGreen") {
    venueInfo = { title: "Grill On The Green", time: "6:00 PM - 8:00 PM", location: "5031 Alamo St, Simi Valley, CA 93063", URL: "https://www.instagram.com/grillonthegreen_simi/" };
 }
 
-if (venueName == "corkBatterRoadhouseFriday") {
-   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">$20 Entry</span>&nbsp<span class="card-tag">Led By <a href="https://instagram.com/chloklei" target="_blank">chloklei</a></span>';
-   venueInfo = { title: "Cork & Batter Roadhouse", time: "10:00 PM - 12:00 AM", location: "1747 Simi Town Center Way, Simi Valley, CA 93065", URL: "https://www.instagram.com/corkandbatter.roadhouse/"};
-
-}
-
-if (venueName == "★corkBatterRoadhouse4thOfJuly") {
-   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span>&nbsp<span class="card-tag">Led By <a href="https://instagram.com/chloklei" target="_blank">chloklei</a></span>';
-   venueInfo = { title: "Cork & Batter Roadhouse 4th of July", time: "8:00 PM - Closing (After 11:00pm)", location: "1747 Simi Town Center Way, Simi Valley, CA 93065", URL: "https://www.instagram.com/corkandbatter.roadhouse/"};
-
-}
-
 if (venueName == "★summerRewind26DowntownVentura") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span><br><span class="card-tag">Led By <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
    venueInfo = { title: "Summer Rewind @ The Downtown Ventura Stage", time: "6:00 PM - 8:00 PM", location: "N California St & E Main St, Ventura, CA 93001", URL: "https://www.instagram.com/p/Dbohfulyrr1/" };
@@ -2467,10 +2455,6 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 				
 				if (year >= 2026 && document.getElementById(calendarDay).innerHTML.includes("KJs Neighborhood Bar"))
 					  document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML.replaceAll("KJ's", "KJ's");
-
-					 //corkBatterRoadhouse on Friday
-if (dayOfWeek == "Friday")
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"corkBatterRoadhouseFriday\", " + calendarDay + ");'><span class='lightredLi'>&#8226;</span> Cork & Batter Roadhouse</span>"
 
 		//NeonMoonCountry
 if (createCustomEvent("Jul 11, 2026"))
