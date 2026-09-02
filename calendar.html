@@ -875,8 +875,8 @@ if (venueName == "★camarilloShoppingJamboree") {
 }
 		
 	if (venueName == "★stPaschals") {
-   tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">$15 Solo, $25 Couple</span><br><span class="card-tag">Dinner & Drink Included</span>';
-   venueInfo = { title: "Country Night @ St Paschal Baylon Church", time: "Starts at 5:00 PM", location: "155 E Janss Rd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/st.paschalbaylonchurchto/p/Dcj4oDPgXJI/" };
+   tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">$15 Solo, $25 Couple</span><br><span class="card-tag">Dinner & Drink Included</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/roannabattocchio/" target="_blank">Roanna Battocchio</a></span>';
+   venueInfo = { title: "Country Night @ St Paschal Baylon Church", time: "5:00 PM - Close", location: "155 E Janss Rd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/st.paschalbaylonchurchto/p/Dcj4oDPgXJI/" };
 }
 		
 		if (venueName == "★haloSummerfest") {
@@ -896,7 +896,7 @@ if (venueName == "★danceOrDieRedENgine") {
 
 if (venueName == "★nectarOfTheDogs") {
    tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">Live Music</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/roannabattocchio/" target="_blank">Roanna Battocchio</a></span>';
-   venueInfo = { title: "Nectar Of The Dogs Wine", time: "6:00 PM", location: "791 Chambers Ln Unit 130, Simi Valley, CA 93065", URL: "https://www.instagram.com/nectarofthedogswine/" };
+   venueInfo = { title: "Nectar Of The Dogs Wine", time: "6:00 PM - 8:00 PM", location: "791 Chambers Ln Unit 130, Simi Valley, CA 93065", URL: "https://www.instagram.com/nectarofthedogswine/" };
 }
 
 if (venueName == "theBarn") {
@@ -972,6 +972,11 @@ if (venueName == "★elRoblar") {
 if (venueName == "★tarantulaHillLineDanceCause") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Outdoors</span><br><span class="card-tag">Led By <a href="https://instagram.com/borderlinebar" target="_blank">Borderline Bar</a></span>';
    venueInfo = { title: "Tarantula Hill Line Dance For A Cause", time: "4:00 PM - 10:00 PM", location: "244 E Thousand Oaks Blvd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/DcPdjP4q8GW/" };
+}
+
+if (venueName == "★bootsBottlesBBQ") {
+   tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">Limited Tickets</span><br><span class="card-tag">Above $50 (includes Dinner & Wine)</span>';
+   venueInfo = { title: "Boots, Bottles, & BBQ", time: "4:00 PM - 7:00 PM", location: "10024 E Old Creek Rd, Ventura, CA 93001", URL: "https://www.oldcreekranch.com/special-events/" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -2674,6 +2679,10 @@ if (createCustomEvent("Aug 11, 2026"))
 					//tarantulaHillLineDanceCause
 if (createCustomEvent("Sep 6, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"★tarantulaHillLineDanceCause\", " + calendarDay + ");'><span class='whiteLi'>&#9733;</span> Tarantula Hill Line Dance For A Cause</span>"
+
+						//bootsBottlesBBQ
+if (createCustomEvent("Sep 27, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★bootsBottlesBBQ\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Boots, Bottles, & BBQ</span>"
 					
 if (scheduleView == 1) {
 
