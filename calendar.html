@@ -875,7 +875,7 @@ if (venueName == "★camarilloShoppingJamboree") {
 }
 		
 	if (venueName == "★stPaschals") {
-   tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">$15 Solo, $25 Couple</span><br><span class="card-tag">Dinner & Drink Included</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/roannabattocchio/" target="_blank">Roanna Battocchio</a></span>';
+   tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">$15 Solo, $25 Couple</span><br><span class="card-tag">Dinner & Drink Included</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/roannabattocchio/" target="_blank">DJ Xenia & Roanna Battocchio</a></span>';
    venueInfo = { title: "Country Night @ St Paschal Baylon Church", time: "5:00 PM - Close", location: "155 E Janss Rd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/st.paschalbaylonchurchto/p/Dcj4oDPgXJI/" };
 }
 		
@@ -977,6 +977,11 @@ if (venueName == "★tarantulaHillLineDanceCause") {
 if (venueName == "★bootsBottlesBBQ") {
    tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">Limited Tickets</span><br><span class="card-tag">Above $50 (includes Dinner & Wine)</span>';
    venueInfo = { title: "Boots, Bottles, & BBQ", time: "4:00 PM - 7:00 PM", location: "10024 E Old Creek Rd, Ventura, CA 93001", URL: "https://www.oldcreekranch.com/special-events/" };
+}
+
+if (venueName == "#MOSTTheArena") {
+   tags = '<span class="card-tag">All Ages Until 10:30pm</span><br><span class="card-tag">21+ after 10:30pm</span>';
+   venueInfo = { title: "The Arena", time: "7:00 PM - After 10:30 PM", location: "999 Enchanted Way #500, Simi Valley, CA 93065", URL: "https://www.instagram.com/xenyeehaw/" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -2684,6 +2689,10 @@ if (createCustomEvent("Sep 6, 2026"))
 						//bootsBottlesBBQ
 if (createCustomEvent("Sep 27, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★bootsBottlesBBQ\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Boots, Bottles, & BBQ</span>"
+
+						//The Arena
+if (dayOfWeek == "Sunday")
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"#MOSTTheArena\", " + calendarDay + ");'><span class='orangeLi'>&#8226;</span> The Arena</span>"
 					
 if (scheduleView == 1) {
 
