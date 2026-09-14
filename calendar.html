@@ -969,9 +969,9 @@ if (venueName == "★elRoblar") {
    venueInfo = { title: "Hotel El Roblar with Diane Anastasio", time: "6:00 PM - 9:00 PM", location: "122 E Ojai Ave, Ojai, CA 93023", URL: "https://www.instagram.com/theroblar/" };
 }
 
-if (venueName == "★tarantulaHillLineDanceCause") {
+if (venueName == "★tarantulaHillSundayFunday") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Outdoors</span><br><span class="card-tag">Led By <a href="https://instagram.com/borderlinebar" target="_blank">Borderline Bar</a></span>';
-   venueInfo = { title: "Tarantula Hill Line Dance For A Cause", time: "4:00 PM - 10:00 PM", location: "244 E Thousand Oaks Blvd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/DcPdjP4q8GW/" };
+   venueInfo = { title: "Tarantula Hill Sunday Funday", time: "4:00 PM - 10:00 PM", location: "244 E Thousand Oaks Blvd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/borderlinebar/" };
 }
 
 if (venueName == "★bootsBottlesBBQ") {
@@ -1372,8 +1372,7 @@ var filterTags = "";
 var checkForOptionalTags = [];
 
 
-const venuesClosed = ['Tarantula Hill Line Dance For A Cause', 'September 6, 2026',
-					  'Tavern 101', 'September 8, 2026',
+const venuesClosed = ['Red Engine Brewing Co.', 'NULL',
 						];
  
 function enableFilters() {
@@ -2682,9 +2681,9 @@ if (createCustomEvent("Sep 5, 2026"))
 if (createCustomEvent("Sep 15, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★elRoblar\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Hotel El Roblar with Diane Anastasio</span>"
 
-					//tarantulaHillLineDanceCause
-if (createCustomEvent("Sep 6, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"★tarantulaHillLineDanceCause\", " + calendarDay + ");'><span class='whiteLi'>&#9733;</span> Tarantula Hill Line Dance For A Cause</span>"
+					//tarantulaHillSundayFunday
+if (createCustomEvent("Oct 4, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"★tarantulaHillSundayFunday\", " + calendarDay + ");'><span class='whiteLi'>&#9733;</span> Tarantula Hill Sunday Funday</span>"
 
 						//bootsBottlesBBQ
 if (createCustomEvent("Sep 27, 2026"))
