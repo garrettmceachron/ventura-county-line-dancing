@@ -909,7 +909,7 @@ if (venueName == "★goldenSpeakeasy") {
    venueInfo = { title: "The Ventura County Fair Surf Rodeo", time: "9:00 PM - 11:00 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/p/DbHup1uSnjY/" };
 }
 
-if (venueName == "vaqueroYMar") {
+if (venueName == "#MOSTvaqueroYMar") {
    tags = '<span class="card-tag">All Ages</span>';
    venueInfo = { title: "Vaquero Y Mar", time: "7:00 PM - 11:00 PM", location: "435 E Thompson Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/sbeventhorizon/" };
 }
@@ -934,9 +934,9 @@ if (venueName == "★venturaCountyFairAug7and8") {
    venueInfo = { title: "The Ventura County Fair Pacifico Stage", time: "6:00 PM - 7:30 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
 }
 
-if (venueName == "tavernTuesdays") {
-   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Indoors & Outdoors</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/xenyeehaw/" target="_blank">DJ Xenia</a></span>';
-   venueInfo = { title: "Tavern 101", time: "6:00 PM - 10:00 PM", location: "28434 Roadside Dr, Agoura Hills, CA 91301", URL: "https://www.instagram.com/xenyeehaw/" };
+if (venueName == "strikeoutTuesdays") {
+   tags = '<span class="card-tag">All Ages</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/xenyeehaw/" target="_blank">DJ Xenia</a></span>';
+   venueInfo = { title: "Lucky Strike Moorpark", time: "6:00 PM - 11:00 PM", location: "706 E Los Angeles Ave, Moorpark, CA 93021", URL: "https://www.instagram.com/xenyeehaw/" };
 }
 
 if (venueName == "★outlawsCountryClassicRockNight") {
@@ -2629,9 +2629,9 @@ if (dayOfWeek == "Monday")
 if (createCustomEvent("Aug 3, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★goldenSpeakeasy\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> The VC Fair Surf Rodeo</span>"
 
-					//vaqueroYMar
-if (dayOfWeek == "Saturday")
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"vaqueroYMar\", " + calendarDay + ");'><span class='orangeLi'>&#8226;</span> Vaquero Y Mar</span>"
+					//#MOSTvaqueroYMar
+if (createCustomEvent("Sep 19, 2026") || createCustomEvent("Sep 26, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"#MOSTvaqueroYMar\", " + calendarDay + ");'><span class='orangeLi'>&#8226;</span> Vaquero Y Mar</span>"
 
 					//billyClower
 if (createCustomEvent("Jul 24, 2026"))
@@ -2651,9 +2651,9 @@ if (createCustomEvent("Aug 7, 2026") || createCustomEvent("Aug 8, 2026"))
 
 
 	
-					 //tavernTuesdays
+					 //strikeoutTuesdays
 if (dayOfWeek == "Tuesday" && year >= 2026 && month > 6 && createCustomEvent("Aug 4, 2026") != 1)
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"tavernTuesdays\", " + calendarDay + ");'><span class='lightredLi'>&#8226;</span> Tavern 101</span>"
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"strikeoutTuesdays\", " + calendarDay + ");'><span class='lightredLi'>&#8226;</span> Lucky Strike Moorpark</span>"
 
 					 //outlawsCountryClassicRockNight
 if (createCustomEvent("Jul 31, 2026"))
