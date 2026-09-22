@@ -974,6 +974,11 @@ if (venueName == "★tarantulaHillSundayFunday") {
    venueInfo = { title: "Tarantula Hill Sunday Funday", time: "4:00 PM - 10:00 PM", location: "244 E Thousand Oaks Blvd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/borderlinebar/" };
 }
 
+if (venueName == "★HALLOWEENTarantulaHill") {
+   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Outdoors</span><br><span class="card-tag">Led By <a href="https://instagram.com/borderlinebar" target="_blank">Borderline Bar</a></span>';
+   venueInfo = { title: "Tarantula Hill's Borderline Halloween Night", time: "6:00 PM", location: "244 E Thousand Oaks Blvd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/borderlinebar/" };
+}
+
 if (venueName == "★bootsBottlesBBQ") {
    tags = '<span class="card-tag">21+</span>&nbsp<span class="card-tag">Limited Tickets</span><br><span class="card-tag">Above $50 (includes Dinner & Wine)</span>';
    venueInfo = { title: "Boots, Bottles, & BBQ", time: "4:00 PM - 7:00 PM", location: "10024 E Old Creek Rd, Ventura, CA 93001", URL: "https://www.oldcreekranch.com/special-events/" };
@@ -2458,8 +2463,8 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 				
 				document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"#MOTarantulaHill\", " + calendarDay + ");'><span class='whiteLi'>&#8226</span> Tarantula Hill</span>"
 				}
-			if (createCustomEvent("Oct 25, 2025"))
-				document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><img src='images/1545699121.png' class='halloweenImg' onclick=''></img><br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"#MOTarantulaHill\", " + calendarDay + ");'><span class='whiteLi'>&#8226</span> Tarantula Hill</span>"
+			if (createCustomEvent("Oct 24, 2026"))
+				document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='whiteUnderline dayFontSize' onclick='viewVenue(\"★HALLOWEENTarantulaHill\", " + calendarDay + ");'><span class='whiteLi'>&#9733;</span> Tarantula Hill Halloween</span>"
 
 			
 				
