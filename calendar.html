@@ -989,6 +989,18 @@ if (venueName == "#MOSTTheArena") {
    venueInfo = { title: "The Arena", time: "7:00 PM - 11:00 PM", location: "999 Enchanted Way #500, Simi Valley, CA 93065", URL: "https://www.instagram.com/xenyeehaw/" };
 }
 
+if (venueName == "★oktoberfestVCFairgrounds") {
+   tags = '<span class="card-tag">All Ages</span>';
+   venueInfo = { title: "Oktoberfest @ The Ventura County Fairgrounds", time: "5:30 PM - 10:30 PM", location: "10 E Harbor Blvd, Ventura, CA 93001", URL: "https://www.instagram.com/p/Dd2gfN_Gmbz/?img_index=1" };
+	if (dayClicked == 7) {
+		venueInfo.time = "7:00 PM - 11:00 PM";
+		tags += '&nbsp<span class="card-tag">Glow Party</span>';
+	}
+	if (dayClicked == 8) {
+		venueInfo.time = "11:30 AM - 1:30 PM & 4:00 PM - 6:00 PM";
+	}
+}
+
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
 		document.getElementById(venueInfoToReplace).innerHTML = createVenue;
@@ -1376,10 +1388,9 @@ var currentFilters = "";
 var filterTags = "";
 var checkForOptionalTags = [];
 
-
 const venuesClosed = ['Red Engine Brewing Co.', 'October 2, 2026',
-					  'The Arena', 'October 4, 2026'
-						];
+				  	  'The Arena', 'October 4, 2026'
+				   ];
  
 function enableFilters() {
 	// Reset Filters
@@ -2698,6 +2709,10 @@ if (createCustomEvent("Sep 27, 2026"))
 						//The Arena
 if (dayOfWeek == "Sunday")
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"#MOSTTheArena\", " + calendarDay + ");'><span class='orangeLi'>&#8226;</span> The Arena</span>"
+
+						  //oktoberfestVCFairgrounds
+if (createCustomEvent("Oct 2, 2026") || createCustomEvent("Oct 3, 2026") || createCustomEvent("Oct 4, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★oktoberfestVCFairgrounds\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Oktoberfest @ The Ventura County Fairgrounds</span>"
 					
 if (scheduleView == 1) {
 
