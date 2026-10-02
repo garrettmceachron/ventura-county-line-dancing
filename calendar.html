@@ -1247,7 +1247,7 @@ var googleCalendarNew = googleCalenderTemplate;
 googleCalendarNew = googleCalendarNew.replaceAll('startDate', fullGoogleDateStart);
 googleCalendarNew = googleCalendarNew.replaceAll('endDate', fullGoogleDateEnd);
 googleCalendarNew = googleCalendarNew.replaceAll('fullLocation', googleCalendarInfo[3]);
-googleCalendarNew = googleCalendarNew.replaceAll('fullDetails', "Event Info:%0A" + googleCalendarInfo[7]);
+googleCalendarNew = googleCalendarNew.replaceAll('fullDetails', "Event Info:%0A" + googleCalendarInfo[7] + "%0A%0A*Subject To Change");
 googleCalendarNew = googleCalendarNew.replaceAll('fullText', googleCalendarInfo[0]);
 
 
@@ -1258,7 +1258,7 @@ if (googleCalendarInfo[0].includes("@")) {
 //var googleMapsNewLink = "https://www.google.com/maps/search/" + googleCalendarInfo[0].replaceAll(" ", "+") + "+" + googleCalendarInfo[3].replaceAll(" ", "+");
 var googleMapsNewLink = "https://www.google.com/maps?daddr=" + googleCalendarInfo[0].replaceAll(" ", "+") + "+" + googleCalendarInfo[3].replaceAll(" ", "+");
 
-//document.getElementById("googleCalendarLink").href = googleCalendarNew.replaceAll("#", "");
+document.getElementById("googleCalendarLink").href = googleCalendarNew.replaceAll("#", "");
 document.getElementById("googleMapsLink").href = googleMapsNewLink;
 
 
@@ -1277,7 +1277,7 @@ if (venueInfoToReplace == "venuePopupDiv")
 document.getElementById(venueInfoToReplace).innerHTML = '<span id="exitVenuePopup" class="exitVenuePopup unselectableText" onclick="exitVenuePopup();" style="display: block; z-index: 9999; margin-left: 15px; font-size: 21px; cursor: pointer;">x</span>' + document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleMapsLink' target='_blank' href='#'><img src='images/google-maps (1).webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Directions</a>";
 else
 document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleMapsLink' target='_blank' href='#'><img src='images/google-maps (1).webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Directions</a>";
-//document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleCalendarLink' target='_blank' href='#'><img src='images/calender.webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img> + </a>";
+document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleCalendarLink' target='_blank' href='#'><img src='images/calender.webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Calendar</a>";
 
 
 createGoogleCalendarLink();
@@ -1576,11 +1576,8 @@ function updateWeekdayAvailability() {
 function checkDayTags(cardInfoArray) {
 
 		  
-	 if (eventDateTags == "Weekends" && (cardInfoArray.includes("Sat -") || cardInfoArray.includes("Sat,") || cardInfoArray.includes("Sun -") || cardInfoArray.includes("Sun,")))
-		return 1;
-	
-	if (eventDateTags == "Fridays" && (cardInfoArray.includes("Sat -") || cardInfoArray.includes("Sat,") || cardInfoArray.includes("Sun -") || cardInfoArray.includes("Sun,")) != 1)
-		return 1;
+	 if (eventDateTags == "Weekends" && (cardInfoArray.includes("Sat -") || cardInfoArray.includes("Sat,") || cardInfoArray.includes("Sun -") || cardInfoArray.includes("Sun,")) || (cardInfoArray.includes("Most Saturdays -") || cardInfoArray.includes("Most Sundays -")))
+		return 1;	
 		
 	if (eventDateTags == "Weekends") {
 		if (dayrn == 5 && cardInfoArray.includes("Tomorrow"))
@@ -1992,7 +1989,7 @@ function getMonthInfo() {
 	 if (checkForTags.length > 0 || checkForOptionalTags.length > 0 || locationMode > 0)
 		todayVenues[1] = "<span style='font-size: 20px;'>No venues found with filters for today.</span>";
 	}
-	if (todayVenues.length <= 0 && month >= currentMonth || year > currentYear)
+	if (todayVenues.length <= 0 && month >= currentMonth || todayVenues.length <= 0 && year > currentYear)
 	   todayVenues[1] = "<span style='font-size: 20px;'><br>Please check back soon, no special events were found for the selected month.</span>";
 	
 	if (test.length <= 0 && loadNextMonthCards == 0)
