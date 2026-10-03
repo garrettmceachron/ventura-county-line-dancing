@@ -647,14 +647,6 @@ if (venueName == "#MOMagnavino") {
 	tags = '<span class="card-tag">Live Music</span>&nbsp<span class="card-tag">Older Country Style</span>';
  venueInfo = { title: "Magnavino Cellars", time: "6:30 PM", location: "961 Rice Ave, Oxnard, CA 93030", URL: "https://www.magnavinocellars.com/events/" };
 }
-if (venueName == "Gibsons") {
-	tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span>&nbsp<span class="card-tag">Live Music Preshow</span>';
- venueInfo = { title: "KJs Neighborhood Bar", time: "7:00 PM - 10:00 PM", location: "454 E Main St, Ventura, CA 93001", URL: "https://www.instagram.com/p/DV9IIOnlvV1/?img_index=1" };
-}
-if (venueName == "★Bombay") {
-tags = '<span class="card-tag">All Ages Until 10 PM</span>&nbsp<span class="card-tag">21+ After 10 PM</span>';
- venueInfo = { title: "Bombay Bar & Grill", time: "6:00 PM - 11:00 PM", location: "143 S California St, Ventura, CA 93001", URL: "https://www.instagram.com/ventuckystompers/" };
-}
 
 if (venueName == "#MOStreyCellars") {
 	tags = '<span class="card-tag">Live Music</span>&nbsp<span class="card-tag">Older Country Style</span><br><span class="card-tag">Early Lessons at 1pm</span>';
@@ -805,11 +797,6 @@ if (venueName == "★coastalCowgirlVentura") {
 if (venueName == "★fuzionDanceStudio") {
    tags = '<span class="card-tag">Girls Night Out</span><br><span class="card-tag">Led By <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
    venueInfo = { title: "Fuzion Dance Studio Pop-Up", time: "7:00 PM - 9:00 PM", location: "2011 Auto Center Dr #109, Oxnard, CA 93036", URL: "https://www.instagram.com/ventuckystompers/" };
-}
-
-if (venueName == "★beachCowboyFestivalRedEngine") {
-   tags = '<span class="card-tag">Live Music By Dani Rose</span><br><span class="card-tag">Led By <a href="https://instagram.com/ventuckystompers" target="_blank">The Ventucky Stompers</a></span>';
-   venueInfo = { title: "Beach Country Festival @ Red Engine Brewing Co.", time: "7:00 PM - 11:30 PM", location: "803 Ventura St, Fillmore, CA 93015", URL: "https://Beachcountryfest-ventura.eventbrite.com" };
 }
 
 if (venueName == "★popUpCountry") {
@@ -2496,11 +2483,6 @@ if (createCustomEvent("Jul 11, 2026"))
 	//BorderlineMalibu
 if (createCustomEvent("Sep 16, 2025") || createCustomEvent("Oct 21, 2025"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='blueUnderline dayFontSize' style='border-bottom-color: #3782d2;' onclick='viewVenue(\"★BorderlineMalibu\", " + calendarDay + ");'><span class='blueLi' style='color: #3782d2; font-size: 16px; '>&#9733;</span> Borderline Malibu</span>"
-		
-		//Bombay Bar & Grill
-		if (createCustomEvent("Oct 11, 2025") || createCustomEvent("Nov 8, 2025") || createCustomEvent("Dec 13, 2025"))
-document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★Bombay\", " + calendarDay + ");'><span class='orangeLi' style='font-size: 16px; line-height: 1.3;'>&#9733;</span> Bombay Bar & Grill</span>"
-
 
 		//Strey Cellars
 		if (year >= 2025 && weekPassed == 1 && dayOfWeek == "Sunday" || year >= 2026 && weekPassed == 1 && dayOfWeek == "Sunday")
@@ -2569,15 +2551,11 @@ if (createCustomEvent("May 24, 2026"))
 
 	
 		//Magnavino Cellars
-			if (createCustomEvent("Sep 25, 2026")) {
+			if (createCustomEvent("Oct 9, 2026")) {
 					document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"#MOMagnavino\", " + calendarDay + ");'><span class='orangeLi'>&#9733</span> Magnavino Cellars</span>"
 				}
 
-						//beachCowboyFestivalRedEngine
-if (createCustomEvent("May 22, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★beachCowboyFestivalRedEngine\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Beach Country Festival @ Red Engine Brewing Co.</span>"
-
-						//popUpCountry
+				//popUpCountry
 if (createCustomEvent("Apr 17, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★popUpCountry\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Pop Up Country Night @ Dave & Busters</span>"
 
