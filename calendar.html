@@ -993,7 +993,21 @@ if (venueName == "★harvestHootenanny") {
    venueInfo = { title: "Harvest Hootenanny @ The Downtown Ventura Stage", time: "12:00 PM - 5:00 PM", location: "N California St & E Main St, Ventura, CA 93001", URL: "https://www.instagram.com/p/Dd_3KgESg6P/" };
 }
 
-var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
+
+	function checkVenueClosure(name, date) {
+		for (var i = 0; i < venuesClosed.length; i++) {
+			if (name.includes(venuesClosed[i]) && date.includes(venuesClosed[i+1]))
+				return 1;
+				i++;
+			}
+		}
+
+		var venueClosedText = '';
+
+	if (checkVenueClosure(venueInfo.title, fulldateVar) && loadVenueCards == 0)
+		venueClosedText = '<span style="color: red; font-weight: 600;">Cancelled This Week</span><br>';
+
+var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueClosedText + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
 		document.getElementById(venueInfoToReplace).innerHTML = createVenue;
 
@@ -1006,6 +1020,7 @@ var hrefIndex = venuePopupURL.indexOf('href=');
 venuePopupURL = venuePopupURL.substring(hrefIndex + 6, );
 hrefIndex = venuePopupURL.indexOf('"')
 venuePopupURL = venuePopupURL.substring(0, hrefIndex);
+
 
 
 var tempVenueText = venuePopupInnerHTML;
@@ -1265,9 +1280,11 @@ var googleMapsLink;
 
 
 
-if (venueInfoToReplace == "venuePopupDiv")
+if (venueInfoToReplace == "venuePopupDiv") {
 document.getElementById(venueInfoToReplace).innerHTML = '<span id="exitVenuePopup" class="exitVenuePopup unselectableText" onclick="exitVenuePopup();" style="display: block; z-index: 9999; margin-left: 15px; font-size: 21px; cursor: pointer;">x</span>' + document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleMapsLink' target='_blank' href='#'><img src='images/google-maps (1).webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Directions</a>";
-else
+	
+}
+	else
 document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleMapsLink' target='_blank' href='#'><img src='images/google-maps (1).webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Directions</a>";
 document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleCalendarLink' target='_blank' href='#'><img src='images/calender.webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Calendar</a>";
 
@@ -1313,20 +1330,8 @@ if (loadVenueCards == true) {
 			tags = "";
 			
 			var closedThisWeek = '<span class="closedThisWeekText">Cancelled This Week<br></span>';
-			
-			
-			//Venue Closures This week
 						
-				   function checkVenueClosure(name, date) {
-						for (var i = 0; i < venuesClosed.length; i++) {
-							if (name.includes(venuesClosed[i]) && date.includes(venuesClosed[i+1]))
-							   return 1;
-						
-								i++;
-						}
-						//if (name.includes("Conejo Valley Lodge") && date == "February 19, 2026")
-						//	return 1;
-				       }
+				   
 			  if (checkVenueClosure(venueInfo.title, fulldateVar))
 				eventCard = ['<div class="card" style="padding-top: 10px;" onclick="viewVenue(' + '\'' + venueName + '\', ' + dayClicked + ')">' + '<img src="images/ImageReplacement.png" style="opacity: 0.6; position: relative; right: 5px; border: 3px solid white;"><h4 class="card-text" style="opacity: 0.6; text-align: left;">' + tempCard[1] + "</h4>" + '<h2 class="card-title" style="text-align: left; opacity: 0.6;">' + tempCard[0] + '</h2>' + specialEvent + closedThisWeek + '<div class="card-text-align" style="opacity: 0.6;"><h4 class="card-text">' + tempCard[2] + '</h4><h4 class="card-text">' + tempLocation + "</h4>" + tags + '</div></div>'];
 			  else
@@ -2432,7 +2437,7 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 					if (createCustomEvent("Oct 31, 2025") != 1 && createCustomEvent("Feb 20, 2026") != 1) {
 					document.getElementById(calendarDay).style.textDecoration = ""; //Create Underline On Date
  if (createCustomEvent("July 17, 2026") != 1)
- document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"#MOSTRedEngine\", " + calendarDay + ");'><span class='redLi'>&#8226</span> Red Engine Brewing</span>"
+ document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='redUnderline dayFontSize' onclick='viewVenue(\"#MOSTRedEngine\", " + calendarDay + ");'><span class='redLi'>&#8226</span> Red Engine Brewing Co.</span>"
 					}
 				}
 					
@@ -2697,7 +2702,16 @@ if (createCustomEvent("Oct 2, 2026") || createCustomEvent("Oct 3, 2026") || crea
 						  //harvestHootenanny
 if (createCustomEvent("Oct 17, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★harvestHootenanny\", " + calendarDay + ");'><span class='orangeLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Harvest Hootenanny</span>"
-					
+		
+	
+	for (i = 1; i <= venuesClosed.length; i+=2) {
+		if (createCustomEvent(venuesClosed[i]) && document.getElementById(calendarDay).innerHTML.includes(venuesClosed[i - 1])) {
+			var cancelVenue = "<s style='text-decoration-thickness: 2.5px;'>" + venuesClosed[i - 1] + "</s>";
+			document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML.replace(venuesClosed[i-1], cancelVenue);
+		}
+	}
+
+
 if (scheduleView == 1) {
 
 
