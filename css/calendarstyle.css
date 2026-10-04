@@ -2,82 +2,53 @@
 
 .calendarHeader {
 	
-		border: inset 4px black;
+	border: inset 4px black;
 	padding: 5px;
 	font-size: 20px;
 	background-color: #f2ac57;
 	position: sticky;
-		top: 0;
+	top: 0;
 }
 
 .underlineHeader {
-		
-		position: sticky; 
-		top: 0px;
+	position: sticky; 
+	top: 0px;
 	border-bottom: solid black 2px;
-		
-		
 }
 
 .stickyTitle {
-		
-		position: sticky;
-		left: -5px;
-		
-		
+	position: sticky;
+	left: -5px;
 }
 
 .venuePopup {
-		
-
-		display: inline-block;
-text-align: left;
-		font-size: 16px;
-		z-index: 999;
+	display: inline-block;
+	text-align: left;
+	font-size: 16px;
+	z-index: 999;
 	margin: 0;
-		line-height: 1.6;
-		font-size: 16px;
-		
+	line-height: 1.6;
+	font-size: 16px;
 }
 
 .venuePopupDiv {
-				background-color: white;
-		border: inset white 5px;
-		display: inline-block;
-text-align: left;
-		padding: 10px;
-		width: 335px;
-		z-index: 999;
+	background-color: white;
+	border: inset white 5px;
+	display: inline-block;
+	text-align: left;
+	padding: 10px;
+	width: 335px;
+	z-index: 999;
 	position: relative;
-left: 15px;
-		bottom: 445px;
-		margin: 0;
+	left: 15px;
+	bottom: 445px;
+	margin: 0;
 	border-radius: 10px;
-	   font-size: 16.5px;
-	
-	/*
-					background-color: white;
-		border: inset white 5px;
-		display: inline-block;
-text-align: left;
-		padding: 10px;
-		width: 325px;
-		z-index: 999;
-	position: relative;
-left: 15px;
-		bottom: 385px;
-		margin: 0;
-	border-radius: 10px;
-	*/
-		
-		
-		
-		
+	font-size: 16.5px;
 }
 
 @media only screen and (min-device-width: 600px) {
 	 .venuePopupDiv {
-		 
 			font-size: 18px;
 	 }
 	
@@ -92,12 +63,12 @@ left: 15px;
 	bottom: -50px;
 	border: ridge white 2px;
 	border-top: none;
-text-align: left;
-		display: inline-block;
-		line-height: 1.8;
-animation: 0.15s linear addCalendarAnim;
-		animation-fill-mode:forwards;
-		z-index: 50;
+	text-align: left;
+	display: inline-block;
+	line-height: 1.8;
+	animation: 0.15s linear addCalendarAnim;
+	animation-fill-mode:forwards;
+	z-index: 50;
 }
 
 
@@ -108,44 +79,35 @@ animation: 0.15s linear addCalendarAnim;
 }
 
 .starClass {
-	
-font-size: 16px; 
-line-height: 1.2;	
-	
+	font-size: 16px; 
+	line-height: 1.2;	
 }
 
 
 .venuePopupTitle {
 	font-size: 16px;
-	text-decoration: underline;
+	text-decoration: underline;
 }
 
 .exitVenuePopup {
-		
 		display: inline-block;
 		width: 55px;
 		height: -15px;
 		z-index: 9999999999;
-		/*Stack Overflow*/		
-	position: absolute;
-left: 295px;
+		position: absolute;
+		left: 295px;
 		top: -5px;
 		margin: 0;
 		font-size: 20px;
 		font-stretch: expanded;
-	/*	border-radius: 5%; */
-		
-		
 }
 
 .officialScheduleImg {
-	
-width: 21px;	
+		width: 21px;	
 }
 
 
 .blackFocusFade {
-		
 		background-color: black;
 		position: fixed;
 		height: 100%;
@@ -154,26 +116,21 @@ width: 21px;
 		top: 0;
 		opacity: 0;
 		z-index: 999;
-		
 }
 
 .blackFocusFadeIn {
-		
-		animation: 0.2s linear blackFocusFadeInAnim;
-		animation-fill-mode:forwards;
+	animation: 0.2s linear blackFocusFadeInAnim;
+	animation-fill-mode:forwards;
 }
 
 .venueFocusFadeIn {
-		
-		animation: 0.2s linear venueFocusFadeInAnim;
-		animation-fill-mode:forwards;
+	animation: 0.2s linear venueFocusFadeInAnim;
+	animation-fill-mode:forwards;
 }
 
 .disableScroll {
-		
 		height: 100%;
 		overflow: hidden;
-		
 }
 
 @keyframes blackFocusFadeInAnim {
@@ -188,19 +145,13 @@ width: 21px;
 
 .todayDayView {
 		font-size: 20px;
-		
-		
 }
 
 .dayViewPopup {
-		
 	animation: dayViewPopupAnimation 0.3s;
-	
-	
 }
 
 .dayViewDesc {
-	
 	font-size: 18px;
 	color: #292929;
 	
@@ -213,28 +164,20 @@ width: 21px;
 
 
 .compactMobile {
-	
-
-
 	vertical-align: top;
 	text-align: left;
 	background-color: #f2ac57;	
 	font-weight: bold;
 	border: 2px solid black;
-	
 	padding: 0px;
 	max-width: 174px;
 	overflow: hidden;
 	white-space: nowrap;
 	font-size: 16px;
 	text-decoration: bolder;
-	
-		
-		
 }
 
 .rightSweep {
-	
 	animation: rightSweepAnimation 0.5s;
 }
 
@@ -246,7 +189,8 @@ width: 21px;
 .compactButton {
 	
 	background-color: white;
-	font-size: 17px;border: 1px solid black;
+	font-size: 17px;
+border: 1px solid black;
 }
 
 .disableOnClick {
@@ -262,15 +206,12 @@ width: 21px;
 	background-color: #f2ac57;	
 	font-weight: bold;
 	border: 2px solid black;
-	scroll-margin-top: 100px;
-	
-	
+	scroll-margin-top: 100px;
 	max-width: 30wh;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	font-size: 15px;
-	*/
 	
 }
 
@@ -278,64 +219,51 @@ width: 21px;
 	font-size: 18px;
 	font-weight: 750;
 	border: 5px solid black;	
-	
 }
 
 .currentDayCompact {
 	font-size: 20px;
 	font-weight: 750;
 	border: 5px solid black;	
-	
 }
 
-.dayFontSize {
-line-height: 1.6;		
-font-size: 18px;
-cursor: pointer;
-		
-}
+
+.dayFontSize {
+	line-height: 1.6;		
+	font-size: 18px;
+	cursor: pointer;
+}
 
 .dayFontSize:hover {
 	border-color: black;
-	
 }
 
 .unselectableText {
-
         user-select: none;
-        
         -webkit-user-select: none; 
         -moz-user-select: none;    
         -ms-user-select: none;   
     }
-	
 }
 
 .yellowLi {
-	
 	color: #fcf047; 
 	font-size: 22px;
-	
 }
 
 .brownLi {
-	
 	color: #d15a00; 
 	font-size: 22px;
-	
 }
 
 .brownUnderline {
-	
 	border-bottom: 3px solid #d15a00; 
 	background-color: rgba(230, 99, 0, 0.4);
 	border-radius: 15px;
-	
 }
 
 
 .yellowUnderline {
-	
 	border-bottom: 3px solid #fcf047;
 	background-color: rgba(255, 248, 107, 0.4);
 	border-radius: 15px;
