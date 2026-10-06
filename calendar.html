@@ -871,11 +871,6 @@ if (venueName == "★camarilloShoppingJamboree") {
    venueInfo = { title: "Halo Summerfest", time: "12:00 AM - 2:00 PM", location: "4035 E Thousand Oaks Blvd, Westlake Village, CA 91362", URL: "https://www.instagram.com/p/DZiSU7AmP94/?img_index=2&igsh=MzRlODBiNWFlZA==" };
 }
 
-if (venueName == "★crawfordsSocial") {
-   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Free</span><br><span class="card-tag">Outdoors</span>';
-   venueInfo = { title: "Crawford's Social", time: "8:00 PM - 12:00 AM", location: "974 S Westlake Blvd, Westlake Village, CA 91361", URL: "https://www.instagram.com/xenyeehaw/" };
-}
-
 if (venueName == "★danceOrDieRedENgine") {
    tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Dance Or Die Raffle</span><br><span class="card-tag">Lessons by <a href="https://www.instagram.com/_bootscootin/">Boot Scootin Philip</a></span>';
    venueInfo = { title: "Dance Or Die @ Red Engine Brewing Co.", time: "7:00 PM - 11:00 PM", location: "803 Ventura St, Fillmore, CA 93015", URL: "https://www.instagram.com/p/DaLmbGqvR0M/" };
@@ -1006,6 +1001,11 @@ if (venueName == "★harvestHootenanny") {
 
 	if (checkVenueClosure(venueInfo.title, fulldateVar) && loadVenueCards == 0)
 		venueClosedText = '<span style="color: red; font-weight: 600;">Cancelled This Week</span><br>';
+
+if (venueName == "★prancersFarm") {
+   tags = '<span class="card-tag">All Ages</span>&nbsp<span class="card-tag">Beginner Friendly</span>';
+   venueInfo = { title: "Prancer\'s Farm", time: "12:00 PM - 2:00 PM", location: "18540 E Telegraph Rd, Santa Paula, CA 93060", URL: "https://www.instagram.com/p/DeGn2NONiy3/" };
+}
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueClosedText + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
@@ -2613,10 +2613,6 @@ if (createCustomEvent("Sep 12, 2026"))
 //haloSummerfest
 if (createCustomEvent("Jun 28, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★haloSummerfest\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Halo Summerfest</span>"
-					
-							 //crawfordsSocial
-if (everySixWeeks("August 28, 2026") && dayOfWeek == "Friday")
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★crawfordsSocial\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Crawford's Social</span>"
 
 		//nectarOfTheDogs
 if (createCustomEvent("Sep 11, 2026"))
@@ -2711,6 +2707,10 @@ if (createCustomEvent("Oct 17, 2026"))
 		}
 	}
 
+
+						  //prancersFarm
+if (createCustomEvent("Oct 10, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★prancersFarm\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Prancer\'s Farm</span>"
 
 if (scheduleView == 1) {
 
