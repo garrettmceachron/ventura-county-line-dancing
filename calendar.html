@@ -1007,6 +1007,11 @@ if (venueName == "★prancersFarm") {
    venueInfo = { title: "Prancer\'s Farm", time: "12:00 PM - 2:00 PM", location: "18540 E Telegraph Rd, Santa Paula, CA 93060", URL: "https://www.instagram.com/p/DeGn2NONiy3/" };
 }
 
+if (venueName == "★breakers") {
+   tags = '<span class="card-tag">Live Music</span>';
+   venueInfo = { title: "Breakers Sports Bar Halloween Bash", time: "8:00 PM - 12:00 AM", location: "398 N Moorpark Rd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/Dexr9MDo0lN/" };
+}
+
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueClosedText + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
 		document.getElementById(venueInfoToReplace).innerHTML = createVenue;
@@ -2712,6 +2717,10 @@ if (createCustomEvent("Oct 17, 2026"))
 						  //prancersFarm
 if (createCustomEvent("Oct 10, 2026") || createCustomEvent("Oct 11, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★prancersFarm\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Prancer\'s Farm</span>"
+
+						  //breakers
+if (createCustomEvent("Oct 30, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★breakers\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Breakers</span>"
 
 if (scheduleView == 1) {
 
