@@ -1017,6 +1017,11 @@ if (venueName == "★breakers") {
    venueInfo = { title: "Breakers Sports Bar Halloween Bash", time: "8:00 PM - 12:00 AM", location: "398 N Moorpark Rd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/Dexr9MDo0lN/" };
 }
 
+if (venueName == "★theArenaHalloweenEvent") {
+   tags = '<span class="card-tag">Costumes Encouraged</span><br><span class="card-tag">Ticket Prices Vary</span>';
+   venueInfo = { title: "The Arena Halloween Night", time: "5:00 PM - 9:00 PM", location: "999 Enchanted Way #500, Simi Valley, CA 93065", URL: "https://www.instagram.com/xenyeehaw/" };
+}
+
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueClosedText + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
 		document.getElementById(venueInfoToReplace).innerHTML = createVenue;
@@ -2726,6 +2731,10 @@ if (createCustomEvent("Oct 10, 2026") || createCustomEvent("Oct 11, 2026"))
 						  //breakers
 if (createCustomEvent("Oct 30, 2026"))
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★breakers\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Breakers</span>"
+
+						  //theArenaHalloween
+if (createCustomEvent("Oct 31, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★theArenaHalloweenEvent\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> The Arena Halloween Night</span>"
 
 if (everySixWeeks("November 6, 2026") && dayOfWeek == "Friday")
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★crawfordsSocial\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Crawford's Social</span>"
