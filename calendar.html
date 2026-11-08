@@ -1007,9 +1007,9 @@ if (venueName == "★crawfordsSocial") {
 	if (checkVenueClosure(venueInfo.title, fulldateVar) && loadVenueCards == 0)
 		venueClosedText = '<span style="color: red; font-weight: 600;">Cancelled This Week</span><br>';
 
-if (venueName == "★breakers") {
-   tags = '<span class="card-tag">Live Music</span>';
-   venueInfo = { title: "Breakers Sports Bar Halloween Bash", time: "8:00 PM - 12:00 AM", location: "398 N Moorpark Rd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/Dexr9MDo0lN/" };
+if (venueName == "breakers") {
+   tags = '<span class="card-tag">18+</span>&nbsp<span class="card-tag">Free 21+</span><br><span class="card-tag">Led By <a href="https://www.instagram.com/dancingwithdev5678/" target="_blank">DJ Josh & DI Dev</a></span>';
+   venueInfo = { title: "Breakers Sports Bar", time: "7:00 PM", location: "398 N Moorpark Rd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/Dexr9MDo0lN/" };
 }
 
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueClosedText + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
@@ -1270,7 +1270,7 @@ if (googleCalendarInfo[0].includes("@")) {
 //var googleMapsNewLink = "https://www.google.com/maps/search/" + googleCalendarInfo[0].replaceAll(" ", "+") + "+" + googleCalendarInfo[3].replaceAll(" ", "+");
 var googleMapsNewLink = "https://www.google.com/maps?daddr=" + googleCalendarInfo[0].replaceAll(" ", "+") + "+" + googleCalendarInfo[3].replaceAll(" ", "+");
 
-document.getElementById("googleCalendarLink").href = googleCalendarNew.replaceAll("#", "");
+//document.getElementById("googleCalendarLink").href = googleCalendarNew.replaceAll("#", "");
 document.getElementById("googleMapsLink").href = googleMapsNewLink;
 
 
@@ -1291,7 +1291,7 @@ document.getElementById(venueInfoToReplace).innerHTML = '<span id="exitVenuePopu
 }
 	else
 document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleMapsLink' target='_blank' href='#'><img src='images/google-maps (1).webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Directions</a>";
-document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleCalendarLink' target='_blank' href='#'><img src='images/calender.webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Calendar</a>";
+//document.getElementById(venueInfoToReplace).innerHTML = document.getElementById(venueInfoToReplace).innerHTML + " | <a id='googleCalendarLink' target='_blank' href='#'><img src='images/calender.webp=s48-fcrop64=1,00000000ffffffff-rw.webp' width='21px;'></img>Calendar</a>";
 
 
 createGoogleCalendarLink();
@@ -1362,19 +1362,8 @@ if (loadVenueCards == true) {
 					   eventCard = eventCard.replaceAll('src="images/ImageReplacement.png"', 'src="images/tarantulaHill1.jpg"');
 					if (tempCard[0].includes("Dave & Busters"))
 					   eventCard = eventCard.replaceAll('src="images/ImageReplacement.png"', 'src="images/daveAndBusters1.jpg"');
-					//if (tempCard[0].includes("Conejo Valley Lodge"))
-					//   eventCard = eventCard.replaceAll('src="images/ImageReplacement.png"', 'src="images/conejoValleyLodge1.jpg"');
-					//if (tempCard[0].includes("The Paddock"))
-					//   eventCard = eventCard.replaceAll('src="images/ImageReplacement.png"', 'src="images/thePaddock1.jpg"');
-					
-					
-					//if (tempCard[0].includes("Shindig"))
-					//eventCard = eventCard.replace('style="padding-top: 10px;"', 'style="background-image: linear-gradient(to bottom, lightgreen, #2bad4e);"');
-				
-				    
-					//if (tempCard[0].includes("Country Bar Crawl"))
-					//	eventCard = eventCard.replace('style="padding-top: 10px;"', 'style="background-image: linear-gradient(to bottom, #f5585d, pink, #ff8f91); border: 1px solid red;"');
-					
+
+
 			if (cardInfo.includes(eventCard) != 1)
 			cardInfo.push(eventCard);
 			
@@ -2431,8 +2420,6 @@ if (createCustomEvent("Sep 4, 2025") != 1 && createCustomEvent("Oct 2, 2025") !=
 			
 			
 			}
-
-	
 	    
 	//Cowboy Palace Saloon, Oaks Local Craft Kitchen & Bar, MB2 Entertainment Santa Clarita
 		if (dayOfWeek == "Friday") {
@@ -2713,18 +2700,19 @@ if (createCustomEvent("Oct 17, 2026"))
 		}
 	}
 
-						  //breakers
-if (createCustomEvent("Oct 30, 2026"))
-    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★breakers\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Breakers</span>"
-
 						//crawfordsSocial
 if (everySixWeeks("November 6, 2026") && dayOfWeek == "Friday")
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★crawfordsSocial\", " + calendarDay + ");'><span class='lightredLi'>&#9733;</span> Crawford's Social</span>"
 
-						//Magnavino Cellars
+						//Hotel El Roblar	
 if (createCustomEvent("Nov 10, 2026")) {
 	document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='orangeUnderline dayFontSize' onclick='viewVenue(\"★elRoblar\", " + calendarDay + ");'><span class='orangeLi'>&#9733</span> Hotel El Roblar</span>"
 }
+
+						  //breakers
+if (dayOfWeek == "Friday")
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"breakers\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Breakers</span>"
+
 
 if (scheduleView == 1) {
 
