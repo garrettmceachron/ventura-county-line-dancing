@@ -1012,6 +1012,11 @@ if (venueName == "breakers") {
    venueInfo = { title: "Breakers Sports Bar", time: "7:00 PM", location: "398 N Moorpark Rd, Thousand Oaks, CA 91360", URL: "https://www.instagram.com/p/Dexr9MDo0lN/" };
 }
 
+if (venueName == "★sunlandVintageWinery") {
+   tags = '<span class="card-tag">Beginner Lesson @ 6 PM</span><br><span class="card-tag">Social Dancing After 7 PM</span>';
+   venueInfo = { title: "Sunland Vintage Winery", time: "6:00 PM - 9:00 PM", location: "1321 E Thousand Oaks Blvd #108-A, Thousand Oaks, CA 91362", URL: "https://www.facebook.com/profile.php?id=61591496595702" };
+}
+
 var createVenue =  "<span class='venuePopupTitle'>" + venueInfo.title + "<br></span>" + fullCurrentViewDay + "<br>" + venueClosedText + venueInfo.time + "<br>" + venueInfo.location + "<br>" + tags + "<br><br><a href='" + venueInfo.URL + "' target='_blank'><img src='images/calendar_check_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg' class='officialScheduleImg'></img> Event Info</a>";   
 
 		document.getElementById(venueInfoToReplace).innerHTML = createVenue;
@@ -2713,6 +2718,10 @@ if (createCustomEvent("Nov 10, 2026")) {
 if (dayOfWeek == "Friday")
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"breakers\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Breakers</span>"
 
+
+						  //sunlandVintageWinery
+if (createCustomEvent("Nov 17, 2026"))
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='lightredUnderline dayFontSize' onclick='viewVenue(\"★sunlandVintageWinery\", " + calendarDay + ");'><span class='lightredLi' style='font-size: 16px; line-height: 1.2;'>&#9733;</span> Sunland Vintage Winery</span>"
 
 if (scheduleView == 1) {
 
