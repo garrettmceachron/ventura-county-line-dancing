@@ -605,11 +605,14 @@ var tags = "";
 
 var venueInfo = {title: "", time: "", location: "", URL: ""};	
 		
-	if (venueName == "Canyon") {
+if (venueName == "Canyon") {
 	tags = '<span class="card-tag">18+</span>&nbsp<span class="card-tag">College Night</span>';
- venueInfo = { title: "The Canyon Club", time: "7:00 PM - 12:30/1 AM", location: "28912 Roadside Dr, Agoura Hills, CA 91301", URL: "https://instagram.com/borderlinebar"  };
-	
+ 	venueInfo = { title: "The Canyon Club", time: "7:00 PM - 12:30/1 AM", location: "28912 Roadside Dr, Agoura Hills, CA 91301", URL: "https://instagram.com/borderlinebar"  };
+}
 
+if (venueName == "★CanyonThanksgiving") {
+	tags = '<span class="card-tag">18+</span>&nbsp<span class="card-tag">College Night</span>';
+ 	venueInfo = { title: "The Canyon Club Thanksgiving Pre-Party", time: "7:00 PM - 12:30/1 AM", location: "28912 Roadside Dr, Agoura Hills, CA 91301", URL: "https://www.instagram.com/p/DfnvQW2qXm9/"  };
 }
 
 if (venueName == "barrelHouse") {
@@ -1385,6 +1388,7 @@ var filterTags = "";
 var checkForOptionalTags = [];
 
 const venuesClosed = ['Conejo Valley Lodge', 'November 26, 2026',
+					  'The Canyon Club', 'November 25, 2026'
 				   ];
  
 function enableFilters() {
@@ -2394,11 +2398,11 @@ if (createCustomEvent("Oct 29, 2025") || createCustomEvent("Oct 30, 2025"))
 
 	//The Canyon Club, Rock N Roll, & Cowboy Palace Saloon
 if (dayOfWeek == "Wednesday") {
-	if (createCustomEvent("Oct 1, 2025") != 1 && createCustomEvent("Oct 8, 2025") != 1 && createCustomEvent("Nov 26, 2025") != 1 && createCustomEvent("Dec 31, 2025") != 1 && createCustomEvent("Feb 25, 2026") != 1 && createCustomEvent("Feb 11, 2026") != 1)
     document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='yellowUnderline dayFontSize' onclick='viewVenue(\"Canyon\", " + calendarDay + ");'><span class='yellowLi' style='color: #fcf047; font-size: 22px;'>&#8226</span> The Canyon Club</span></span>";
+}
 
-	if (createCustomEvent("Dec 24, 2025") != 1)
-	document.getElementById(calendarDay).style.textDecoration = ""; //Create Underline On Date
+if (createCustomEvent("Nov 24, 2026")) {
+    document.getElementById(calendarDay).innerHTML = document.getElementById(calendarDay).innerHTML + "<br><span class='yellowUnderline dayFontSize' onclick='viewVenue(\"★CanyonThanksgiving\", " + calendarDay + ");'><span class='yellowLi' style='color: #fcf047; font-size: 22px;'>&#9733</span> The Canyon Club Thanksgiving Pre-Party</span></span>";
 }
 
 	//Santa Clarita Sports Center, Dave & Busters, Cowboy Palace Saloon & Conejo Valley Lodge #807
