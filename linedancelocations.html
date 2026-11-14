@@ -193,13 +193,6 @@ var tarantulahill = L.marker([34.1790311,-118.8732563,30], {
 	noHide: false
 	}
 }).addTo(map);
-var thePaddock = L.marker([34.1784215,-118.85609,124], {
-	title: 'The Paddock',
-	label: 'The Paddock',
-	labelOptions: {
-	noHide: false
-	}
-}).addTo(map);
 
 var cowboyPalace = L.marker([34.2575305,-118.6015038,816], {
 	title: 'The Cowboy Palace Saloon',
@@ -332,7 +325,6 @@ function showNames() {
 	canyon.bindTooltip('The Canyon', { permanent: true, direction: 'bottom', offset: [-16, 30] });
 	davenbusters.bindTooltip("Dave & Buster's", { permanent: true, direction: 'bottom', offset: [-16, 25] });
 	tarantulahill.bindTooltip('Tarantula Hill & Brewing Co.', { permanent: true, direction: 'bottom', offset: [-16, 30] });
-	thePaddock.bindTooltip('The Paddock', { permanent: true, direction: 'bottom', offset: [-16, 30] });
 	cowboyPalace.bindTooltip('The Cowboy Palace Saloon', { permanent: true, direction: 'bottom', offset: [-16, 30] });
 	santaClaritaSportsCenter.bindTooltip('Santa Clarita Sports Center', { permanent: true, direction: 'bottom', offset: [-16, 30] });
 	redEngine.bindTooltip('Red Engine Brewing Company', { permanent: true, direction: 'bottom', offset: [-16, 25] });
@@ -522,7 +514,6 @@ checkVisibility();
 canyon.bindPopup("<b><a href='linedancelocationsinfo.html#thecanyon' target='_blank'>The Canyon, Agoura Hills</b></a><br>Every Wednesday</b><br><b> 7:00pm - 12:30/1am.</br><b>Borderline Bar</b><br><br><a target='_blank' href='https://goo.gl/maps/WdHuusJ1DmEngWGT9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/borderlinebar/'>Instagram</a>").addTo(weekly);
 davenbusters.bindPopup("<b><a href='linedancelocationsinfo.html#daveandbusters' target='_blank'>Dave & Buster's, Thousand Oaks</b></a><br>Every Thursday</b><br><b> 7:00pm - 10:00pm.</br><b>Janice Carnahan</b><br><br><a target='_blank' href='https://goo.gl/maps/WMdnULtKFuDJFf296'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/dancinjan89/'>Instagram</a>").addTo(weekly);
 tarantulahill.bindPopup("<b><a href='linedancelocationsinfo.html#tarantulahill' target='_blank'>Tarantula Hill Brewing Co., Thousand Oaks</b></a><br>Once a Month on Saturdays,</b><br><a href='https://www.instagram.com/borderlinebar/' target='_blank'>Click for Schedule</a><br><b> 6:00pm - 12:00/1am.</br><b>Borderline Bar</b><br><br><a target='_blank' href='https://maps.app.goo.gl/31fAgQSM9AJauomv6'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/borderlinebar/'>Instagram</a>").addTo(monthly);
-thePaddock.bindPopup("<b><a href='linedancelocationsinfo.html#oakslocal' target='_blank'>The Paddock, Thousand Oaks</b></a><br>Every Other Friday,</b><br><a href='https://www.instagram.com/dancingwithdev5678/' target='_blank'>Click for Schedule</a><br><b> 6:00pm - Close.</br><b>Varied DJs & DI Dev</b><br><br><a target='_blank' href='https://maps.app.goo.gl/ksKzaUkx9HhpegcSA'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/dancingwithdev5678/'>Instagram</a>").addTo(weekly);
 cowboyPalace.bindPopup("<b><a href='linedancelocationsinfo.html#cowboypalacesaloon' target='_blank'>The Cowboy Palace Saloon, Chatsworth</b></a><br>Every Wednesday-Sunday</b><br><b> Often starts at 4:30pm or 6:00pm/7:00pm.<a target='_blank' href='https://thecowboypalacesaloon.com/'><br>Click for Schedule</a></b></br><b>Cowboy Palace</b><br><br><a target='_blank' href='https://maps.app.goo.gl/69NiXnSVz59GiE7x9'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/cowboypalacesaloon/'>Instagram</a>").addTo(weekly);
 santaClaritaSportsCenter.bindPopup("<b><a href='linedancelocationsinfo.html#santaclaritasportscenter' target='_blank'>Santa Clarita Sports Center, Santa Clarita</b></a><br>Every Thursday</b><br><b> 7:45pm - 12:00am.</br><b>Borderline Bar</b><br><br><a target='_blank' href='https://maps.app.goo.gl/HKpDpbRWzV4cc8PD6'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/borderlinesantaclarita/'>Instagram</a>").addTo(weekly);
 redEngine.bindPopup("<b><a href='linedancelocationsinfo.html#redenginebrewingco' target='_blank'>Red Engine Brewing Company, Fillmore</b></a><br>Most Fridays</b><br><b> 7:00pm - 11:00pm.</br><b>Red Engine Brewing</b><br><br><a target='_blank' href='https://maps.app.goo.gl/9ALzWJRgu5z5Kjsu8'>Google Maps</a><a style='color: black;'>&nbsp|&nbsp</a><a target='_blank' href='https://www.instagram.com/redenginebrewing/'>Instagram</a>").addTo(weekly);
@@ -677,7 +668,6 @@ if (showHideWeekly == 1 && showHideMonthly == 1 && showHideRandom == 1)
 {
 	davenbusters.bindTooltip("Dave & Buster's", { permanent: true, direction: 'bottom', offset: [-16, 25] });
 	tarantulahill.bindTooltip('Tarantula Hill & Brewing Co.', { permanent: true, direction: 'bottom', offset: [-16, 30] });
-	thePaddock.bindTooltip('The Paddock', { permanent: true, direction: 'bottom', offset: [-16, 30] });
 	conejoValleyLodge.bindTooltip('Conejo Valley Lodge #807', { permanent: true, direction: 'bottom', offset: [-16, 25] });
 	danceCreations.bindTooltip('Dance Creations', { permanent: true, direction: 'bottom', offset: [0, 0] });
 	
@@ -686,7 +676,6 @@ if (showHideWeekly == 1 && showHideMonthly == 1 && showHideRandom == 1)
 if (showNameYesNo == 1 && showHideWeekly != 1 || showHideMonthly != 1 || showHideRandom != 1) {
     davenbusters.bindTooltip("Dave & Buster's", { permanent: true, direction: 'bottom', offset: [-16, 25] });
 	tarantulahill.bindTooltip('Tarantula Hill & Brewing Co.', { permanent: true, direction: 'bottom', offset: [-16, 30] });
-	thePaddock.bindTooltip('The Paddock', { permanent: true, direction: 'bottom', offset: [-16, 30] });
 	conejoValleyLodge.bindTooltip('Conejo Valley Lodge #807', { permanent: true, direction: 'bottom', offset: [-16, 25] });
 
 }
